@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <div class="hero-section column items-center justify-center">
+    <div id="hero" class="hero-section column items-center justify-center">
       <div class="hero-content text-center">
         <div class="hero-title text-h2 text-weight-bold text-blue-10 q-mb-md">Ship Connected</div>
         <div class="hero-subtitle text-h5 text-blue-8 q-mb-xl">
@@ -11,7 +11,7 @@
             color="primary"
             size="lg"
             label="Poznaj naszą ofertę"
-            to="#offer"
+            href="#offer"
             class="q-px-xl q-py-sm"
             unelevated
           />
