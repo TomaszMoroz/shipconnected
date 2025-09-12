@@ -49,6 +49,10 @@
             <polygon points="12,24 24,26 36,24 24,22" fill="#42a5f5" />
             <circle cx="24" cy="24" r="3" fill="#1565c0" />
           </svg>
+          <div class="logo-text q-ml-md">
+            <span class="logo-line1">Shipconnected</span><br />
+            <span class="logo-line2">LTD</span>
+          </div>
         </div>
         <div
           v-if="!isMobile"
@@ -162,4 +166,64 @@ onMounted(() => {
   position: relative;
   z-index: 2;
 }
+@font-face {
+  font-family: 'Lato';
+  src: url('@/assets/fonts/Lato/Lato-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Lato';
+  src: url('@/assets/fonts/Lato/Lato-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Lato';
+  src: url('@/assets/fonts/Lato/Lato-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Lato';
+  src: url('@/assets/fonts/Lato/Lato-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+.logo-text {
+  font-family: 'Lato', Arial, sans-serif !important;
+  color: #fff;
+  line-height: 1.1;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  user-select: none;
+}
+.logo-line1 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+.logo-line2 {
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  opacity: 0.85;
+}
+@media (max-width: 700px) {
+  .logo-text {
+    font-size: 0.98rem;
+  }
+  .logo-line1 {
+    font-size: 0.98rem;
+  }
+  .logo-line2 {
+    font-size: 0.82rem;
+  }
+}
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 </style>
