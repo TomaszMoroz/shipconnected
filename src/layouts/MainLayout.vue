@@ -61,17 +61,17 @@
           <q-btn flat label="Realizacje" to="#projects" class="q-mx-xs text-weight-medium" />
           <q-btn flat label="Kontakt" to="#contact" class="q-mx-xs text-weight-medium" />
         </div>
-          <div v-if="isMobile" style="flex:1"></div>
-          <q-btn
-            v-if="isMobile"
-            flat
-            dense
-            round
-            icon="menu"
-            style="margin-left:auto;z-index:2;"
-            @click="drawer = true"
-            aria-label="Menu"
-          />
+        <div v-if="isMobile" style="flex: 1"></div>
+        <q-btn
+          v-if="isMobile"
+          flat
+          dense
+          round
+          icon="menu"
+          style="margin-left: auto; z-index: 2"
+          @click="drawer = true"
+          aria-label="Menu"
+        />
         <q-drawer v-if="isMobile" v-model="drawer" side="right" overlay>
           <q-list>
             <q-item clickable v-close-popup to="#about"
