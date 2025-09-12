@@ -50,6 +50,47 @@
             <circle cx="24" cy="24" r="3" fill="#1565c0" />
           </svg>
         </div>
+        <div
+          v-if="!isMobile"
+          class="menu-links q-ml-auto flex items-center q-gutter-xs"
+          style="z-index: 2"
+        >
+          <q-btn flat label="O firmie" to="#about" class="q-mx-xs text-weight-medium" />
+          <q-btn flat label="Oferta" to="#offer" class="q-mx-xs text-weight-medium" />
+          <q-btn flat label="Kariera" to="#career" class="q-mx-xs text-weight-medium" />
+          <q-btn flat label="Realizacje" to="#projects" class="q-mx-xs text-weight-medium" />
+          <q-btn flat label="Kontakt" to="#contact" class="q-mx-xs text-weight-medium" />
+        </div>
+          <div v-if="isMobile" style="flex:1"></div>
+          <q-btn
+            v-if="isMobile"
+            flat
+            dense
+            round
+            icon="menu"
+            style="margin-left:auto;z-index:2;"
+            @click="drawer = true"
+            aria-label="Menu"
+          />
+        <q-drawer v-if="isMobile" v-model="drawer" side="right" overlay>
+          <q-list>
+            <q-item clickable v-close-popup to="#about"
+              ><q-item-section>O firmie</q-item-section></q-item
+            >
+            <q-item clickable v-close-popup to="#offer"
+              ><q-item-section>Oferta</q-item-section></q-item
+            >
+            <q-item clickable v-close-popup to="#career"
+              ><q-item-section>Kariera</q-item-section></q-item
+            >
+            <q-item clickable v-close-popup to="#projects"
+              ><q-item-section>Realizacje</q-item-section></q-item
+            >
+            <q-item clickable v-close-popup to="#contact"
+              ><q-item-section>Kontakt</q-item-section></q-item
+            >
+          </q-list>
+        </q-drawer>
       </div>
     </q-header>
 
@@ -64,9 +105,13 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed, getCurrentInstance } from 'vue'
 const compassRef = ref(null)
+const drawer = ref(false)
 let animating = false
+
+const { proxy } = getCurrentInstance()
+const isMobile = computed(() => proxy.$q.screen.width < 700)
 
 function animateCompass() {
   if (animating) return
