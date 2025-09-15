@@ -2,8 +2,8 @@
   <q-page>
     <div id="hero" class="hero-section">
       <div class="row q-gutter-none" style="height: 100%; min-height: inherit">
-        <div class="col flex flex-center hero-col-left"></div>
-        <div class="col flex flex-center hero-col-center">
+        <div class="col-5 flex flex-center hero-col-left"></div>
+        <div class="col-2 flex flex-center hero-col-center">
           <div class="hero-content text-center">
             <div class="hero-title text-h2 text-weight-bold text-blue-10 q-mb-md">
               Ship Connected
@@ -23,7 +23,7 @@
             </div>
           </div>
         </div>
-        <div class="col flex flex-center hero-col-right"></div>
+        <div class="col-5 flex flex-center hero-col-right"></div>
       </div>
       <svg
         class="hero-wave"
@@ -40,7 +40,7 @@
         <path
           fill="#b0bec5"
           fill-opacity="0.7"
-          d="M0,55L80,60C160,65,320,75,480,75C640,75,800,65,960,60C1120,55,1280,55,1360,55L1440,55L1440,80L1360,80C1280,80,1120,80,960,80C800,80,640,80,480,80,320,80,160,80,80,80L0,80Z"
+          d="M0,55L80,60C160,65,320,75,480,75C640,75,800,65,960,60C1120,55,1280,55,1360,55L1440,55L1440,80L1360,80C1280,80,1120,80,960,80C800,80,640,80,480,80C320,80,160,80,80,80L0,80Z"
         />
         <path
           fill="#90a4ae"
@@ -98,8 +98,8 @@
   background: #1976d2 url('../assets/images/inner_view.jpeg') no-repeat center center;
   background-size: cover;
   position: relative;
-  /* Trapez: dłuższy górny bok, krótszy dolny */
-  clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
+  /* Jeszcze mocniej pochylony trapez, węższa środkowa sekcja */
+  clip-path: polygon(0 0, 100% 0, 40% 100%, 0% 100%);
 }
 .hero-col-center {
   background: linear-gradient(180deg, #e3f2fd 0%, #bbdefb 100%);
@@ -111,8 +111,8 @@
   background: #fff;
   position: relative;
   overflow: hidden;
-  /* Trapez: krótszy górny bok, dłuższy dolny */
-  clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
+  /* Jeszcze mocniej pochylony trapez, węższa środkowa sekcja */
+  clip-path: polygon(60% 0, 100% 0, 100% 100%, 0% 100%);
 }
 .hero-col-right::before {
   content: '';
