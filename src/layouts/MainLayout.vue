@@ -33,27 +33,32 @@
           style="z-index: 2; position: relative; text-decoration: none"
           @click="(e) => scrollToSection(e, 'hero')"
         >
-          <svg
+          <div
             ref="compassRef"
             @mouseenter="animateCompass"
-            width="56"
-            height="56"
-            viewBox="0 0 48 48"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
+            class="logo-compass"
             style="
+              width: 64px;
+              height: 64px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
               transition: transform 0.2s cubic-bezier(0.4, 2, 0.6, 1);
               will-change: transform;
               cursor: pointer;
+              background: #fff;
+              border-radius: 50%;
+              border: 3px solid #1565c0;
+              box-sizing: border-box;
+              overflow: hidden;
             "
           >
-            <circle cx="24" cy="24" r="22" fill="#fff" stroke="#1565c0" stroke-width="3" />
-            <polygon points="24,6 28,24 24,42 20,24" fill="#1565c0" />
-            <polygon points="24,12 26,24 24,36 22,24" fill="#42a5f5" />
-            <polygon points="6,24 24,28 42,24 24,20" fill="#1565c0" />
-            <polygon points="12,24 24,26 36,24 24,22" fill="#42a5f5" />
-            <circle cx="24" cy="24" r="3" fill="#1565c0" />
-          </svg>
+            <img
+              :src="logoWww"
+              alt="logo"
+              style="width: 68px; height: 68px; object-fit: contain; display: block"
+            />
+          </div>
           <div class="logo-text q-ml-md">
             <span class="logo-line1">Shipconnected</span><br />
             <span class="logo-line2">LTD</span>
@@ -139,6 +144,7 @@
 </template>
 
 <script setup>
+import logoWww from '../assets/images/logo_www.png'
 // Smooth scroll do sekcji landing page z offsetem headera
 function scrollToSection(e, id) {
   e.preventDefault()
