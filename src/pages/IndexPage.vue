@@ -1,7 +1,7 @@
 <template>
   <q-page>
     <div id="hero" class="hero-section">
-      <div class="row q-gutter-none" style="height: 100%; min-height: inherit">
+      <div class="row q-gutter-none hero-row" style="height: 100%; min-height: inherit">
         <div class="col-5 flex flex-center hero-col-left"></div>
         <div class="col-2 flex flex-center hero-col-center">
           <div class="hero-content text-center">
@@ -40,7 +40,7 @@
         <path
           fill="#b0bec5"
           fill-opacity="0.7"
-          d="M0,55L80,60C160,65,320,75,480,75C640,75,800,65,960,60C1120,55,1280,55,1360,55L1440,55L1440,80L1360,80C1280,80,1120,80,960,80C800,80,640,80,480,80C320,80,160,80,80,80L0,80Z"
+          d="M0,55L80,60C160,65,320,75,480,75C640,75,800,65,960,60C1120,55,1280,55,1360,55L1440,55L1440,80L1360,80C1280,80,1120,80,960,80C800,80,640,80,480,80,320,80,160,80,80,80L0,80Z"
         />
         <path
           fill="#90a4ae"
@@ -79,7 +79,6 @@
 </template>
 
 <script setup>
-// import innerView from '../assets/images/inner_view.jpeg'
 // import logoWww from '../assets/images/logo_www.png'
 // Sekcja hero
 </script>
@@ -104,7 +103,7 @@
 .hero-col-center {
   background: linear-gradient(180deg, #e3f2fd 0%, #bbdefb 100%);
   border-radius: 18px;
-  box-shadow: 0 2px 16px #b0bec522;
+  /* box-shadow: 0 2px 16px #b0bec522; */
   padding: 64px 32px 32px 32px;
 }
 .hero-col-right {
@@ -164,30 +163,50 @@
   object-fit: cover;
 }
 @media (max-width: 900px) {
-  .row {
-    display: block;
-    width: 100%;
+  .hero-section {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg, #e3f2fd 0%, #bbdefb 100%);
+  }
+  .hero-section::before {
+    content: '';
+    position: absolute;
+    left: -96vw;
+    top: 50%;
+    width: 220vw;
+    height: 220vw;
+    background: url('../assets/images/logo_www.png') no-repeat left center;
+    background-size: contain;
+    opacity: 0.13;
+    transform: translateY(-50%);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .hero-row {
+    display: block !important;
   }
   .hero-col-left,
   .hero-col-right {
-    display: none;
+    display: none !important;
   }
   .hero-col-center {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
     border-radius: 0;
     box-shadow: none;
     padding: 32px 8px 16px 8px;
+    clip-path: none;
+    background: none;
+    position: relative;
+    overflow: visible;
   }
-  .hero-section,
-  .about-section {
-    min-height: calc(100vh - 50px);
+  .hero-col-center::before {
+    display: none;
   }
-  .about-section {
-    flex-direction: column;
-    text-align: center;
-    padding: 0 0 24px 0;
-  }
-  .about-img {
-    margin-top: 12px;
+  .hero-content {
+    position: relative;
+    z-index: 2;
   }
 }
 html {
