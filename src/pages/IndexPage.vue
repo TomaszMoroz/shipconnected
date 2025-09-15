@@ -79,6 +79,8 @@
 </template>
 
 <script setup>
+// import innerView from '../assets/images/inner_view.jpeg'
+// import logoWww from '../assets/images/logo_www.png'
 // Sekcja hero
 </script>
 
@@ -93,16 +95,36 @@
   justify-content: center;
 }
 .hero-col-left {
-  background: #1976d2;
+  background: #1976d2 url('../assets/images/inner_view.jpeg') no-repeat center center;
+  background-size: cover;
+  position: relative;
 }
 .hero-col-center {
-  background: #fff;
+  background: linear-gradient(180deg, #e3f2fd 0%, #bbdefb 100%);
   border-radius: 18px;
   box-shadow: 0 2px 16px #b0bec522;
   padding: 64px 32px 32px 32px;
 }
 .hero-col-right {
-  background: #1976d2;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.hero-col-right::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1000px;
+  height: 1000px;
+  max-width: none;
+  max-height: none;
+  background: url('../assets/images/logo_www.png') no-repeat center center;
+  background-size: contain;
+  opacity: 0.4;
+  transform: translate(-70%, -50%);
+  pointer-events: none;
+  z-index: 1;
 }
 .hero-content {
   z-index: 2;
