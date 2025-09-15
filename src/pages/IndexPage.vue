@@ -98,6 +98,8 @@
   background: #1976d2 url('../assets/images/inner_view.jpeg') no-repeat center center;
   background-size: cover;
   position: relative;
+  /* Trapez: dłuższy górny bok, krótszy dolny */
+  clip-path: polygon(0 0, 100% 0, 80% 100%, 0% 100%);
 }
 .hero-col-center {
   background: linear-gradient(180deg, #e3f2fd 0%, #bbdefb 100%);
@@ -109,6 +111,8 @@
   background: #fff;
   position: relative;
   overflow: hidden;
+  /* Trapez: krótszy górny bok, dłuższy dolny */
+  clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
 }
 .hero-col-right::before {
   content: '';
@@ -121,7 +125,7 @@
   max-height: none;
   background: url('../assets/images/logo_www.png') no-repeat center center;
   background-size: contain;
-  opacity: 0.4;
+  opacity: 0.13;
   transform: translate(-70%, -50%);
   pointer-events: none;
   z-index: 1;
