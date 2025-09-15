@@ -1,21 +1,29 @@
 <template>
   <q-page>
-    <div id="hero" class="hero-section column items-center justify-center">
-      <div class="hero-content text-center">
-        <div class="hero-title text-h2 text-weight-bold text-blue-10 q-mb-md">Ship Connected</div>
-        <div class="hero-subtitle text-h5 text-blue-8 q-mb-xl">
-          Nowoczesne rozwiązania dla przemysłu stoczniowego
+    <div id="hero" class="hero-section">
+      <div class="row q-gutter-none" style="height: 100%; min-height: inherit">
+        <div class="col flex flex-center hero-col-left"></div>
+        <div class="col flex flex-center hero-col-center">
+          <div class="hero-content text-center">
+            <div class="hero-title text-h2 text-weight-bold text-blue-10 q-mb-md">
+              Ship Connected
+            </div>
+            <div class="hero-subtitle text-h5 text-blue-8 q-mb-xl">
+              Nowoczesne rozwiązania dla przemysłu stoczniowego
+            </div>
+            <div class="flex flex-center justify-center">
+              <q-btn
+                color="primary"
+                size="lg"
+                label="Poznaj naszą ofertę"
+                href="#offer"
+                class="q-px-xl q-py-sm"
+                unelevated
+              />
+            </div>
+          </div>
         </div>
-        <div class="flex flex-center justify-center">
-          <q-btn
-            color="primary"
-            size="lg"
-            label="Poznaj naszą ofertę"
-            href="#offer"
-            class="q-px-xl q-py-sm"
-            unelevated
-          />
-        </div>
+        <div class="col flex flex-center hero-col-right"></div>
       </div>
       <svg
         class="hero-wave"
@@ -32,12 +40,12 @@
         <path
           fill="#b0bec5"
           fill-opacity="0.7"
-          d="M0,55L80,60C160,65,320,75,480,75C640,75,800,65,960,60C1120,55,1280,55,1360,55L1440,55L1440,80L1360,80C1280,80,1120,80,960,80C800,80,640,80,480,80C320,80,160,80,80,80L0,80Z"
+          d="M0,55L80,60C160,65,320,75,480,75C640,75,800,65,960,60C1120,55,1280,55,1360,55L1440,55L1440,80L1360,80C1280,80,1120,80,960,80C800,80,640,80,480,80,320,80,160,80,80,80L0,80Z"
         />
         <path
           fill="#90a4ae"
           fill-opacity="0.5"
-          d="M0,70L100,72C200,74,400,78,600,78C800,78,1000,74,1200,72C1400,70,1440,70,1440,70L1440,80L1400,80C1200,80,1000,80,800,80C600,80,400,80,200,80L0,80Z"
+          d="M0,70L100,72C200,74,400,78,600,78C800,78,1000,74,1200,72C1400,70,1440,70,1440,70L1440,80L1400,80C1200,80,1000,80,800,80,600,80,400,80,200,80L0,80Z"
         />
       </svg>
     </div>
@@ -84,6 +92,18 @@
   flex-direction: column;
   justify-content: center;
 }
+.hero-col-left {
+  background: #1976d2;
+}
+.hero-col-center {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 16px #b0bec522;
+  padding: 64px 32px 32px 32px;
+}
+.hero-col-right {
+  background: #1976d2;
+}
 .hero-content {
   z-index: 2;
   margin-top: 80px;
@@ -118,6 +138,19 @@
   object-fit: cover;
 }
 @media (max-width: 900px) {
+  .row {
+    display: block;
+    width: 100%;
+  }
+  .hero-col-left,
+  .hero-col-right {
+    display: none;
+  }
+  .hero-col-center {
+    border-radius: 0;
+    box-shadow: none;
+    padding: 32px 8px 16px 8px;
+  }
   .hero-section,
   .about-section {
     min-height: calc(100vh - 50px);
