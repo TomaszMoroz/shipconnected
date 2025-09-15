@@ -2,8 +2,17 @@
   <q-page>
     <div id="hero" class="hero-section">
       <div class="row q-gutter-none hero-row" style="height: 100%; min-height: inherit">
-        <div class="col-5 flex flex-center hero-col-left"></div>
-        <div class="col-2 flex flex-center hero-col-center">
+        <div
+          ref="leftCol"
+          :class="['col-5 flex flex-center hero-col-left', leftColVisible ? 'hero-animate-in' : '']"
+        ></div>
+        <div
+          ref="centerCol"
+          :class="[
+            'col-2 flex flex-center hero-col-center',
+            centerColVisible ? 'hero-animate-in' : '',
+          ]"
+        >
           <div class="hero-content text-center">
             <div class="hero-title text-h2 text-weight-bold text-blue-10 q-mb-md">
               Ship Connected
@@ -23,7 +32,13 @@
             </div>
           </div>
         </div>
-        <div class="col-5 flex flex-center hero-col-right"></div>
+        <div
+          ref="rightCol"
+          :class="[
+            'col-5 flex flex-center hero-col-right',
+            rightColVisible ? 'hero-animate-in' : '',
+          ]"
+        ></div>
       </div>
       <svg
         class="hero-wave"
@@ -79,11 +94,64 @@
 </template>
 
 <script setup>
-// import logoWww from '../assets/images/logo_www.png'
-// Sekcja hero
+import { ref, onMounted } from 'vue'
+// Animacja wejścia sekcji hero (desktop only)
+const leftCol = ref(null)
+const centerCol = ref(null)
+const rightCol = ref(null)
+const leftColVisible = ref(false)
+const centerColVisible = ref(false)
+const rightColVisible = ref(false)
+
+onMounted(() => {
+  if (window.innerWidth > 900) {
+    setTimeout(() => {
+      leftColVisible.value = true
+    }, 80)
+    setTimeout(() => {
+      centerColVisible.value = true
+    }, 320)
+    setTimeout(() => {
+      rightColVisible.value = true
+    }, 560)
+  } else {
+    leftColVisible.value = true
+    centerColVisible.value = true
+    rightColVisible.value = true
+  }
+})
 </script>
 
 <style scoped>
+/* Animacja wejścia kolumn hero (desktop only) */
+.hero-col-left,
+.hero-col-right {
+  opacity: 0;
+  transform: translateY(400px) scale(0.98);
+  transition:
+    opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.hero-col-center {
+  opacity: 0;
+  transform: translateY(-400px) scale(0.98);
+  transition:
+    opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.hero-animate-in {
+  opacity: 1 !important;
+  transform: none !important;
+}
+@media (max-width: 900px) {
+  .hero-col-left,
+  .hero-col-center,
+  .hero-col-right {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
 .hero-section {
   min-height: calc(100vh - 56px);
   background: linear-gradient(180deg, #e3f2fd 0%, #bbdefb 100%);
