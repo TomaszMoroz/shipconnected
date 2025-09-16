@@ -169,10 +169,11 @@ onMounted(() => {
   opacity: 0;
   transform: translateX(-100px);
 }
+/* Estetyczna, nowoczesna sekcja kariera */
 .kariera-section.highlight {
-  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
-  border: 2px solid #1976d2;
-  box-shadow: 0 8px 32px #1976d255;
+  background: #fff;
+  border: none;
+  box-shadow: 0 4px 32px #b0bec522;
   position: relative;
   z-index: 2;
 }
