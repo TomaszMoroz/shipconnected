@@ -16,20 +16,18 @@
         class="q-ml-md"
       />
     </div>
-    <div class="q-gutter-lg q-mb-xl">
-      <div class="row q-col-gutter-lg">
+    <div class="offers-grid q-mb-xl">
+      <div class="offers-flex">
         <template v-for="(offer, idx) in offers" :key="idx">
-          <div class="col-12 col-sm-6 col-md-4">
-            <q-card class="career-offer-thumb" @click="openDialog(idx)">
-              <q-card-section>
-                <div class="career-offer-title">{{ offer.title }}</div>
-                <div class="career-offer-short">{{ offer.short }}</div>
-              </q-card-section>
-              <q-card-actions align="right">
-                <q-btn color="primary" label="Szczegóły" @click.stop="openDialog(idx)" />
-              </q-card-actions>
-            </q-card>
-          </div>
+          <q-card class="offer-card" @click="openDialog(idx)" flat bordered>
+            <q-card-section class="offer-card-section">
+              <div class="offer-title">{{ offer.title }}</div>
+              <div class="offer-short">{{ offer.short }}</div>
+            </q-card-section>
+            <q-card-actions align="right" class="offer-card-actions">
+              <q-btn color="primary" label="Szczegóły" @click.stop="openDialog(idx)" />
+            </q-card-actions>
+          </q-card>
         </template>
       </div>
     </div>
@@ -131,28 +129,53 @@ function applyOnline() {
   align-items: center;
   margin-top: 32px;
 }
-.career-offer-thumb {
-  background: #e3f2fd;
-  border-radius: 12px;
+/* Modern offers grid using flexbox */
+.offers-grid {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.offers-flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+  justify-content: center;
+  max-width: 1200px;
+}
+.offer-card {
+  width: 320px;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 16px;
   box-shadow: 0 2px 12px #b0bec522;
-  padding: 32px;
-  max-width: 480px;
+  background: #fff;
   cursor: pointer;
-  margin-bottom: 24px;
-  transition: box-shadow 0.2s;
+  transition:
+    box-shadow 0.2s,
+    transform 0.2s;
+  margin: 0;
 }
-.career-offer-thumb:hover {
-  box-shadow: 0 4px 24px #b0bec555;
+.offer-card:hover {
+  box-shadow: 0 8px 32px #1976d255;
+  transform: translateY(-4px) scale(1.03);
 }
-.career-offer-title {
-  font-size: 1.4rem;
-  font-weight: bold;
+.offer-card-section {
+  padding: 24px 20px 12px 20px;
+}
+.offer-title {
+  font-size: 1.2rem;
+  font-weight: 600;
   color: #1976d2;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
-.career-offer-short {
+.offer-short {
   color: #607d8b;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
+}
+.offer-card-actions {
+  padding: 0 20px 16px 20px;
 }
 .career-offer-dialog-title {
   color: #1976d2;
