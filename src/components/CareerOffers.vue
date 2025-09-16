@@ -1,10 +1,20 @@
 <template>
   <div class="career-offers">
-    <div class="career-benefits-bar q-mb-lg row items-center justify-center">
-      <q-icon name="star" color="primary" size="32px" class="q-mr-sm" />
-      <span class="text-weight-bold text-blue-10"
-        >Dołącz do nas i zyskaj: stabilność, rozwój, szkolenia, satysfakcję!</span
-      >
+    <div class="career-benefits-bar q-mb-lg row items-center justify-between">
+      <div class="row items-center">
+        <q-icon name="star" color="primary" size="32px" class="q-mr-sm" />
+        <span class="text-weight-bold text-blue-10"
+          >Dołącz do nas i zyskaj: stabilność, rozwój, szkolenia, satysfakcję!</span
+        >
+      </div>
+      <q-btn
+        color="accent"
+        icon="assignment"
+        label="Prześlij CV"
+        @click="emit('showForm')"
+        outline
+        class="q-ml-md"
+      />
     </div>
     <div class="q-gutter-lg q-mb-xl">
       <div class="row q-col-gutter-lg">
