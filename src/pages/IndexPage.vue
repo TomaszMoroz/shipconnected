@@ -15,7 +15,7 @@
         >
           <div class="hero-content text-center">
             <div class="hero-title text-h2 text-weight-bold text-blue-10 q-mb-md">
-              Ship Connected
+              Shipconnected
             </div>
             <div class="hero-subtitle text-h5 text-blue-8 q-mb-xl">
               Nowoczesne rozwiązania dla przemysłu stoczniowego
@@ -66,6 +66,12 @@
     </div>
 
     <!-- Sekcja O firmie poza hero -->
+    <!-- ...other sections in topbar order... -->
+    <section id="kariera" class="kariera-section highlight">
+      <transition name="slide-fade" mode="out-in">
+        <component :is="careerView" @showForm="showForm = true" @backToOffers="showForm = false" />
+      </transition>
+    </section>
     <section id="about" class="about-section row items-center justify-center q-mt-xl q-mb-xl">
       <div class="about-text col-12 col-md-6 q-pa-md">
         <h2 class="text-h4 text-weight-bold text-blue-10 q-mb-md">O firmie</h2>
@@ -94,7 +100,14 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import CareerOffers from '../components/CareerOffers.vue'
+import CareerForm from '../components/CareerForm.vue'
+import { ref, computed, onMounted, nextTick } from 'vue'
+
+const showForm = ref(false)
+const CareerOffersComp = CareerOffers
+const CareerFormComp = CareerForm
+const careerView = computed(() => (showForm.value ? CareerFormComp : CareerOffersComp))
 // Animacja wejścia sekcji hero (desktop only)
 const leftCol = ref(null)
 const centerCol = ref(null)
@@ -102,6 +115,20 @@ const rightCol = ref(null)
 const leftColVisible = ref(false)
 const centerColVisible = ref(false)
 const rightColVisible = ref(false)
+
+function animateCompassCalibration() {
+  // Animuj ::before na .hero-col-right przez CSS variable
+  const rightColEl = rightCol.value
+  if (!rightColEl) return
+  rightColEl.style.setProperty('--logo-rotation', '-18deg')
+  rightColEl.style.setProperty('--logo-transition', 'transform 0.5s cubic-bezier(0.4,0,0.2,1)')
+  setTimeout(() => {
+    rightColEl.style.setProperty('--logo-rotation', '18deg')
+    setTimeout(() => {
+      rightColEl.style.setProperty('--logo-rotation', '0deg')
+    }, 500)
+  }, 500)
+}
 
 onMounted(() => {
   if (window.innerWidth > 900) {
@@ -113,6 +140,12 @@ onMounted(() => {
     }, 320)
     setTimeout(() => {
       rightColVisible.value = true
+      // uruchom animację logo po wejściu wszystkich kolumn
+      nextTick(() => {
+        setTimeout(() => {
+          animateCompassCalibration()
+        }, 600)
+      })
     }, 560)
   } else {
     leftColVisible.value = true
@@ -123,6 +156,38 @@ onMounted(() => {
 </script>
 
 <style scoped>
+/* Animacja przejścia sekcji kariera */
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.slide-fade-enter-from {
+  opacity: 0;
+  transform: translateX(100px);
+}
+.slide-fade-leave-to {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+.kariera-section.highlight {
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  border: 2px solid #1976d2;
+  box-shadow: 0 8px 32px #1976d255;
+  position: relative;
+  z-index: 2;
+}
+/* Kariera section basic styles */
+.kariera-section {
+  min-height: 80vh;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 16px #b0bec522;
+  max-width: 1100px;
+  margin: 64px auto;
+  padding: 48px 24px;
+  position: relative;
+  overflow: hidden;
+}
 /* Animacja wejścia kolumn hero (desktop only) */
 .hero-col-left,
 .hero-col-right {
@@ -193,9 +258,10 @@ onMounted(() => {
   background: url('../assets/images/logo_www.png') no-repeat center center;
   background-size: contain;
   opacity: 0.13;
-  transform: translate(-70%, -50%);
+  transform: translate(-70%, -50%) rotate(var(--logo-rotation, 0deg));
   pointer-events: none;
   z-index: 1;
+  transition: var(--logo-transition, transform 0.5s cubic-bezier(0.4, 0, 0.2, 1));
 }
 .hero-content {
   z-index: 2;
