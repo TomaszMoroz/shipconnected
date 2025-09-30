@@ -114,90 +114,131 @@
     </section>
 
     <!-- Oferta -->
-    <section id="offer" class="offer-section q-mt-xl q-mb-xl">
-      <div class="container q-pa-lg">
-        <div class="text-h4 text-weight-bold text-blue-10 q-mb-xl text-center">Nasze Usługi</div>
-
-        <div class="row q-col-gutter-xl">
-          <!-- Ślusarstwo -->
-          <div class="col-12 col-md-4">
-            <q-card class="service-card h-100">
-              <q-card-section class="bg-primary text-white text-center">
-                <q-icon name="build" size="48px" class="q-mb-md" />
-                <div class="text-h5 text-weight-bold">Ślusarstwo</div>
-              </q-card-section>
-              <q-card-section>
-                <div class="text-body1 q-mb-md">
-                  Nasza firma oferuje kompleksowe usługi ślusarskie, które obejmują:
-                </div>
-                <ul class="service-list">
-                  <li>
-                    <strong>Naprawy i konserwacja konstrukcji statków:</strong> Nasz zespół
-                    doświadczonych fachowców jest gotowy do realizacji nawet najbardziej
-                    wymagających projektów.
-                  </li>
-                  <li>
-                    <strong>Produkcja i montaż elementów metalowych:</strong> Wykonujemy elementy
-                    zgodnie z indywidualnymi potrzebami klienta, zapewniając precyzyjne wykonanie i
-                    trwałość konstrukcji.
-                  </li>
-                  <li>
-                    <strong>Montaż i demontaż urządzeń:</strong> Oferujemy profesjonalny montaż i
-                    demontaż różnorodnych urządzeń na statkach.
-                  </li>
-                </ul>
-              </q-card-section>
-            </q-card>
+    <section id="offer" class="offer-section">
+      <div class="offer-background">
+        <div class="offer-container">
+          <div class="offer-header">
+            <div class="offer-badge">
+              <q-icon name="engineering" color="primary" />
+              <span>Nasze specjalizacje</span>
+            </div>
+            <h2 class="offer-title">Kompleksowe Usługi Stoczniowe</h2>
+            <p class="offer-subtitle">
+              Łączymy wieloletnie doświadczenie z nowoczesnymi technologiami, aby dostarczać usługi
+              najwyższej jakości w branży stoczniowej.
+            </p>
           </div>
 
-          <!-- Wyposażenie -->
-          <div class="col-12 col-md-4">
-            <q-card class="service-card h-100">
-              <q-card-section class="bg-primary text-white text-center">
-                <q-icon name="settings" size="48px" class="q-mb-md" />
-                <div class="text-h5 text-weight-bold">Wyposażenie</div>
-              </q-card-section>
-              <q-card-section>
-                <div class="text-body1 q-mb-md">
-                  Zapewniamy pełne wyposażenie statków w niezbędne elementy, w tym:
+          <div class="services-grid">
+            <!-- Ślusarstwo -->
+            <div class="service-card metallurgy">
+              <div class="service-icon-wrapper">
+                <div class="service-icon-bg">
+                  <q-icon name="precision_manufacturing" class="service-icon" />
                 </div>
-                <ul class="service-list">
-                  <li>
-                    <strong>Modernizacja istniejącego wyposażenia:</strong> Unowocześniamy
-                    wyposażenie, dbając o jego funkcjonalność i zgodność z obowiązującymi normami.
-                  </li>
-                  <li>
-                    <strong>Produkcja mebli okrętowych:</strong> Wysokiej jakości meble, które są
-                    zarówno trwałe, jak i estetyczne.
-                  </li>
-                </ul>
-              </q-card-section>
-            </q-card>
+                <div class="service-number">01</div>
+              </div>
+              <div class="service-content">
+                <h3 class="service-title">Ślusarstwo Okrętowe</h3>
+                <p class="service-description">
+                  Specjalistyczne usługi ślusarskie dostosowane do wymagań przemysłu morskiego.
+                </p>
+                <div class="service-features">
+                  <div class="feature-item">
+                    <q-icon name="build_circle" class="feature-icon" />
+                    <span>Naprawy konstrukcji statków</span>
+                  </div>
+                  <div class="feature-item">
+                    <q-icon name="construction" class="feature-icon" />
+                    <span>Produkcja elementów metalowych</span>
+                  </div>
+                  <div class="feature-item">
+                    <q-icon name="handyman" class="feature-icon" />
+                    <span>Montaż i demontaż urządzeń</span>
+                  </div>
+                </div>
+              </div>
+              <div class="service-overlay"></div>
+            </div>
+
+            <!-- Wyposażenie -->
+            <div class="service-card equipment">
+              <div class="service-icon-wrapper">
+                <div class="service-icon-bg">
+                  <q-icon name="settings_applications" class="service-icon" />
+                </div>
+                <div class="service-number">02</div>
+              </div>
+              <div class="service-content">
+                <h3 class="service-title">Wyposażenie Okrętowe</h3>
+                <p class="service-description">
+                  Kompleksowe rozwiązania wyposażeniowe dla nowoczesnych jednostek pływających.
+                </p>
+                <div class="service-features">
+                  <div class="feature-item">
+                    <q-icon name="upgrade" class="feature-icon" />
+                    <span>Modernizacja wyposażenia</span>
+                  </div>
+                  <div class="feature-item">
+                    <q-icon name="chair" class="feature-icon" />
+                    <span>Produkcja mebli okrętowych</span>
+                  </div>
+                  <div class="feature-item">
+                    <q-icon name="inventory_2" class="feature-icon" />
+                    <span>Systemy magazynowania</span>
+                  </div>
+                </div>
+              </div>
+              <div class="service-overlay"></div>
+            </div>
+
+            <!-- Wentylacja -->
+            <div class="service-card ventilation">
+              <div class="service-icon-wrapper">
+                <div class="service-icon-bg">
+                  <q-icon name="air" class="service-icon" />
+                </div>
+                <div class="service-number">03</div>
+              </div>
+              <div class="service-content">
+                <h3 class="service-title">Systemy Wentylacyjne</h3>
+                <p class="service-description">
+                  Profesjonalne projektowanie i instalacja systemów wentylacji morskiej.
+                </p>
+                <div class="service-features">
+                  <div class="feature-item">
+                    <q-icon name="design_services" class="feature-icon" />
+                    <span>Projektowanie systemów</span>
+                  </div>
+                  <div class="feature-item">
+                    <q-icon name="build" class="feature-icon" />
+                    <span>Instalacja i montaż</span>
+                  </div>
+                  <div class="feature-item">
+                    <q-icon name="engineering" class="feature-icon" />
+                    <span>Serwis i konserwacja</span>
+                  </div>
+                </div>
+              </div>
+              <div class="service-overlay"></div>
+            </div>
           </div>
 
-          <!-- Wentylacja -->
-          <div class="col-12 col-md-4">
-            <q-card class="service-card h-100">
-              <q-card-section class="bg-primary text-white text-center">
-                <q-icon name="air" size="48px" class="q-mb-md" />
-                <div class="text-h5 text-weight-bold">Wentylacja</div>
-              </q-card-section>
-              <q-card-section>
-                <div class="text-body1 q-mb-md">
-                  Zajmujemy się projektowaniem i instalacją systemów wentylacyjnych:
-                </div>
-                <ul class="service-list">
-                  <li>
-                    <strong>Projektowanie systemów wentylacyjnych:</strong> Tworzymy efektywne
-                    systemy, które zapewniają odpowiednią cyrkulację powietrza na statkach.
-                  </li>
-                  <li>
-                    <strong>Instalacja i serwis:</strong> Nasz zespół gwarantuje sprawny montaż i
-                    regularny serwis, aby zapewnić maksymalną wydajność systemów wentylacyjnych.
-                  </li>
-                </ul>
-              </q-card-section>
-            </q-card>
+          <div class="offer-cta">
+            <div class="cta-content">
+              <h3 class="cta-title">Potrzebujesz wyceny?</h3>
+              <p class="cta-description">
+                Skontaktuj się z nami już dziś i otrzymaj bezpłatną wycenę dla swojego projektu
+              </p>
+            </div>
+            <q-btn
+              color="primary"
+              size="lg"
+              label="Uzyskaj wycenę"
+              href="#kontakt"
+              class="cta-button"
+              unelevated
+            />
           </div>
         </div>
       </div>
@@ -754,23 +795,391 @@ onMounted(() => {
     z-index: 2;
   }
 }
-.service-card {
-  border-radius: 16px;
-  box-shadow: 0 4px 16px #b0bec522;
-  transition: box-shadow 0.3s;
+/* Offer Section Styles */
+.offer-section {
+  position: relative;
+  padding: 120px 0;
+  overflow: hidden;
 }
-.service-card:hover {
-  box-shadow: 0 8px 32px #1976d255;
+
+.offer-background {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  position: relative;
 }
-.service-list {
-  color: #607d8b;
-  font-size: 1rem;
+
+.offer-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(25, 118, 210, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(25, 118, 210, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.offer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.offer-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.offer-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: white;
+  padding: 12px 24px;
+  border-radius: 50px;
+  box-shadow: 0 8px 32px rgba(25, 118, 210, 0.1);
+  margin-bottom: 32px;
+  font-weight: 600;
+  color: #1976d2;
+  border: 1px solid rgba(25, 118, 210, 0.1);
+}
+
+.offer-title {
+  font-size: 4rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #1e3a8a 0%, #1976d2 50%, #42a5f5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 24px 0;
+  line-height: 1.1;
+}
+
+.offer-subtitle {
+  font-size: 1.25rem;
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto;
   line-height: 1.6;
-  list-style: disc inside;
-  padding-left: 16px;
 }
-.service-list li {
-  margin-bottom: 8px;
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 40px;
+  margin-bottom: 80px;
+}
+
+.service-card {
+  position: relative;
+  background: white;
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.05),
+    0 8px 16px rgba(0, 0, 0, 0.03);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  overflow: hidden;
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #1976d2, #42a5f5);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.service-card:hover {
+  transform: translateY(-12px);
+  box-shadow:
+    0 32px 64px rgba(0, 0, 0, 0.1),
+    0 16px 32px rgba(25, 118, 210, 0.15);
+}
+
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+
+.service-card.metallurgy {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.service-card.equipment {
+  background: linear-gradient(135deg, #ffffff 0%, #f1f5f9 100%);
+}
+
+.service-card.ventilation {
+  background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 100%);
+}
+
+.service-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.service-icon-bg {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-icon-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.2), transparent);
+}
+
+.service-icon {
+  font-size: 40px;
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.service-number {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #e2e8f0;
+  line-height: 1;
+}
+
+.service-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 16px 0;
+  line-height: 1.3;
+}
+
+.service-description {
+  font-size: 1.125rem;
+  color: #64748b;
+  line-height: 1.6;
+  margin: 0 0 32px 0;
+}
+
+.service-features {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f5f9;
+  transition: all 0.3s ease;
+}
+
+.feature-item:last-child {
+  border-bottom: none;
+}
+
+.feature-item:hover {
+  padding-left: 8px;
+  color: #1976d2;
+}
+
+.feature-icon {
+  font-size: 20px;
+  color: #1976d2;
+  min-width: 20px;
+}
+
+.feature-item span {
+  font-weight: 500;
+  color: #475569;
+  transition: color 0.3s ease;
+}
+
+.feature-item:hover span {
+  color: #1976d2;
+}
+
+.service-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(25, 118, 210, 0.02), transparent);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+
+.service-card:hover .service-overlay {
+  opacity: 1;
+}
+
+.offer-cta {
+  background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+  border-radius: 24px;
+  padding: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.offer-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.cta-content {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  color: white;
+}
+
+.cta-description {
+  font-size: 1.125rem;
+  opacity: 0.9;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.cta-button {
+  padding: 16px 32px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  border-radius: 12px;
+  background: white;
+  color: #1976d2;
+  border: none;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .offer-container {
+    padding: 0 24px;
+  }
+
+  .offer-title {
+    font-size: 3rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .offer-cta {
+    flex-direction: column;
+    text-align: center;
+    gap: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .offer-section {
+    padding: 80px 0;
+  }
+
+  .offer-container {
+    padding: 0 16px;
+  }
+
+  .offer-header {
+    margin-bottom: 60px;
+  }
+
+  .offer-title {
+    font-size: 2.5rem;
+  }
+
+  .offer-subtitle {
+    font-size: 1.125rem;
+  }
+
+  .service-card {
+    padding: 32px 24px;
+  }
+
+  .service-number {
+    font-size: 2rem;
+  }
+
+  .offer-cta {
+    padding: 32px 24px;
+  }
+
+  .cta-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .offer-title {
+    font-size: 2rem;
+  }
+
+  .service-icon-bg {
+    width: 60px;
+    height: 60px;
+  }
+
+  .service-icon {
+    font-size: 30px;
+  }
+
+  .service-number {
+    font-size: 1.5rem;
+  }
+
+  .services-grid {
+    gap: 24px;
+  }
 }
 .contact-card {
   border-radius: 16px;
