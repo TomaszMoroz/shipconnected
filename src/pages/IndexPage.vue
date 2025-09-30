@@ -250,10 +250,6 @@
       <div class="career-background">
         <div class="career-container">
           <div class="career-header">
-            <div class="career-badge">
-              <q-icon name="groups" color="primary" />
-              <span>Dołącz do zespołu</span>
-            </div>
             <h2 class="career-title">Kariera w Shipconnected</h2>
             <p class="career-subtitle">
               Szukamy doświadczonych specjalistów, którzy chcą rozwinąć swój potencjał w dynamicznie

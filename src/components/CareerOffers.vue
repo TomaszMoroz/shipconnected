@@ -3,10 +3,6 @@
     <div class="career-hero-section">
       <div class="career-hero-content">
         <div class="career-hero-text">
-          <div class="career-hero-badge">
-            <q-icon name="workspace_premium" class="hero-badge-icon" />
-            <span>Korzyści z pracy u nas</span>
-          </div>
           <h3 class="career-hero-title">Dołącz do zespołu profesjonalistów</h3>
           <div class="career-benefits-grid">
             <div class="benefit-item">
@@ -167,24 +163,6 @@ function applyOnline() {
 .career-hero-text {
   position: relative;
   z-index: 1;
-}
-
-.career-hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: rgba(59, 130, 246, 0.1);
-  color: #3b82f6;
-  padding: 8px 16px;
-  border-radius: 50px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  margin-bottom: 16px;
-  border: 1px solid rgba(59, 130, 246, 0.2);
-}
-
-.hero-badge-icon {
-  font-size: 16px;
 }
 
 .career-hero-title {
