@@ -235,7 +235,7 @@
               color="primary"
               size="lg"
               label="Uzyskaj wycenę"
-              href="#kontakt"
+              @click="scrollToSection('kontakt')"
               class="cta-button"
               unelevated
             />
@@ -359,6 +359,16 @@ function animateCompassCalibration() {
       rightColEl.style.setProperty('--logo-rotation', '0deg')
     }, 500)
   }, 500)
+}
+
+function scrollToSection(sectionId) {
+  const element = document.getElementById(sectionId)
+  if (element) {
+    element.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    })
+  }
 }
 
 onMounted(() => {
