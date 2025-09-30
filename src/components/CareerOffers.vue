@@ -1,20 +1,49 @@
 <template>
   <div class="career-offers">
-    <div class="career-benefits-bar q-mb-lg row items-center justify-between">
-      <div class="row items-center">
-        <q-icon name="star" color="primary" size="32px" class="q-mr-sm" />
-        <span class="text-weight-bold text-blue-10"
-          >Dołącz do nas i zyskaj: stabilność, rozwój, szkolenia, satysfakcję!</span
-        >
+    <div class="career-hero-section">
+      <div class="career-hero-content">
+        <div class="career-hero-text">
+          <div class="career-hero-badge">
+            <q-icon name="workspace_premium" class="hero-badge-icon" />
+            <span>Korzyści z pracy u nas</span>
+          </div>
+          <h3 class="career-hero-title">Dołącz do zespołu profesjonalistów</h3>
+          <div class="career-benefits-grid">
+            <div class="benefit-item">
+              <q-icon name="security" class="benefit-icon" />
+              <span>Stabilność zatrudnienia</span>
+            </div>
+            <div class="benefit-item">
+              <q-icon name="trending_up" class="benefit-icon" />
+              <span>Rozwj kariery</span>
+            </div>
+            <div class="benefit-item">
+              <q-icon name="school" class="benefit-icon" />
+              <span>Szkolenia i kursy</span>
+            </div>
+            <div class="benefit-item">
+              <q-icon name="sentiment_satisfied" class="benefit-icon" />
+              <span>Satysfakcja z pracy</span>
+            </div>
+          </div>
+        </div>
+        <div class="career-hero-action">
+          <div class="cta-wrapper">
+            <h4 class="cta-title">Gotowy na nowe wyzwanie?</h4>
+            <p class="cta-description">Wyślij swoje CV i dołącz do naszego zespołu</p>
+            <q-btn
+              color="white"
+              text-color="primary"
+              icon="file_upload"
+              label="Prześlij CV"
+              @click="emit('showForm')"
+              class="cv-button"
+              size="lg"
+              unelevated
+            />
+          </div>
+        </div>
       </div>
-      <q-btn
-        color="accent"
-        icon="assignment"
-        label="Prześlij CV"
-        @click="emit('showForm')"
-        outline
-        class="q-ml-md"
-      />
     </div>
     <div class="offers-grid q-mb-xl">
       <div class="offers-flex">
@@ -100,14 +129,215 @@ function applyOnline() {
 </script>
 
 <style scoped>
-.career-benefits-bar {
-  background: #e3f2fd;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px #b0bec522;
+/* Career Hero Section */
+.career-hero-section {
+  margin-bottom: 48px;
+}
+
+.career-hero-content {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 40px;
+  margin: 0 auto;
+  max-width: 1000px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+  align-items: center;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.career-hero-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.career-hero-text {
+  position: relative;
+  z-index: 1;
+}
+
+.career-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.hero-badge-icon {
+  font-size: 16px;
+}
+
+.career-hero-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 24px 0;
+  line-height: 1.3;
+}
+
+.career-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.benefit-item:hover {
+  color: white;
+  transform: translateX(4px);
+}
+
+.benefit-icon {
+  font-size: 20px;
+  color: #3b82f6;
+  min-width: 20px;
+}
+
+.career-hero-action {
+  position: relative;
+  z-index: 1;
+}
+
+.cta-wrapper {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 32px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cta-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 8px 0;
+}
+
+.cta-description {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0 0 24px 0;
+  line-height: 1.5;
+}
+
+.cv-button {
   padding: 12px 24px;
-  max-width: 700px;
-  margin: 0 auto 24px auto;
-  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.2);
+}
+
+.cv-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .career-hero-content {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 32px 24px;
+    text-align: center;
+  }
+
+  .career-benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .career-hero-title {
+    font-size: 1.5rem;
+  }
+
+  .cta-wrapper {
+    padding: 24px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .career-hero-content {
+    padding: 24px 16px;
+  }
+
+  .career-hero-title {
+    font-size: 1.25rem;
+  }
+}
+
+/* Job Cards Responsive */
+@media (max-width: 1024px) {
+  .offers-flex {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .offers-flex {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .offer-card-section {
+    padding: 24px 20px 16px 20px;
+  }
+
+  .offer-card-actions {
+    padding: 0 20px 20px 20px;
+  }
+
+  .offer-title {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .offers-grid {
+    margin-bottom: 32px;
+  }
+
+  .offer-card-section {
+    padding: 20px 16px 12px 16px;
+  }
+
+  .offer-card-actions {
+    padding: 0 16px 16px 16px;
+  }
+
+  .offer-title {
+    font-size: 1.125rem;
+  }
 }
 .career-dialog-card {
   border-radius: 18px;
@@ -129,53 +359,104 @@ function applyOnline() {
   align-items: center;
   margin-top: 32px;
 }
-/* Modern offers grid using flexbox */
+/* Modern Job Offers Grid */
 .offers-grid {
   width: 100%;
   display: flex;
   justify-content: center;
+  margin-bottom: 48px;
 }
+
 .offers-flex {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 32px;
-  justify-content: center;
   max-width: 1200px;
+  width: 100%;
 }
+
 .offer-card {
-  width: 320px;
-  min-height: 180px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border-radius: 16px;
-  box-shadow: 0 2px 12px #b0bec522;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0;
   cursor: pointer;
-  transition:
-    box-shadow 0.2s,
-    transform 0.2s;
-  margin: 0;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
+
+.offer-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+}
+
 .offer-card:hover {
-  box-shadow: 0 8px 32px #1976d255;
-  transform: translateY(-4px) scale(1.03);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow:
+    0 32px 64px rgba(0, 0, 0, 0.15),
+    0 16px 32px rgba(59, 130, 246, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
+
+.offer-card:hover::before {
+  transform: scaleX(1);
+}
+
 .offer-card-section {
-  padding: 24px 20px 12px 20px;
+  padding: 32px 28px 20px 28px;
+  position: relative;
+  z-index: 1;
 }
+
 .offer-title {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #1976d2;
-  margin-bottom: 6px;
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 12px;
+  line-height: 1.3;
 }
+
 .offer-short {
-  color: #607d8b;
-  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 0;
 }
+
 .offer-card-actions {
-  padding: 0 20px 16px 20px;
+  padding: 0 28px 28px 28px;
+  position: relative;
+  z-index: 1;
+}
+
+.offer-card-actions .q-btn {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  font-weight: 600;
+  padding: 8px 20px;
+  transition: all 0.3s ease;
+}
+
+.offer-card-actions .q-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
 }
 .career-offer-dialog-title {
   color: #1976d2;
