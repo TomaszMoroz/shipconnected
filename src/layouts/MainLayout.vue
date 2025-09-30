@@ -85,19 +85,19 @@
             flat
             label="Kariera"
             class="q-mx-xs text-weight-medium"
-            @click="(e) => scrollToSection(e, 'career')"
+            @click="(e) => scrollToSection(e, 'kariera')"
           />
           <q-btn
             flat
             label="Realizacje"
             class="q-mx-xs text-weight-medium"
-            @click="(e) => scrollToSection(e, 'projects')"
+            @click="(e) => scrollToSection(e, 'realizacje')"
           />
           <q-btn
             flat
             label="Kontakt"
             class="q-mx-xs text-weight-medium"
-            @click="(e) => scrollToSection(e, 'contact')"
+            @click="(e) => scrollToSection(e, 'kontakt')"
           />
         </div>
         <div v-if="isMobile" style="flex: 1"></div>
@@ -119,13 +119,13 @@
             <q-item clickable v-close-popup tag="a" @click="(e) => scrollToSection(e, 'offer')"
               ><q-item-section>Oferta</q-item-section></q-item
             >
-            <q-item clickable v-close-popup tag="a" @click="(e) => scrollToSection(e, 'career')"
+            <q-item clickable v-close-popup tag="a" @click="(e) => scrollToSection(e, 'kariera')"
               ><q-item-section>Kariera</q-item-section></q-item
             >
-            <q-item clickable v-close-popup tag="a" @click="(e) => scrollToSection(e, 'projects')"
+            <q-item clickable v-close-popup tag="a" @click="(e) => scrollToSection(e, 'realizacje')"
               ><q-item-section>Realizacje</q-item-section></q-item
             >
-            <q-item clickable v-close-popup tag="a" @click="(e) => scrollToSection(e, 'contact')"
+            <q-item clickable v-close-popup tag="a" @click="(e) => scrollToSection(e, 'kontakt')"
               ><q-item-section>Kontakt</q-item-section></q-item
             >
           </q-list>

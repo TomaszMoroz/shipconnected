@@ -65,27 +65,25 @@
       </svg>
     </div>
 
-    <!-- Sekcja O firmie poza hero -->
-    <!-- ...other sections in topbar order... -->
-    <section id="kariera" class="kariera-section highlight">
-      <transition name="slide-fade" mode="out-in">
-        <component :is="careerView" @showForm="showForm = true" @backToOffers="showForm = false" />
-      </transition>
-    </section>
+    <!-- O firmie -->
     <section id="about" class="about-section row items-center justify-center q-mt-xl q-mb-xl">
       <div class="about-text col-12 col-md-6 q-pa-md">
-        <h2 class="text-h4 text-weight-bold text-blue-10 q-mb-md">O firmie</h2>
+        <h2 class="text-h4 text-weight-bold text-blue-10 q-mb-md">O Nas</h2>
         <p class="text-body1 text-grey-8 q-mb-md">
-          Ship Connected to zespół specjalistów z wieloletnim doświadczeniem w branży stoczniowej.
-          Dostarczamy nowoczesne rozwiązania, które wspierają rozwój przemysłu morskiego i
-          zapewniają naszym klientom przewagę technologiczną. Stawiamy na jakość, innowacyjność i
-          partnerskie relacje.
+          Firma Shipconnected LTD to renomowany dostawca usług w zakresie remontów statków.
+          Specjalizujemy się w branży ślusarskiej, wyposażeniu oraz wentylacji. Nasza wieloletnia
+          obecność na rynku oraz zaangażowanie w każde zlecenie pozwala nam gwarantować najwyższą
+          jakość świadczonych usług.
         </p>
         <ul class="about-list q-pl-md q-mb-md">
-          <li>Kompleksowa obsługa projektów stoczniowych</li>
-          <li>Nowoczesne technologie i automatyzacja</li>
-          <li>Doświadczony zespół inżynierów</li>
-          <li>Indywidualne podejście do klienta</li>
+          <li>
+            Doświadczenie i profesjonalizm: Nasza kadra to eksperci z wieloletnim doświadczeniem w
+            branży
+          </li>
+          <li>Indywidualne podejście do klienta: Każdy projekt traktujemy indywidualnie</li>
+          <li>
+            Terminowość i jakość: Realizujemy zlecenia na czas, zachowując najwyższą jakość usług
+          </li>
         </ul>
       </div>
       <div class="about-img col-12 col-md-5 q-pa-md flex flex-center">
@@ -94,6 +92,180 @@
           alt="Stocznia - ilustracja"
           style="max-width: 350px; border-radius: 18px; box-shadow: 0 4px 24px #b0bec555"
         />
+      </div>
+    </section>
+
+    <!-- Oferta -->
+    <section id="offer" class="offer-section q-mt-xl q-mb-xl">
+      <div class="container q-pa-lg">
+        <div class="text-h4 text-weight-bold text-blue-10 q-mb-xl text-center">Nasze Usługi</div>
+
+        <div class="row q-col-gutter-xl">
+          <!-- Ślusarstwo -->
+          <div class="col-12 col-md-4">
+            <q-card class="service-card h-100">
+              <q-card-section class="bg-primary text-white text-center">
+                <q-icon name="build" size="48px" class="q-mb-md" />
+                <div class="text-h5 text-weight-bold">Ślusarstwo</div>
+              </q-card-section>
+              <q-card-section>
+                <div class="text-body1 q-mb-md">
+                  Nasza firma oferuje kompleksowe usługi ślusarskie, które obejmują:
+                </div>
+                <ul class="service-list">
+                  <li>
+                    <strong>Naprawy i konserwacja konstrukcji statków:</strong> Nasz zespół
+                    doświadczonych fachowców jest gotowy do realizacji nawet najbardziej
+                    wymagających projektów.
+                  </li>
+                  <li>
+                    <strong>Produkcja i montaż elementów metalowych:</strong> Wykonujemy elementy
+                    zgodnie z indywidualnymi potrzebami klienta, zapewniając precyzyjne wykonanie i
+                    trwałość konstrukcji.
+                  </li>
+                  <li>
+                    <strong>Montaż i demontaż urządzeń:</strong> Oferujemy profesjonalny montaż i
+                    demontaż różnorodnych urządzeń na statkach.
+                  </li>
+                </ul>
+              </q-card-section>
+            </q-card>
+          </div>
+
+          <!-- Wyposażenie -->
+          <div class="col-12 col-md-4">
+            <q-card class="service-card h-100">
+              <q-card-section class="bg-primary text-white text-center">
+                <q-icon name="settings" size="48px" class="q-mb-md" />
+                <div class="text-h5 text-weight-bold">Wyposażenie</div>
+              </q-card-section>
+              <q-card-section>
+                <div class="text-body1 q-mb-md">
+                  Zapewniamy pełne wyposażenie statków w niezbędne elementy, w tym:
+                </div>
+                <ul class="service-list">
+                  <li>
+                    <strong>Modernizacja istniejącego wyposażenia:</strong> Unowocześniamy
+                    wyposażenie, dbając o jego funkcjonalność i zgodność z obowiązującymi normami.
+                  </li>
+                  <li>
+                    <strong>Produkcja mebli okrętowych:</strong> Wysokiej jakości meble, które są
+                    zarówno trwałe, jak i estetyczne.
+                  </li>
+                </ul>
+              </q-card-section>
+            </q-card>
+          </div>
+
+          <!-- Wentylacja -->
+          <div class="col-12 col-md-4">
+            <q-card class="service-card h-100">
+              <q-card-section class="bg-primary text-white text-center">
+                <q-icon name="air" size="48px" class="q-mb-md" />
+                <div class="text-h5 text-weight-bold">Wentylacja</div>
+              </q-card-section>
+              <q-card-section>
+                <div class="text-body1 q-mb-md">
+                  Zajmujemy się projektowaniem i instalacją systemów wentylacyjnych:
+                </div>
+                <ul class="service-list">
+                  <li>
+                    <strong>Projektowanie systemów wentylacyjnych:</strong> Tworzymy efektywne
+                    systemy, które zapewniają odpowiednią cyrkulację powietrza na statkach.
+                  </li>
+                  <li>
+                    <strong>Instalacja i serwis:</strong> Nasz zespół gwarantuje sprawny montaż i
+                    regularny serwis, aby zapewnić maksymalną wydajność systemów wentylacyjnych.
+                  </li>
+                </ul>
+              </q-card-section>
+            </q-card>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kariera -->
+    <section id="kariera" class="kariera-section highlight">
+      <transition name="slide-fade" mode="out-in">
+        <component :is="careerView" @showForm="showForm = true" @backToOffers="showForm = false" />
+      </transition>
+    </section>
+
+    <!-- Realizacje (placeholder) -->
+    <section id="realizacje" class="realizacje-section q-mt-xl q-mb-xl">
+      <div class="container q-pa-lg">
+        <div class="text-h4 text-weight-bold text-blue-10 q-mb-md text-center">Realizacje</div>
+        <div class="text-body1 text-grey-8 text-center">Sekcja w przygotowaniu...</div>
+      </div>
+    </section>
+
+    <!-- Kariera -->
+    <section id="kariera" class="kariera-section highlight">
+      <transition name="slide-fade" mode="out-in">
+        <component :is="careerView" @showForm="showForm = true" @backToOffers="showForm = false" />
+      </transition>
+    </section>
+
+    <!-- Realizacje (placeholder) -->
+    <section id="realizacje" class="realizacje-section q-mt-xl q-mb-xl">
+      <div class="container q-pa-lg">
+        <div class="text-h4 text-weight-bold text-blue-10 q-mb-md text-center">Realizacje</div>
+        <div class="text-body1 text-grey-8 text-center">Sekcja w przygotowaniu...</div>
+      </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section id="kontakt" class="kontakt-section q-mt-xl q-mb-xl">
+      <div class="container q-pa-lg">
+        <div class="text-h4 text-weight-bold text-blue-10 q-mb-xl text-center">Kontakt</div>
+
+        <div class="row justify-center">
+          <div class="col-12 col-md-8">
+            <q-card class="contact-card">
+              <q-card-section class="bg-primary text-white text-center">
+                <q-icon name="contact_mail" size="48px" class="q-mb-md" />
+                <div class="text-h5 text-weight-bold">Skontaktuj się z nami</div>
+                <div class="text-body1">
+                  Jesteśmy gotowi odpowiedzieć na wszelkie pytania i potrzeby naszych klientów
+                </div>
+              </q-card-section>
+              <q-card-section>
+                <div class="row q-col-gutter-md">
+                  <div class="col-12 col-sm-6">
+                    <div class="contact-item">
+                      <q-icon name="location_on" color="primary" size="24px" class="q-mr-sm" />
+                      <div>
+                        <div class="text-weight-bold">Adres</div>
+                        <div>Na Ostrowiu 1</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6">
+                    <div class="contact-item">
+                      <q-icon name="email" color="primary" size="24px" class="q-mr-sm" />
+                      <div>
+                        <div class="text-weight-bold">Email</div>
+                        <div>
+                          <a href="mailto:t.hinz@shipconnected.com">t.hinz@shipconnected.com</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-sm-6">
+                    <div class="contact-item">
+                      <q-icon name="phone" color="primary" size="24px" class="q-mr-sm" />
+                      <div>
+                        <div class="text-weight-bold">Telefon</div>
+                        <div>[Numer telefonu]</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </q-card-section>
+            </q-card>
+          </div>
+        </div>
       </div>
     </section>
   </q-page>
@@ -343,6 +515,40 @@ onMounted(() => {
     position: relative;
     z-index: 2;
   }
+}
+.service-card {
+  border-radius: 16px;
+  box-shadow: 0 4px 16px #b0bec522;
+  transition: box-shadow 0.3s;
+}
+.service-card:hover {
+  box-shadow: 0 8px 32px #1976d255;
+}
+.service-list {
+  color: #607d8b;
+  font-size: 1rem;
+  line-height: 1.6;
+  list-style: disc inside;
+  padding-left: 16px;
+}
+.service-list li {
+  margin-bottom: 8px;
+}
+.contact-card {
+  border-radius: 16px;
+  box-shadow: 0 4px 16px #b0bec522;
+}
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+.contact-item a {
+  color: #1976d2;
+  text-decoration: none;
+}
+.contact-item a:hover {
+  text-decoration: underline;
 }
 html {
   scroll-behavior: smooth;
