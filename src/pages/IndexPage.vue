@@ -270,7 +270,7 @@
       </div>
     </section>
 
-    <!-- Realizacje (placeholder) -->
+    <!-- Realizacje -->
     <section id="realizacje" class="realizacje-section">
       <div class="realizacje-container">
         <div class="realizacje-header">
@@ -280,10 +280,82 @@
           </div>
           <h2 class="realizacje-title">Realizacje</h2>
           <p class="realizacje-subtitle">
-            Sekcja w przygotowaniu - wkrótce zaprezentujemy nasze najlepsze projekty
+            Przedstawiamy wybrane projekty zrealizowane przez nasz zespół w przemyśle stoczniowym
           </p>
         </div>
+
+        <div class="gallery-grid">
+          <div
+            v-for="(project, index) in projects"
+            :key="index"
+            class="gallery-item"
+            @click="openGalleryOverlay(index)"
+          >
+            <div class="gallery-image-wrapper">
+              <q-img :src="project.image" :alt="project.title" class="gallery-image" fit="cover" />
+              <div class="gallery-overlay-hover">
+                <q-icon name="zoom_in" size="48px" color="white" />
+                <div class="gallery-title">{{ project.title }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <!-- Full Screen Gallery Overlay -->
+      <q-dialog v-model="galleryOverlay" maximized>
+        <q-card class="gallery-overlay-card">
+          <q-card-section class="gallery-overlay-header">
+            <div class="gallery-overlay-info">
+              <h3 class="gallery-overlay-title">{{ currentProject.title }}</h3>
+              <p class="gallery-overlay-description">{{ currentProject.description }}</p>
+            </div>
+            <div class="gallery-overlay-controls">
+              <q-btn
+                flat
+                round
+                icon="chevron_left"
+                color="white"
+                size="lg"
+                @click="previousImage"
+                :disable="currentImageIndex === 0"
+              />
+              <span class="gallery-counter"
+                >{{ currentImageIndex + 1 }} / {{ projects.length }}</span
+              >
+              <q-btn
+                flat
+                round
+                icon="chevron_right"
+                color="white"
+                size="lg"
+                @click="nextImage"
+                :disable="currentImageIndex === projects.length - 1"
+              />
+              <q-btn
+                flat
+                round
+                icon="close"
+                color="white"
+                size="lg"
+                @click="closeGallery"
+                class="q-ml-md"
+              />
+            </div>
+          </q-card-section>
+          <q-card-section class="gallery-overlay-content">
+            <div class="gallery-full-image-wrapper" v-if="currentProject">
+              <q-img
+                :src="currentProject.image"
+                :alt="currentProject.title"
+                class="gallery-full-image"
+                fit="contain"
+                loading="lazy"
+              />
+            </div>
+          </q-card-section>
+        </q-card>
+      </q-dialog>
     </section>
 
     <!-- Kontakt -->
@@ -347,10 +419,85 @@ import CareerOffers from '../components/CareerOffers.vue'
 import CareerForm from '../components/CareerForm.vue'
 import { ref, computed, onMounted, nextTick } from 'vue'
 
+// Import gallery images
+import cargoImg from '../assets/images/done/cargo.jpeg'
+import engineImg from '../assets/images/done/engine.jpeg'
+import kitchenImg from '../assets/images/done/kitchen.jpeg'
+import pipesImg from '../assets/images/done/pipes.jpeg'
+import pipes2Img from '../assets/images/done/pipes2.jpeg'
+import shipImg from '../assets/images/done/ship.jpeg'
+
 const showForm = ref(false)
 const CareerOffersComp = CareerOffers
 const CareerFormComp = CareerForm
 const careerView = computed(() => (showForm.value ? CareerFormComp : CareerOffersComp))
+
+// Gallery functionality
+const galleryOverlay = ref(false)
+const currentImageIndex = ref(0)
+
+const projects = ref([
+  {
+    title: 'Modernizacja ładowni',
+    description:
+      'Kompleksowa modernizacja systemu ładunkowego statku cargo z wymianą konstrukcji stalowych i systemów zabezpieczających.',
+    image: cargoImg,
+  },
+  {
+    title: 'Remont silnika głównego',
+    description:
+      'Generalny remont silnika głównego z wymianą kluczowych komponentów i modernizacją systemów pomocniczych.',
+    image: engineImg,
+  },
+  {
+    title: 'Wyposażenie kuchni okrętowej',
+    description:
+      'Projekt i wykonanie nowoczesnej kuchni okrętowej z pełnym wyposażeniem gastronomicznym zgodnym z normami morskimi.',
+    image: kitchenImg,
+  },
+  {
+    title: 'Instalacja rurociągów',
+    description:
+      'Montaż kompleksowego systemu rurociągów dla systemów balastowych i paliwowych z zastosowaniem najwyższej jakości materiałów.',
+    image: pipesImg,
+  },
+  {
+    title: 'Systemy hydrauliczne',
+    description:
+      'Instalacja i konfiguracja zaawansowanych systemów hydraulicznych dla mechanizmów pokładowych i systemów sterowniczych.',
+    image: pipes2Img,
+  },
+  {
+    title: 'Remont konstrukcji kadłuba',
+    description:
+      'Kompleksowy remont konstrukcji kadłuba statku z wymianą elementów strukturalnych i zabezpieczeniem antykorozyjnym.',
+    image: shipImg,
+  },
+])
+
+const currentProject = computed(() => projects.value[currentImageIndex.value])
+
+function openGalleryOverlay(index) {
+  currentImageIndex.value = index
+  galleryOverlay.value = true
+}
+
+function nextImage() {
+  if (currentImageIndex.value < projects.value.length - 1) {
+    currentImageIndex.value++
+  }
+}
+
+function previousImage() {
+  if (currentImageIndex.value > 0) {
+    currentImageIndex.value--
+  }
+}
+
+function closeGallery() {
+  galleryOverlay.value = false
+}
+
 // Animacja wejścia sekcji hero (desktop only)
 const leftCol = ref(null)
 const centerCol = ref(null)
@@ -521,12 +668,25 @@ onMounted(() => {
   transform: translateY(-40px) scale(0.98);
 }
 
-/* Realizacje Section Styles */
+/* Realizacje Section - Cyan Theme */
 .realizacje-section {
   position: relative;
   padding: 120px 0;
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  background: linear-gradient(135deg, #0a1f1f 0%, #1a3f3f 50%, #2a5f5f 100%);
   overflow: hidden;
+}
+
+.realizacje-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(34, 211, 238, 0.06) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .realizacje-container {
@@ -539,26 +699,28 @@ onMounted(() => {
 
 .realizacje-header {
   text-align: center;
+  margin-bottom: 80px;
 }
 
 .realizacje-badge {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  background: white;
+  background: rgba(6, 182, 212, 0.1);
+  backdrop-filter: blur(10px);
   padding: 12px 24px;
   border-radius: 50px;
-  box-shadow: 0 8px 32px rgba(25, 118, 210, 0.1);
+  box-shadow: 0 8px 32px rgba(6, 182, 212, 0.2);
   margin-bottom: 32px;
   font-weight: 600;
-  color: #1976d2;
-  border: 1px solid rgba(25, 118, 210, 0.1);
+  color: #06b6d4;
+  border: 1px solid rgba(6, 182, 212, 0.2);
 }
 
 .realizacje-title {
   font-size: 4rem;
   font-weight: 800;
-  background: linear-gradient(135deg, #1e3a8a 0%, #1976d2 50%, #42a5f5 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 50%, #cbd5e1 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -568,10 +730,260 @@ onMounted(() => {
 
 .realizacje-subtitle {
   font-size: 1.25rem;
-  color: #64748b;
+  color: #cbd5e1;
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
+}
+
+/* Gallery Styles */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 32px;
+  margin-top: 80px;
+}
+
+.gallery-item {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 24px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.2),
+    0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-item:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow:
+    0 32px 64px rgba(0, 0, 0, 0.3),
+    0 16px 32px rgba(6, 182, 212, 0.2);
+}
+
+.gallery-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.gallery-item:hover .gallery-image {
+  transform: scale(1.1);
+}
+
+.gallery-overlay-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.8) 0%, rgba(34, 211, 238, 0.6) 100%);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  text-align: center;
+  padding: 24px;
+}
+
+.gallery-item:hover .gallery-overlay-hover {
+  opacity: 1;
+}
+
+.gallery-title {
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-top: 16px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Full Screen Gallery Overlay */
+.gallery-overlay-card {
+  background: rgba(0, 0, 0, 0.95) !important;
+  backdrop-filter: blur(20px);
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+.gallery-overlay-header {
+  background: rgba(0, 0, 0, 0.8) !important;
+  backdrop-filter: blur(20px);
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.gallery-overlay-info {
+  flex: 1;
+}
+
+.gallery-overlay-title {
+  color: white;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+}
+
+.gallery-overlay-description {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  margin: 0;
+  line-height: 1.5;
+  max-width: 600px;
+}
+
+.gallery-overlay-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.gallery-counter {
+  color: white;
+  font-weight: 600;
+  font-size: 1.125rem;
+  min-width: 80px;
+  text-align: center;
+}
+
+.gallery-overlay-content {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 120px);
+  overflow: hidden;
+}
+
+.gallery-full-image-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+}
+
+.gallery-full-image {
+  max-width: 90vw;
+  max-height: 80vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 16px;
+  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.5);
+  display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  .gallery-overlay-header {
+    padding: 16px 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .gallery-overlay-controls {
+    align-self: stretch;
+    justify-content: space-between;
+  }
+
+  .gallery-overlay-title {
+    font-size: 1.5rem;
+  }
+
+  .gallery-overlay-description {
+    font-size: 0.875rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .realizacje-section {
+    padding: 80px 0;
+  }
+
+  .realizacje-container {
+    padding: 0 16px;
+  }
+
+  .realizacje-header {
+    margin-bottom: 60px;
+  }
+
+  .realizacje-title {
+    font-size: 2.5rem;
+  }
+
+  .realizacje-subtitle {
+    font-size: 1.125rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 60px;
+  }
+
+  .gallery-title {
+    font-size: 1.125rem;
+  }
+
+  .gallery-full-image-wrapper {
+    padding: 16px;
+  }
+
+  .gallery-full-image {
+    max-width: 95vw;
+    max-height: 70vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .realizacje-title {
+    font-size: 2rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .gallery-overlay-header {
+    padding: 12px 16px;
+  }
+
+  .gallery-overlay-title {
+    font-size: 1.25rem;
+  }
+
+  .gallery-counter {
+    font-size: 1rem;
+    min-width: 60px;
+  }
 }
 
 /* Responsive Design */
