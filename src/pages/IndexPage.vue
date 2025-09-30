@@ -66,32 +66,50 @@
     </div>
 
     <!-- O firmie -->
-    <section id="about" class="about-section row items-center justify-center q-mt-xl q-mb-xl">
-      <div class="about-text col-12 col-md-6 q-pa-md">
-        <h2 class="text-h4 text-weight-bold text-blue-10 q-mb-md">O Nas</h2>
-        <p class="text-body1 text-grey-8 q-mb-md">
-          Firma Shipconnected LTD to renomowany dostawca usług w zakresie remontów statków.
-          Specjalizujemy się w branży ślusarskiej, wyposażeniu oraz wentylacji. Nasza wieloletnia
-          obecność na rynku oraz zaangażowanie w każde zlecenie pozwala nam gwarantować najwyższą
-          jakość świadczonych usług.
-        </p>
-        <ul class="about-list q-pl-md q-mb-md">
-          <li>
-            Doświadczenie i profesjonalizm: Nasza kadra to eksperci z wieloletnim doświadczeniem w
-            branży
-          </li>
-          <li>Indywidualne podejście do klienta: Każdy projekt traktujemy indywidualnie</li>
-          <li>
-            Terminowość i jakość: Realizujemy zlecenia na czas, zachowując najwyższą jakość usług
-          </li>
-        </ul>
-      </div>
-      <div class="about-img col-12 col-md-5 q-pa-md flex flex-center">
-        <q-img
-          src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80"
-          alt="Stocznia - ilustracja"
-          style="max-width: 350px; border-radius: 18px; box-shadow: 0 4px 24px #b0bec555"
-        />
+    <section id="about" class="about-section">
+      <div class="about-container">
+        <div class="about-content">
+          <div class="about-text-wrapper">
+            <div class="about-badge">
+              <q-icon name="engineering" color="primary" />
+              <span>Doświadczeni specjaliści stoczniowi</span>
+            </div>
+            <h2 class="about-title">O Nas</h2>
+            <p class="about-description">
+              Firma Shipconnected LTD to renomowany dostawca usług w zakresie remontów statków.
+              Specjalizujemy się w branży ślusarskiej, wyposażeniu oraz wentylacji. Nasza
+              wieloletnia obecność na rynku oraz zaangażowanie w każde zlecenie pozwala nam
+              gwarantować najwyższą jakość świadczonych usług.
+            </p>
+            <div class="about-stats">
+              <div class="stat-item">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">Lat doświadczenia</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Zrealizowanych projektów</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Zadowolonych klientów</div>
+              </div>
+            </div>
+          </div>
+          <div class="about-image-wrapper">
+            <div class="image-container">
+              <q-img
+                src="../assets/images/crane.jpeg"
+                alt="Żuraw stoczniowy - Shipconnected LTD"
+                class="about-image"
+                fit="cover"
+              />
+              <div class="image-overlay">
+                <q-icon name="precision_manufacturing" size="48px" color="white" />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -449,25 +467,245 @@ onMounted(() => {
   z-index: 1;
 }
 
+/* O nas - nowoczesna sekcja */
 .about-section {
-  min-height: calc(100vh - 56px);
-  max-width: 1100px;
-  margin-left: auto;
-  margin-right: auto;
-  background: rgba(255, 255, 255, 0.85);
-  border-radius: 18px;
-  box-shadow: 0 2px 16px #b0bec522;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('../assets/images/pattern.svg') repeat;
+  opacity: 0.02;
+  pointer-events: none;
+}
+
+.about-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  min-height: 600px;
+}
+
+.about-text-wrapper {
+  position: relative;
+  z-index: 2;
+}
+
+.about-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(25, 118, 210, 0.1);
+  color: #1976d2;
+  padding: 8px 16px;
+  border-radius: 24px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  border: 1px solid rgba(25, 118, 210, 0.2);
+}
+
+.about-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 24px;
+  line-height: 1.1;
+  background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.about-description {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #4a5568;
+  margin-bottom: 48px;
+  max-width: 500px;
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.stat-item {
+  text-align: left;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #1976d2;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: #6b7280;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.about-image-wrapper {
+  position: relative;
   display: flex;
+  justify-content: center;
   align-items: center;
 }
-.about-list {
-  color: #607d8b;
-  font-size: 1.1rem;
-  line-height: 1.7;
-  list-style: disc inside;
+
+.image-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  height: 600px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    0 8px 16px rgba(0, 0, 0, 0.05);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
 }
-.about-img img {
+
+.image-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(25, 118, 210, 0.1) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  z-index: 1;
+}
+
+.image-container:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow:
+    0 32px 64px rgba(0, 0, 0, 0.15),
+    0 16px 32px rgba(25, 118, 210, 0.1);
+}
+
+.image-container:hover::before {
+  opacity: 1;
+}
+.about-image {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.image-container:hover .about-image {
+  transform: scale(1.05);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 80px;
+  height: 80px;
+  background: rgba(25, 118, 210, 0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 60px;
+    text-align: center;
+  }
+
+  .about-title {
+    font-size: 3rem;
+  }
+
+  .image-container {
+    max-width: 400px;
+    height: 500px;
+  }
+
+  .image-container:hover {
+    transform: translateY(-4px) scale(1.01);
+  }
+}
+@media (max-width: 768px) {
+  .about-section {
+    padding: 80px 0;
+  }
+
+  .about-container {
+    padding: 0 16px;
+  }
+
+  .about-content {
+    gap: 40px;
+  }
+
+  .about-title {
+    font-size: 2.5rem;
+  }
+
+  .about-description {
+    font-size: 1rem;
+  }
+
+  .about-stats {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    text-align: center;
+  }
+
+  .stat-item {
+    text-align: center;
+  }
+
+  .image-container {
+    height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-title {
+    font-size: 2rem;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .image-container {
+    height: 350px;
+  }
 }
 @media (max-width: 900px) {
   .hero-section {
