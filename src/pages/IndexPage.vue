@@ -245,32 +245,48 @@
     </section>
 
     <!-- Kariera -->
-    <section id="kariera" class="kariera-section highlight">
-      <transition name="slide-fade" mode="out-in">
-        <component :is="careerView" @showForm="showForm = true" @backToOffers="showForm = false" />
-      </transition>
-    </section>
+    <!-- Kariera -->
+    <section id="kariera" class="career-section">
+      <div class="career-background">
+        <div class="career-container">
+          <div class="career-header">
+            <div class="career-badge">
+              <q-icon name="groups" color="primary" />
+              <span>Dołącz do zespołu</span>
+            </div>
+            <h2 class="career-title">Kariera w Shipconnected</h2>
+            <p class="career-subtitle">
+              Szukamy doświadczonych specjalistów, którzy chcą rozwinąć swój potencjał w dynamicznie
+              rozwijającej się firmie stoczniowej.
+            </p>
+          </div>
 
-    <!-- Realizacje (placeholder) -->
-    <section id="realizacje" class="realizacje-section q-mt-xl q-mb-xl">
-      <div class="container q-pa-lg">
-        <div class="text-h4 text-weight-bold text-blue-10 q-mb-md text-center">Realizacje</div>
-        <div class="text-body1 text-grey-8 text-center">Sekcja w przygotowaniu...</div>
+          <div class="career-content">
+            <transition name="career-fade" mode="out-in">
+              <component
+                :is="careerView"
+                @showForm="showForm = true"
+                @backToOffers="showForm = false"
+              />
+            </transition>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Kariera -->
-    <section id="kariera" class="kariera-section highlight">
-      <transition name="slide-fade" mode="out-in">
-        <component :is="careerView" @showForm="showForm = true" @backToOffers="showForm = false" />
-      </transition>
-    </section>
-
     <!-- Realizacje (placeholder) -->
-    <section id="realizacje" class="realizacje-section q-mt-xl q-mb-xl">
-      <div class="container q-pa-lg">
-        <div class="text-h4 text-weight-bold text-blue-10 q-mb-md text-center">Realizacje</div>
-        <div class="text-body1 text-grey-8 text-center">Sekcja w przygotowaniu...</div>
+    <section id="realizacje" class="realizacje-section">
+      <div class="realizacje-container">
+        <div class="realizacje-header">
+          <div class="realizacje-badge">
+            <q-icon name="construction" color="primary" />
+            <span>Nasze osiągnięcia</span>
+          </div>
+          <h2 class="realizacje-title">Realizacje</h2>
+          <p class="realizacje-subtitle">
+            Sekcja w przygotowaniu - wkrótce zaprezentujemy nasze najlepsze projekty
+          </p>
+        </div>
       </div>
     </section>
 
@@ -397,38 +413,216 @@ onMounted(() => {
 </script>
 
 <style scoped>
-/* Animacja przejścia sekcji kariera */
-.slide-fade-enter-active,
-.slide-fade-leave-active {
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.slide-fade-enter-from {
-  opacity: 0;
-  transform: translateX(100px);
-}
-.slide-fade-leave-to {
-  opacity: 0;
-  transform: translateX(-100px);
-}
-/* Estetyczna, nowoczesna sekcja kariera */
-.kariera-section.highlight {
-  background: #fff;
-  border: none;
-  box-shadow: 0 4px 32px #b0bec522;
+/* Career Section Styles */
+.career-section {
   position: relative;
-  z-index: 2;
-}
-/* Kariera section basic styles */
-.kariera-section {
-  min-height: 80vh;
-  background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 2px 16px #b0bec522;
-  max-width: 1100px;
-  margin: 64px auto;
-  padding: 48px 24px;
-  position: relative;
+  padding: 120px 0;
   overflow: hidden;
+}
+
+.career-background {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  position: relative;
+}
+
+.career-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.career-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.career-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.career-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 12px 24px;
+  border-radius: 50px;
+  margin-bottom: 32px;
+  font-weight: 600;
+  color: #3b82f6;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.career-title {
+  font-size: 4rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ffffff 0%, #e2e8f0 50%, #cbd5e1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 24px 0;
+  line-height: 1.1;
+}
+
+.career-subtitle {
+  font-size: 1.25rem;
+  color: #cbd5e1;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.career-content {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 32px 64px rgba(0, 0, 0, 0.2),
+    0 16px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  position: relative;
+}
+
+.career-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Career Transition Animations */
+.career-fade-enter-active,
+.career-fade-leave-active {
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.career-fade-enter-from {
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+}
+
+.career-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-40px) scale(0.98);
+}
+
+/* Realizacje Section Styles */
+.realizacje-section {
+  position: relative;
+  padding: 120px 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  overflow: hidden;
+}
+
+.realizacje-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.realizacje-header {
+  text-align: center;
+}
+
+.realizacje-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: white;
+  padding: 12px 24px;
+  border-radius: 50px;
+  box-shadow: 0 8px 32px rgba(25, 118, 210, 0.1);
+  margin-bottom: 32px;
+  font-weight: 600;
+  color: #1976d2;
+  border: 1px solid rgba(25, 118, 210, 0.1);
+}
+
+.realizacje-title {
+  font-size: 4rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #1e3a8a 0%, #1976d2 50%, #42a5f5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 24px 0;
+  line-height: 1.1;
+}
+
+.realizacje-subtitle {
+  font-size: 1.25rem;
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .career-container,
+  .realizacje-container {
+    padding: 0 24px;
+  }
+
+  .career-title,
+  .realizacje-title {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .career-section,
+  .realizacje-section {
+    padding: 80px 0;
+  }
+
+  .career-container,
+  .realizacje-container {
+    padding: 0 16px;
+  }
+
+  .career-header,
+  .realizacje-header {
+    margin-bottom: 60px;
+  }
+
+  .career-title,
+  .realizacje-title {
+    font-size: 2.5rem;
+  }
+
+  .career-subtitle,
+  .realizacje-subtitle {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .career-title,
+  .realizacje-title {
+    font-size: 2rem;
+  }
 }
 /* Animacja wejścia kolumn hero (desktop only) */
 .hero-col-left,
