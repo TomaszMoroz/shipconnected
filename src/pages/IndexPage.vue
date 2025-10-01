@@ -360,7 +360,7 @@
 
     <!-- Kontakt -->
     <section id="kontakt" class="kontakt-section">
-      <div class="container q-pa-lg">
+      <div class="kontakt-container">
         <div class="contact-header">
           <div class="contact-title">Rozpocznijmy współpracę</div>
           <div class="contact-subtitle">Skontaktuj się z nami aby omówić Twój projekt</div>
@@ -639,6 +639,7 @@ onMounted(() => {
 .career-background {
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
   position: relative;
+  padding: 80px 0;
 }
 
 .career-background::before {
@@ -746,6 +747,7 @@ onMounted(() => {
   position: relative;
   background: linear-gradient(135deg, #475569 0%, #334155 50%, #1e293b 100%);
   overflow: hidden;
+  padding: 80px 0;
 }
 
 .realizacje-section::before {
@@ -994,10 +996,6 @@ onMounted(() => {
 }
 
 @media (max-width: 768px) {
-  .realizacje-section {
-    padding: 80px 0;
-  }
-
   .realizacje-container {
     padding: 0 16px;
   }
@@ -1072,11 +1070,6 @@ onMounted(() => {
 }
 
 @media (max-width: 768px) {
-  .career-section,
-  .realizacje-section {
-    padding: 80px 0;
-  }
-
   .career-container,
   .realizacje-container {
     padding: 0 16px;
@@ -1198,6 +1191,9 @@ onMounted(() => {
   background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
   position: relative;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 80px 0;
 }
 
 .about-section::before {
@@ -1385,10 +1381,6 @@ onMounted(() => {
   }
 }
 @media (max-width: 768px) {
-  .about-section {
-    padding: 80px 0;
-  }
-
   .about-container {
     padding: 0 16px;
   }
@@ -1489,6 +1481,7 @@ onMounted(() => {
 .offer-background {
   background: linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%);
   position: relative;
+  padding: 80px 0;
 }
 
 .offer-background::before {
@@ -1806,10 +1799,6 @@ onMounted(() => {
 }
 
 @media (max-width: 768px) {
-  .offer-section {
-    padding: 80px 0;
-  }
-
   .offer-container {
     padding: 0 16px;
   }
@@ -1870,6 +1859,15 @@ onMounted(() => {
   position: relative;
   background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
   overflow: hidden;
+  padding: 80px 0;
+}
+
+.kontakt-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 32px;
+  position: relative;
+  z-index: 1;
 }
 
 .kontakt-section::before {
@@ -2139,7 +2137,17 @@ onMounted(() => {
 }
 
 /* Responsywność */
+@media (max-width: 1024px) {
+  .kontakt-container {
+    padding: 0 24px;
+  }
+}
+
 @media (max-width: 767px) {
+  .kontakt-container {
+    padding: 0 16px;
+  }
+
   .contact-title {
     font-size: 2rem;
   }
