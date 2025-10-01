@@ -228,13 +228,13 @@
             <div class="cta-content">
               <h3 class="cta-title">Potrzebujesz wyceny?</h3>
               <p class="cta-description">
-                Skontaktuj się z nami już dziś i otrzymaj bezpłatną wycenę dla swojego projektu
+                Skontaktuj się z nami już dziś i porozmawiajmy o twoim projekcie
               </p>
             </div>
             <q-btn
               color="primary"
               size="lg"
-              label="Uzyskaj wycenę"
+              label="Kontakt"
               @click="scrollToSection('kontakt')"
               class="cta-button"
               unelevated
@@ -559,7 +559,6 @@ onMounted(() => {
 /* Career Section Styles */
 .career-section {
   position: relative;
-  padding: 120px 0;
   overflow: hidden;
 }
 
@@ -668,11 +667,11 @@ onMounted(() => {
   transform: translateY(-40px) scale(0.98);
 }
 
-/* Realizacje Section - Cyan Theme */
+/* Realizacje Section - ciemna */
 .realizacje-section {
   position: relative;
   padding: 120px 0;
-  background: linear-gradient(135deg, #0a1f1f 0%, #1a3f3f 50%, #2a5f5f 100%);
+  background: linear-gradient(135deg, #475569 0%, #334155 50%, #1e293b 100%);
   overflow: hidden;
 }
 
@@ -684,8 +683,8 @@ onMounted(() => {
   right: 0;
   bottom: 0;
   background:
-    radial-gradient(circle at 30% 20%, rgba(6, 182, 212, 0.08) 0%, transparent 50%),
-    radial-gradient(circle at 70% 80%, rgba(34, 211, 238, 0.06) 0%, transparent 50%);
+    radial-gradient(circle at 30% 20%, rgba(71, 85, 105, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(100, 116, 139, 0.06) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -706,15 +705,15 @@ onMounted(() => {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  background: rgba(6, 182, 212, 0.1);
+  background: rgba(148, 163, 184, 0.15);
   backdrop-filter: blur(10px);
   padding: 12px 24px;
   border-radius: 50px;
-  box-shadow: 0 8px 32px rgba(6, 182, 212, 0.2);
+  box-shadow: 0 8px 32px rgba(148, 163, 184, 0.2);
   margin-bottom: 32px;
   font-weight: 600;
-  color: #06b6d4;
-  border: 1px solid rgba(6, 182, 212, 0.2);
+  color: #e2e8f0;
+  border: 1px solid rgba(148, 163, 184, 0.3);
 }
 
 .realizacje-title {
@@ -1120,10 +1119,10 @@ onMounted(() => {
   z-index: 1;
 }
 
-/* O nas - nowoczesna sekcja */
+/* O nas - jasna sekcja */
 .about-section {
   min-height: 100vh;
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
   padding: 120px 0;
   position: relative;
   overflow: hidden;
@@ -1136,8 +1135,10 @@ onMounted(() => {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('../assets/images/pattern.svg') repeat;
-  opacity: 0.02;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(71, 85, 105, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(100, 116, 139, 0.03) 0%, transparent 50%);
+  opacity: 1;
   pointer-events: none;
 }
 
@@ -1407,15 +1408,14 @@ onMounted(() => {
     z-index: 2;
   }
 }
-/* Offer Section Styles */
+/* Offer Section - średnio ciemna */
 .offer-section {
   position: relative;
-  padding: 120px 0;
   overflow: hidden;
 }
 
 .offer-background {
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  background: linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%);
   position: relative;
 }
 
@@ -1427,8 +1427,8 @@ onMounted(() => {
   right: 0;
   bottom: 0;
   background:
-    radial-gradient(circle at 20% 80%, rgba(25, 118, 210, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(25, 118, 210, 0.03) 0%, transparent 50%);
+    radial-gradient(circle at 20% 80%, rgba(71, 85, 105, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(100, 116, 139, 0.06) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -1453,7 +1453,7 @@ onMounted(() => {
   padding: 12px 24px;
   border-radius: 50px;
   box-shadow: 0 8px 32px rgba(25, 118, 210, 0.1);
-  margin-bottom: 32px;
+  margin: 32px 0;
   font-weight: 600;
   color: #1976d2;
   border: 1px solid rgba(25, 118, 210, 0.1);
@@ -1793,6 +1793,26 @@ onMounted(() => {
     gap: 24px;
   }
 }
+/* Kontakt Section - najciemniejsza */
+.kontakt-section {
+  position: relative;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  overflow: hidden;
+}
+
+.kontakt-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(15, 23, 42, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(30, 41, 59, 0.06) 0%, transparent 50%);
+  pointer-events: none;
+}
+
 .contact-card {
   border-radius: 16px;
   box-shadow: 0 4px 16px #b0bec522;
