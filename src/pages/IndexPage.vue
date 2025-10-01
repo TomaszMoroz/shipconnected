@@ -1475,16 +1475,16 @@ onMounted(() => {
     padding: 50px 35px 35px 35px;
     border-radius: 28px;
   }
-  
+
   .hero-content {
     margin-top: 20px;
     padding: 30px 15px;
   }
-  
+
   .hero-title {
     font-size: 3.5rem !important;
   }
-  
+
   .hero-subtitle {
     font-size: 1.25rem !important;
   }
@@ -1524,7 +1524,7 @@ onMounted(() => {
     margin: 16px !important;
     backdrop-filter: blur(20px);
     background: rgba(255, 255, 255, 0.95) !important;
-    box-shadow: 
+    box-shadow:
       0 20px 40px rgba(0, 0, 0, 0.1),
       0 8px 16px rgba(25, 118, 210, 0.1) !important;
     padding: 40px 24px 32px 24px !important;
@@ -1541,16 +1541,16 @@ onMounted(() => {
     margin-top: 0 !important;
     padding: 20px 0 !important;
   }
-  
+
   .hero-title {
     font-size: 2.5rem !important;
   }
-  
+
   .hero-subtitle {
     font-size: 1.125rem !important;
     margin-bottom: 32px !important;
   }
-  
+
   .hero-content .q-btn {
     width: 100% !important;
     max-width: 280px !important;
