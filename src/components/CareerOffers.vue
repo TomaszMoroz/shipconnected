@@ -5,8 +5,8 @@
         <div class="career-hero-text">
           <h3 class="career-hero-title">Dołącz do Zespołu Shipconnected LTD</h3>
           <p class="career-hero-description">
-            Dynamicznie rozwijająca się firma specjalizująca się w budowie i modernizacji statków. 
-            Nasza misja to tworzenie najwyższej jakości jednostek pływających, które łączą 
+            Dynamicznie rozwijająca się firma specjalizująca się w budowie i modernizacji statków.
+            Nasza misja to tworzenie najwyższej jakości jednostek pływających, które łączą
             innowacyjne technologie z niezawodnością i bezpieczeństwem.
           </p>
           <div class="career-benefits-grid">
@@ -32,7 +32,8 @@
           <div class="cta-wrapper">
             <h4 class="cta-title">Praca pełna wyzwań i możliwości</h4>
             <p class="cta-description">
-              Rozwijaj swoją karierę w zespole pasjonatów tworzących nowoczesne jednostki pływające na miarę XXI wieku
+              Rozwijaj swoją karierę w zespole pasjonatów tworzących nowoczesne jednostki pływające
+              na miarę XXI wieku
             </p>
             <q-btn
               color="white"
@@ -76,14 +77,7 @@
               <p class="job-company">Shipconnected LTD</p>
             </div>
           </div>
-          <q-btn 
-            flat 
-            round 
-            icon="close" 
-            @click="showDialog = false" 
-            class="close-btn"
-            size="md"
-          />
+          <q-btn flat round icon="close" @click="showDialog = false" class="close-btn" size="md" />
         </div>
 
         <!-- Modal Content -->
@@ -130,7 +124,11 @@
               <h4 class="section-title">Co oferujemy</h4>
             </div>
             <ul class="content-list benefits-list">
-              <li v-for="(benefit, i) in activeOffer.benefits" :key="i" class="list-item benefit-item">
+              <li
+                v-for="(benefit, i) in activeOffer.benefits"
+                :key="i"
+                class="list-item benefit-item"
+              >
                 <q-icon name="check_circle" class="benefit-check" />
                 {{ benefit }}
               </li>
@@ -145,11 +143,12 @@
             </div>
             <div class="application-content">
               <p class="application-text">
-                Jesteśmy firmą, która dba o swoich pracowników, stawiając na ich rozwój i zadowolenie z wykonywanej pracy. 
-                Oferujemy możliwość uczestniczenia w fascynujących projektach, które kształtują przyszłość przemyslu okrętowego.
+                Jesteśmy firmą, która dba o swoich pracowników, stawiając na ich rozwój i
+                zadowolenie z wykonywanej pracy. Oferujemy możliwość uczestniczenia w fascynujących
+                projektach, które kształtują przyszłość przemyslu okrętowego.
               </p>
               <p class="contact-info">
-                Wyślij swoje CV na adres: 
+                Wyślij swoje CV na adres:
                 <a href="mailto:rekrutacja@shipconnected.com" class="email-link">
                   rekrutacja@shipconnected.com
                 </a>
@@ -160,21 +159,11 @@
 
         <!-- Modal Actions -->
         <div class="modal-actions">
-          <q-btn
-            @click="applyOnline"
-            class="apply-btn"
-            unelevated
-            size="lg"
-          >
+          <q-btn @click="applyOnline" class="apply-btn" unelevated size="lg">
             <q-icon name="send" size="18px" class="q-mr-sm" />
             Aplikuj online
           </q-btn>
-          <q-btn
-            href="mailto:rekrutacja@shipconnected.com"
-            class="email-btn"
-            outline
-            size="lg"
-          >
+          <q-btn href="mailto:rekrutacja@shipconnected.com" class="email-btn" outline size="lg">
             <q-icon name="email" size="18px" class="q-mr-sm" />
             Wyślij CV
           </q-btn>
@@ -193,92 +182,98 @@ const activeIdx = ref(0)
 const offers = [
   {
     title: 'Ślusarz Okrętowy',
-    short: 'Montaż i konserwacja elementów statków z wykorzystaniem najnowocześniejszych narzędzi i technologii.',
-    description: 'Jeżeli posiadasz doświadczenie w montażu i naprawach konstrukcji metalowych, a precyzja i dbałość o szczegóły to Twoje drugie imię, stanowisko ślusarza okrętowego jest idealne dla Ciebie.',
+    short:
+      'Montaż i konserwacja elementów statków z wykorzystaniem najnowocześniejszych narzędzi i technologii.',
+    description:
+      'Jeżeli posiadasz doświadczenie w montażu i naprawach konstrukcji metalowych, a precyzja i dbałość o szczegóły to Twoje drugie imię, stanowisko ślusarza okrętowego jest idealne dla Ciebie.',
     duties: [
       'Montaż i konserwacja elementów statków',
       'Wykorzystywanie najnowocześniejszych narzędzi i technologii',
       'Praca z konstrukcjami metalowymi',
-      'Dbałość o precyzję wykonania'
+      'Dbałość o precyzję wykonania',
     ],
     requirements: [
       'Doświadczenie w montażu i naprawach konstrukcji metalowych',
       'Precyzja i dbałość o szczegóły',
       'Umiejętność pracy z narzędziami specjalistycznymi',
-      'Wykształcenie techniczne mile widziane'
+      'Wykształcenie techniczne mile widziane',
     ],
     benefits: [
       'Stabilne zatrudnienie',
       'Możliwość pracy w zespole doświadczonych specjalistów',
-      'Szkolenia podnoszące kwalifikacje zawodowe'
-    ]
+      'Szkolenia podnoszące kwalifikacje zawodowe',
+    ],
   },
   {
     title: 'Spawacz',
-    short: 'Spawanie różnych rodzajów stali w procesie tworzenia nowoczesnych jednostek pływających.',
-    description: 'Poszukujemy spawaczy, którzy potrafią pracować z różnymi rodzajami stali i innymi materiałami stosowanymi w przemyśle okrętowym.',
+    short:
+      'Spawanie różnych rodzajów stali w procesie tworzenia nowoczesnych jednostek pływających.',
+    description:
+      'Poszukujemy spawaczy, którzy potrafią pracować z różnymi rodzajami stali i innymi materiałami stosowanymi w przemyśle okrętowym.',
     duties: [
       'Spawanie metodami TIG, MIG/MAG',
       'Praca z różnymi rodzajami stali',
       'Spawanie materiałów przemysłu okrętowego',
-      'Kontrola jakości wykonanych spawów'
+      'Kontrola jakości wykonanych spawów',
     ],
     requirements: [
       'Doświadczenie w spawaniu TIG, MIG/MAG',
       'Znajomość materiałów przemysłu okrętowego',
       'Aktualne uprawnienia spawalnicze',
-      'Umiejętność czytania dokumentacji technicznej'
+      'Umiejętność czytania dokumentacji technicznej',
     ],
     benefits: [
       'Atrakcyjne wynagrodzenie i premie uzależnione od wyników',
       'Możliwość uczestnictwa w prestiżowych projektach',
-      'Przyjazne środowisko pracy'
-    ]
+      'Przyjazne środowisko pracy',
+    ],
   },
   {
     title: 'Monter Wyposażenia Okrętowego',
     short: 'Instalacja i serwisowanie systemów mechanicznych i elektrycznych na pokładzie statków.',
-    description: 'Jako monter wyposażenia okrętowego będziesz odpowiedzialny za instalację i serwisowanie systemów na pokładzie statków.',
+    description:
+      'Jako monter wyposażenia okrętowego będziesz odpowiedzialny za instalację i serwisowanie systemów na pokładzie statków.',
     duties: [
       'Instalacja systemów mechanicznych i elektrycznych',
       'Serwisowanie wyposażenia okrętowego',
       'Montaż systemów na pokładzie statków',
-      'Współpraca z zespołem specjalistów'
+      'Współpraca z zespołem specjalistów',
     ],
     requirements: [
       'Doświadczenie w montażu systemów mechanicznych i elektrycznych',
       'Umiejętność pracy w zespole',
       'Znajomość systemów okrętowych',
-      'Wykształcenie techniczne'
+      'Wykształcenie techniczne',
     ],
     benefits: [
       'Wsparcie merytoryczne i techniczne',
       'Pracę na nowoczesnych jednostkach pływających',
-      'Elastyczne godziny pracy'
-    ]
+      'Elastyczne godziny pracy',
+    ],
   },
   {
     title: 'Monter Kadłubowy',
     short: 'Budowa i modernizacja kadłubów statków z wykorzystaniem dużych konstrukcji stalowych.',
-    description: 'Dołącz do naszego zespołu jako monter kadłubowy, gdzie będziesz uczestniczyć w budowie i modernizacji kadłubów statków.',
+    description:
+      'Dołącz do naszego zespołu jako monter kadłubowy, gdzie będziesz uczestniczyć w budowie i modernizacji kadłubów statków.',
     duties: [
       'Budowa i modernizacja kadłubów statków',
       'Praca z dużymi konstrukcjami stalowymi',
       'Czytanie rysunków technicznych',
-      'Montaż elementów kadłuba'
+      'Montaż elementów kadłuba',
     ],
     requirements: [
       'Umiejętność czytania rysunków technicznych',
       'Doświadczenie w pracy z dużymi konstrukcjami stalowymi',
       'Znajomość technologii budowy kadłubów',
-      'Wykształcenie techniczne zawodowe'
+      'Wykształcenie techniczne zawodowe',
     ],
     benefits: [
       'Możliwość rozwoju zawodowego i awansu',
       'Pracę w międzynarodowym środowisku',
-      'Udział w szkoleniach i kursach specjalistycznych'
-    ]
-  }
+      'Udział w szkoleniach i kursach specjalistycznych',
+    ],
+  },
 ]
 
 const activeOffer = computed(() => offers[activeIdx.value])
@@ -506,7 +501,7 @@ function applyOnline() {
   border-radius: 24px;
   overflow: hidden;
   background: #ffffff;
-  box-shadow: 
+  box-shadow:
     0 32px 64px -12px rgba(0, 0, 0, 0.25),
     0 25px 50px -12px rgba(0, 0, 0, 0.15);
   border: 1px solid rgba(0, 0, 0, 0.05);
@@ -941,5 +936,4 @@ function applyOnline() {
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(255, 255, 255, 0.1);
 }
-
 </style>
