@@ -20,7 +20,7 @@
             <div class="hero-subtitle text-h5 text-blue-8 q-mb-xl">
               Nowoczesne rozwiązania dla przemysłu stoczniowego
             </div>
-            <div class="flex flex-center justify-center">
+            <!-- <div class="flex flex-center justify-center">
               <q-btn
                 color="primary"
                 size="lg"
@@ -29,7 +29,7 @@
                 class="q-px-xl q-py-sm"
                 unelevated
               />
-            </div>
+            </div> -->
           </div>
         </div>
         <div
@@ -1469,6 +1469,26 @@ onMounted(() => {
     height: 350px;
   }
 }
+
+@media (max-width: 1200px) and (min-width: 901px) {
+  .hero-col-center {
+    padding: 50px 35px 35px 35px;
+    border-radius: 28px;
+  }
+  
+  .hero-content {
+    margin-top: 20px;
+    padding: 30px 15px;
+  }
+  
+  .hero-title {
+    font-size: 3.5rem !important;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.25rem !important;
+  }
+}
 @media (max-width: 900px) {
   .hero-section {
     position: relative;
@@ -1500,20 +1520,41 @@ onMounted(() => {
     width: 100% !important;
     min-width: 0 !important;
     max-width: 100% !important;
-    border-radius: 0;
-    box-shadow: none;
-    padding: 32px 8px 16px 8px;
+    border-radius: 24px !important;
+    margin: 16px !important;
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.95) !important;
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.1),
+      0 8px 16px rgba(25, 118, 210, 0.1) !important;
+    padding: 40px 24px 32px 24px !important;
     clip-path: none;
-    background: none;
     position: relative;
     overflow: visible;
   }
   .hero-col-center::before {
-    display: none;
+    display: block !important;
   }
   .hero-content {
     position: relative;
     z-index: 2;
+    margin-top: 0 !important;
+    padding: 20px 0 !important;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem !important;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.125rem !important;
+    margin-bottom: 32px !important;
+  }
+  
+  .hero-content .q-btn {
+    width: 100% !important;
+    max-width: 280px !important;
+    margin: 0 auto !important;
   }
 }
 /* Offer Section - średnio ciemna */
