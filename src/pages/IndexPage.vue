@@ -359,54 +359,122 @@
     </section>
 
     <!-- Kontakt -->
-    <section id="kontakt" class="kontakt-section q-mt-xl q-mb-xl">
+    <section id="kontakt" class="kontakt-section">
       <div class="container q-pa-lg">
-        <div class="text-h4 text-weight-bold text-blue-10 q-mb-xl text-center">Kontakt</div>
+        <div class="contact-header">
+          <div class="contact-title">Rozpocznijmy współpracę</div>
+          <div class="contact-subtitle">Skontaktuj się z nami aby omówić Twój projekt</div>
+        </div>
 
-        <div class="row justify-center">
-          <div class="col-12 col-md-8">
-            <q-card class="contact-card">
-              <q-card-section class="bg-primary text-white text-center">
-                <q-icon name="contact_mail" size="48px" class="q-mb-md" />
-                <div class="text-h5 text-weight-bold">Skontaktuj się z nami</div>
-                <div class="text-body1">
-                  Jesteśmy gotowi odpowiedzieć na wszelkie pytania i potrzeby naszych klientów
+        <div class="row justify-center q-mt-xl">
+          <div class="col-12 col-lg-10">
+            <div class="contact-grid">
+              <!-- Główna karta kontaktowa -->
+              <div class="contact-main-card">
+                <div class="contact-card-header">
+                  <div class="contact-badge">
+                    <q-icon name="sailing" size="24px" class="text-blue-4" />
+                  </div>
+                  <h3 class="contact-card-title">Shipconnected Ltd</h3>
+                  <p class="contact-card-subtitle">Profesjonalne usługi maritymne i konsulting</p>
                 </div>
-              </q-card-section>
-              <q-card-section>
-                <div class="row q-col-gutter-md">
-                  <div class="col-12 col-sm-6">
-                    <div class="contact-item">
-                      <q-icon name="location_on" color="primary" size="24px" class="q-mr-sm" />
-                      <div>
-                        <div class="text-weight-bold">Adres</div>
-                        <div>Na Ostrowiu 1</div>
-                      </div>
+
+                <div class="contact-info-grid">
+                  <div class="contact-info-item">
+                    <div class="contact-icon-wrapper">
+                      <q-icon name="location_on" size="20px" />
+                    </div>
+                    <div class="contact-info-content">
+                      <div class="contact-info-label">Lokalizacja</div>
+                      <div class="contact-info-value">Na Ostrowiu 1</div>
                     </div>
                   </div>
-                  <div class="col-12 col-sm-6">
-                    <div class="contact-item">
-                      <q-icon name="email" color="primary" size="24px" class="q-mr-sm" />
-                      <div>
-                        <div class="text-weight-bold">Email</div>
-                        <div>
-                          <a href="mailto:t.hinz@shipconnected.com">t.hinz@shipconnected.com</a>
-                        </div>
-                      </div>
+
+                  <div class="contact-info-item">
+                    <div class="contact-icon-wrapper">
+                      <q-icon name="email" size="20px" />
+                    </div>
+                    <div class="contact-info-content">
+                      <div class="contact-info-label">Email</div>
+                      <a
+                        href="mailto:t.hinz@shipconnected.com"
+                        class="contact-info-value contact-link"
+                      >
+                        t.hinz@shipconnected.com
+                      </a>
                     </div>
                   </div>
-                  <div class="col-12 col-sm-6">
-                    <div class="contact-item">
-                      <q-icon name="phone" color="primary" size="24px" class="q-mr-sm" />
-                      <div>
-                        <div class="text-weight-bold">Telefon</div>
-                        <div>[Numer telefonu]</div>
-                      </div>
+
+                  <div class="contact-info-item">
+                    <div class="contact-icon-wrapper">
+                      <q-icon name="phone" size="20px" />
+                    </div>
+                    <div class="contact-info-content">
+                      <div class="contact-info-label">Telefon</div>
+                      <div class="contact-info-value">+48 XXX XXX XXX</div>
+                    </div>
+                  </div>
+
+                  <div class="contact-info-item">
+                    <div class="contact-icon-wrapper">
+                      <q-icon name="schedule" size="20px" />
+                    </div>
+                    <div class="contact-info-content">
+                      <div class="contact-info-label">Dostępność</div>
+                      <div class="contact-info-value">Pon-Pt 8:00-17:00</div>
                     </div>
                   </div>
                 </div>
-              </q-card-section>
-            </q-card>
+
+                <div class="contact-cta">
+                  <q-btn
+                    @click="handleContactClick"
+                    class="contact-primary-btn"
+                    unelevated
+                    size="lg"
+                  >
+                    <q-icon name="send" size="18px" class="q-mr-sm" />
+                    Wyślij wiadomość
+                  </q-btn>
+                </div>
+              </div>
+
+              <!-- Dodatkowe informacje -->
+              <div class="contact-side-cards">
+                <div class="contact-feature-card">
+                  <div class="feature-card-icon">
+                    <q-icon name="support_agent" size="32px" class="text-blue-4" />
+                  </div>
+                  <h4 class="feature-card-title">Profesjonalne wsparcie</h4>
+                  <p class="feature-card-text">
+                    Nasz zespół ekspertów jest dostępny aby pomóc w realizacji Twoich projektów
+                    maritymnych
+                  </p>
+                </div>
+
+                <div class="contact-feature-card">
+                  <div class="feature-card-icon">
+                    <q-icon name="verified" size="32px" class="text-green-4" />
+                  </div>
+                  <h4 class="feature-card-title">Sprawdzona jakość</h4>
+                  <p class="feature-card-text">
+                    Lata doświadczenia i setki zrealizowanych projektów gwarantują najwyższą jakość
+                    usług
+                  </p>
+                </div>
+
+                <div class="contact-feature-card">
+                  <div class="feature-card-icon">
+                    <q-icon name="speed" size="32px" class="text-orange-4" />
+                  </div>
+                  <h4 class="feature-card-title">Szybka realizacja</h4>
+                  <p class="feature-card-text">
+                    Efektywne procesy i nowoczesne rozwiązania pozwalają na terminową realizację
+                    projektów
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -496,6 +564,12 @@ function previousImage() {
 
 function closeGallery() {
   galleryOverlay.value = false
+}
+
+// Contact functionality
+function handleContactClick() {
+  window.location.href =
+    'mailto:t.hinz@shipconnected.com?subject=Zapytanie o współpracę&body=Dzień dobry,%0D%0A%0D%0AChciałbym/abym uzyskać więcej informacji na temat Państwa usług.%0D%0A%0D%0AZ poważaniem'
 }
 
 // Animacja wejścia sekcji hero (desktop only)
@@ -670,7 +744,6 @@ onMounted(() => {
 /* Realizacje Section - ciemna */
 .realizacje-section {
   position: relative;
-  padding: 120px 0;
   background: linear-gradient(135deg, #475569 0%, #334155 50%, #1e293b 100%);
   overflow: hidden;
 }
@@ -1123,7 +1196,6 @@ onMounted(() => {
 .about-section {
   min-height: 100vh;
   background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-  padding: 120px 0;
   position: relative;
   overflow: hidden;
 }
@@ -1813,21 +1885,294 @@ onMounted(() => {
   pointer-events: none;
 }
 
-.contact-card {
-  border-radius: 16px;
-  box-shadow: 0 4px 16px #b0bec522;
+/* Kontakt Section Styles */
+.contact-header {
+  text-align: center;
+  margin-bottom: 48px;
 }
-.contact-item {
+
+.contact-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.contact-subtitle {
+  font-size: 1.25rem;
+  color: #cbd5e1;
+  font-weight: 400;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 1024px) {
+  .contact-grid {
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 48px;
+  }
+}
+
+/* Główna karta kontaktowa */
+.contact-main-card {
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.3),
+    0 10px 10px -5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-main-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(148, 163, 184, 0.3), transparent);
+}
+
+.contact-main-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 32px 64px -12px rgba(0, 0, 0, 0.4),
+    0 20px 25px -5px rgba(0, 0, 0, 0.3);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.contact-card-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.contact-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(99, 102, 241, 0.2));
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 20px;
+  margin-bottom: 16px;
+  backdrop-filter: blur(10px);
+}
+
+.contact-card-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin: 0 0 8px 0;
+  line-height: 1.2;
+}
+
+.contact-card-subtitle {
+  color: #94a3b8;
+  font-size: 1rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Grid informacji kontaktowych */
+.contact-info-grid {
+  display: grid;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 640px) {
+  .contact-info-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.contact-info-item {
   display: flex;
   align-items: flex-start;
+  gap: 16px;
+}
+
+.contact-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 12px;
+  color: #60a5fa;
+  flex-shrink: 0;
+}
+
+.contact-info-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.contact-info-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #94a3b8;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.contact-info-value {
+  font-size: 1rem;
+  color: #f1f5f9;
+  font-weight: 500;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.contact-link {
+  color: #60a5fa;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contact-link:hover {
+  color: #93c5fd;
+  text-decoration: underline;
+}
+
+/* CTA Button */
+.contact-cta {
+  text-align: center;
+}
+
+.contact-primary-btn {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  border-radius: 16px;
+  padding: 16px 32px;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow:
+    0 4px 14px 0 rgba(59, 130, 246, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.contact-primary-btn:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  box-shadow:
+    0 8px 25px 0 rgba(59, 130, 246, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.contact-primary-btn:active {
+  transform: translateY(0);
+}
+
+/* Karty dodatkowych funkcji */
+.contact-side-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact-feature-card {
+  background: rgba(30, 41, 59, 0.6);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(71, 85, 105, 0.3);
+  border-radius: 20px;
+  padding: 24px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(71, 85, 105, 0.4), transparent);
+}
+
+.contact-feature-card:hover {
+  transform: translateY(-2px);
+  background: rgba(30, 41, 59, 0.8);
+  border-color: rgba(71, 85, 105, 0.5);
+  box-shadow:
+    0 12px 24px -4px rgba(0, 0, 0, 0.3),
+    0 8px 16px -4px rgba(0, 0, 0, 0.2);
+}
+
+.feature-card-icon {
   margin-bottom: 16px;
 }
-.contact-item a {
-  color: #1976d2;
-  text-decoration: none;
+
+.feature-card-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin: 0 0 8px 0;
+  line-height: 1.3;
 }
-.contact-item a:hover {
-  text-decoration: underline;
+
+.feature-card-text {
+  color: #94a3b8;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Responsywność */
+@media (max-width: 767px) {
+  .contact-title {
+    font-size: 2rem;
+  }
+
+  .contact-subtitle {
+    font-size: 1.125rem;
+  }
+
+  .contact-main-card {
+    padding: 28px;
+  }
+
+  .contact-card-title {
+    font-size: 1.5rem;
+  }
+
+  .contact-info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 479px) {
+  .contact-title {
+    font-size: 1.75rem;
+  }
+
+  .contact-main-card {
+    padding: 20px;
+  }
+
+  .contact-primary-btn {
+    width: 100%;
+  }
 }
 html {
   scroll-behavior: smooth;
