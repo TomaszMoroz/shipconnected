@@ -345,12 +345,21 @@
           </q-card-section>
           <q-card-section class="gallery-overlay-content">
             <div class="gallery-full-image-wrapper" v-if="currentProject">
-              <q-img
+              <!-- Loading indicator -->
+              <div v-if="imageLoading" class="image-loading-wrapper">
+                <q-spinner-gears size="60px" color="white" />
+                <div class="loading-text">Ładowanie zdjęcia...</div>
+              </div>
+
+              <!-- Image -->
+              <img
+                v-show="!imageLoading"
                 :src="currentProject.image"
                 :alt="currentProject.title"
                 class="gallery-full-image"
-                fit="contain"
-                loading="lazy"
+                @load="onImageLoad"
+                @error="onImageError"
+                @click="closeGallery"
               />
             </div>
           </q-card-section>
@@ -503,6 +512,7 @@ const careerView = computed(() => (showForm.value ? CareerFormComp : CareerOffer
 // Gallery functionality
 const galleryOverlay = ref(false)
 const currentImageIndex = ref(0)
+const imageLoading = ref(false)
 
 const projects = ref([
   {
@@ -546,7 +556,9 @@ const projects = ref([
 const currentProject = computed(() => projects.value[currentImageIndex.value])
 
 function openGalleryOverlay(index) {
+  console.log('Opening gallery for index:', index, 'Project:', projects.value[index])
   currentImageIndex.value = index
+  imageLoading.value = true
   galleryOverlay.value = true
 }
 
@@ -564,6 +576,17 @@ function previousImage() {
 
 function closeGallery() {
   galleryOverlay.value = false
+}
+
+// Image loading handlers
+function onImageLoad(event) {
+  imageLoading.value = false
+  console.log('Image loaded successfully:', event.target.src)
+}
+
+function onImageError(event) {
+  imageLoading.value = false
+  console.error('Error loading image:', event.target.src)
 }
 
 // Contact functionality
@@ -945,6 +968,7 @@ onMounted(() => {
   justify-content: center;
   height: calc(100vh - 120px);
   overflow: hidden;
+  background: rgba(0, 0, 0, 0.9);
 }
 
 .gallery-full-image-wrapper {
@@ -954,6 +978,7 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
   padding: 32px;
+  position: relative;
 }
 
 .gallery-full-image {
@@ -963,8 +988,27 @@ onMounted(() => {
   height: auto;
   object-fit: contain;
   border-radius: 16px;
-  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.5);
+  box-shadow:
+    0 32px 64px rgba(0, 0, 0, 0.5),
+    0 16px 32px rgba(0, 0, 0, 0.3);
   display: block;
+  transition: all 0.3s ease;
+  cursor: zoom-out;
+}
+
+.image-loading-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  gap: 16px;
+}
+
+.loading-text {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /* Responsive Design */
