@@ -100,7 +100,13 @@
             </div>
           </div>
           <div class="q-mt-md">
-            <q-btn type="submit" color="primary" label="Wyślij" />
+            <q-btn type="submit" color="primary" :disable="sending">
+              <template v-if="sending">
+                <q-spinner-dots size="20px" color="white" class="q-mr-sm" />
+                Wysyłanie...
+              </template>
+              <template v-else> Wyślij </template>
+            </q-btn>
           </div>
         </q-form>
       </q-card-section>
@@ -110,7 +116,11 @@
 
 <script setup>
 import { ref, defineEmits } from 'vue'
+import { useQuasar } from 'quasar'
+const $q = useQuasar()
+import { sendJobApplication } from '../services/emailjs.js'
 const emit = defineEmits(['backToOffers'])
+const sending = ref(false)
 function goBack() {
   emit('backToOffers')
 }
@@ -142,7 +152,50 @@ function addField(field) {
   }
 }
 function submitForm() {
-  // TODO: handle form submission
+  sending.value = true
+  const htmlList = (arr) =>
+    `<ul style='margin:0;padding-left:18px;'>${arr
+      .filter((x) => x)
+      .map((item) => `<li>${item}</li>`)
+      .join('')}</ul>`
+  const params = {
+    from_name: form.value.name,
+    from_email: form.value.email,
+    phone: form.value.phone || '',
+    position: form.value.profession,
+    experience: htmlList(form.value.experience),
+    extraEducation: htmlList(form.value.extraEducation),
+    skills: htmlList(form.value.skills),
+    languages: htmlList(form.value.languages),
+    message: `Miasto: ${form.value.city}, Ulica: ${form.value.street}, Kod: ${form.value.postcode}, Data urodzenia: ${form.value.birthdate}, Wykształcenie: ${form.value.education}, Szkoła: ${form.value.schoolName}, Rok ukończenia: ${form.value.schoolYear}, Specjalność: ${form.value.specialty}, Tytuł: ${form.value.title}, Komputer: ${form.value.computer}, Inne: ${form.value.other}`,
+  }
+  sendJobApplication(params)
+    .then((res) => {
+      sending.value = false
+      if (res && res.success) {
+        $q.notify({ type: 'positive', message: 'Aplikacja została wysłana!' })
+        Object.keys(form.value).forEach((key) => {
+          if (Array.isArray(form.value[key])) {
+            form.value[key] = ['']
+          } else {
+            form.value[key] = ''
+          }
+        })
+        emit('backToOffers')
+      } else {
+        $q.notify({
+          type: 'negative',
+          message: 'Wystąpił błąd podczas wysyłania aplikacji. Spróbuj ponownie.',
+        })
+      }
+    })
+    .catch(() => {
+      sending.value = false
+      $q.notify({
+        type: 'negative',
+        message: 'Wystąpił błąd podczas wysyłania aplikacji. Spróbuj ponownie.',
+      })
+    })
 }
 </script>
 

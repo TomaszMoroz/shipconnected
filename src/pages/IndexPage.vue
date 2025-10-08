@@ -15,7 +15,8 @@
         >
           <div class="hero-content text-center">
             <div class="hero-title text-h2 text-weight-bold text-blue-10 q-mb-md">
-              Shipconnected
+              Shipconnected <br />
+              <p class="text-h3 text-weight-bold text-blue-9">LTD</p>
             </div>
             <div class="hero-subtitle text-h5 text-blue-8 q-mb-xl">
               Nowoczesne rozwiązania dla przemysłu stoczniowego
@@ -391,11 +392,38 @@
                 <div class="contact-info-grid">
                   <div class="contact-info-item">
                     <div class="contact-icon-wrapper">
+                      <q-icon name="business" size="20px" />
+                    </div>
+                    <div class="contact-info-content">
+                      <div class="contact-info-label">Siedziba główna</div>
+                      <div class="contact-info-value">
+                        S1 Holland Street<br />
+                        Niddry Lodge<br />
+                        London W8 7JB, UK
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="contact-info-item">
+                    <div class="contact-icon-wrapper">
                       <q-icon name="location_on" size="20px" />
                     </div>
                     <div class="contact-info-content">
-                      <div class="contact-info-label">Lokalizacja</div>
-                      <div class="contact-info-value">Na Ostrowiu 1</div>
+                      <div class="contact-info-label">Oddział Polska</div>
+                      <div class="contact-info-value">
+                        ul. Na Ostrowiu 1<br />
+                        80-958 Gdańsk
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="contact-info-item">
+                    <div class="contact-icon-wrapper">
+                      <q-icon name="phone" size="20px" />
+                    </div>
+                    <div class="contact-info-content">
+                      <div class="contact-info-label">Telefon</div>
+                      <div class="contact-info-value">+48 791 101 550</div>
                     </div>
                   </div>
 
@@ -416,35 +444,13 @@
 
                   <div class="contact-info-item">
                     <div class="contact-icon-wrapper">
-                      <q-icon name="phone" size="20px" />
-                    </div>
-                    <div class="contact-info-content">
-                      <div class="contact-info-label">Telefon</div>
-                      <div class="contact-info-value">+48 XXX XXX XXX</div>
-                    </div>
-                  </div>
-
-                  <div class="contact-info-item">
-                    <div class="contact-icon-wrapper">
                       <q-icon name="schedule" size="20px" />
                     </div>
                     <div class="contact-info-content">
-                      <div class="contact-info-label">Dostępność</div>
-                      <div class="contact-info-value">Pon-Pt 8:00-17:00</div>
+                      <div class="contact-info-label">Godziny pracy</div>
+                      <div class="contact-info-value">Poniedziałek - Piątek<br />7:00 - 15:00</div>
                     </div>
                   </div>
-                </div>
-
-                <div class="contact-cta">
-                  <q-btn
-                    @click="handleContactClick"
-                    class="contact-primary-btn"
-                    unelevated
-                    size="lg"
-                  >
-                    <q-icon name="send" size="18px" class="q-mr-sm" />
-                    Wyślij wiadomość
-                  </q-btn>
                 </div>
               </div>
 
@@ -587,12 +593,6 @@ function onImageLoad(event) {
 function onImageError(event) {
   imageLoading.value = false
   console.error('Error loading image:', event.target.src)
-}
-
-// Contact functionality
-function handleContactClick() {
-  window.location.href =
-    'mailto:t.hinz@shipconnected.com?subject=Zapytanie o współpracę&body=Dzień dobry,%0D%0A%0D%0AChciałbym/abym uzyskać więcej informacji na temat Państwa usług.%0D%0A%0D%0AZ poważaniem'
 }
 
 // Animacja wejścia sekcji hero (desktop only)
