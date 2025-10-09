@@ -18,8 +18,8 @@
         >
           <template v-if="$q.screen.lt.md">
             <q-img
-              src="../assets/images/inner_view.jpeg"
-              alt="Widok wnętrza Shipconnected"
+              src="../assets/images/done/flex.jpeg"
+              alt="Realizacja Shipconnected"
               style="
                 max-width: 100%;
                 max-height: 220px;
@@ -359,10 +359,9 @@
             @click="openGalleryOverlay(index)"
           >
             <div class="gallery-image-wrapper">
-              <q-img :src="project.image" :alt="project.title" class="gallery-image" fit="cover" />
+              <q-img :src="project.image" alt="Realizacja" class="gallery-image" fit="cover" />
               <div class="gallery-overlay-hover">
                 <q-icon name="zoom_in" size="48px" color="white" />
-                <div class="gallery-title">{{ project.title }}</div>
               </div>
             </div>
           </div>
@@ -373,10 +372,6 @@
       <q-dialog v-model="galleryOverlay" maximized>
         <q-card class="gallery-overlay-card">
           <q-card-section class="gallery-overlay-header">
-            <div class="gallery-overlay-info">
-              <h3 class="gallery-overlay-title">{{ currentProject.title }}</h3>
-              <p class="gallery-overlay-description">{{ currentProject.description }}</p>
-            </div>
             <div class="gallery-overlay-controls">
               <q-btn
                 flat
@@ -422,7 +417,7 @@
               <img
                 v-show="!imageLoading"
                 :src="currentProject.image"
-                :alt="currentProject.title"
+                alt="Realizacja"
                 class="gallery-full-image"
                 @load="onImageLoad"
                 @error="onImageError"
@@ -572,9 +567,13 @@ import { ref, computed, onMounted, nextTick } from 'vue'
 import cargoImg from '../assets/images/done/cargo.jpeg'
 import engineImg from '../assets/images/done/engine.jpeg'
 import kitchenImg from '../assets/images/done/kitchen.jpeg'
-import pipesImg from '../assets/images/done/pipes.jpeg'
 import pipes2Img from '../assets/images/done/pipes2.jpeg'
 import shipImg from '../assets/images/done/ship.jpeg'
+import flexImg from '../assets/images/done/flex.jpeg'
+import hullImg from '../assets/images/done/big.jpeg'
+import deckImg from '../assets/images/done/red.jpeg'
+import ventImg from '../assets/images/done/sections.jpeg'
+import boxImg from '../assets/images/done/box.jpeg'
 
 const showForm = ref(false)
 const CareerOffersComp = CareerOffers
@@ -587,42 +586,16 @@ const currentImageIndex = ref(0)
 const imageLoading = ref(false)
 
 const projects = ref([
-  {
-    title: 'Modernizacja ładowni',
-    description:
-      'Kompleksowa modernizacja systemu ładunkowego statku cargo z wymianą konstrukcji stalowych i systemów zabezpieczających.',
-    image: cargoImg,
-  },
-  {
-    title: 'Remont silnika głównego',
-    description:
-      'Generalny remont silnika głównego z wymianą kluczowych komponentów i modernizacją systemów pomocniczych.',
-    image: engineImg,
-  },
-  {
-    title: 'Wyposażenie kuchni okrętowej',
-    description:
-      'Projekt i wykonanie nowoczesnej kuchni okrętowej z pełnym wyposażeniem gastronomicznym zgodnym z normami morskimi.',
-    image: kitchenImg,
-  },
-  {
-    title: 'Instalacja rurociągów',
-    description:
-      'Montaż kompleksowego systemu rurociągów dla systemów balastowych i paliwowych z zastosowaniem najwyższej jakości materiałów.',
-    image: pipesImg,
-  },
-  {
-    title: 'Systemy hydrauliczne',
-    description:
-      'Instalacja i konfiguracja zaawansowanych systemów hydraulicznych dla mechanizmów pokładowych i systemów sterowniczych.',
-    image: pipes2Img,
-  },
-  {
-    title: 'Remont konstrukcji kadłuba',
-    description:
-      'Kompleksowy remont konstrukcji kadłuba statku z wymianą elementów strukturalnych i zabezpieczeniem antykorozyjnym.',
-    image: shipImg,
-  },
+  { image: cargoImg },
+  { image: engineImg },
+  { image: kitchenImg },
+  { image: boxImg }, // replaced pipesImg with boxImg
+  { image: pipes2Img },
+  { image: shipImg },
+  { image: flexImg },
+  { image: hullImg },
+  { image: deckImg },
+  { image: ventImg },
 ])
 
 const currentProject = computed(() => projects.value[currentImageIndex.value])
@@ -1246,7 +1219,7 @@ onMounted(() => {
   justify-content: center;
 }
 .hero-col-left {
-  background: #1976d2 url('../assets/images/inner_view.jpeg') no-repeat center center;
+  background: #1976d2 url('../assets/images/done/flex.jpeg') no-repeat center center;
   background-size: cover;
   position: relative;
   /* Jeszcze mocniej pochylony trapez, węższa środkowa sekcja */
