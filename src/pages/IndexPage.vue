@@ -1,24 +1,30 @@
 <template>
   <q-page>
     <div id="hero" class="hero-section">
-      <div class="row q-gutter-none hero-row" style="height: 100%; min-height: inherit">
+      <div :class="[$q.screen.lt.md ? 'column' : 'row', 'q-gutter-none hero-row']" style="height: 100%; min-height: inherit">
         <div
           ref="leftCol"
-          :class="['col-5 flex flex-center hero-col-left', leftColVisible ? 'hero-animate-in' : '']"
+          :class="[$q.screen.lt.md ? 'q-col-12 q-flex' : 'col-5', 'flex flex-center hero-col-left', leftColVisible ? 'hero-animate-in' : '']"
         ></div>
         <div
           ref="centerCol"
-          :class="[
-            'col-2 flex flex-center hero-col-center',
-            centerColVisible ? 'hero-animate-in' : '',
-          ]"
+          :class="[$q.screen.lt.md ? 'q-col-12 q-flex' : 'col-2', 'flex flex-center hero-col-center', centerColVisible ? 'hero-animate-in' : '']"
         >
-          <div class="hero-content text-center">
-            <div class="hero-title text-h2 text-weight-bold text-blue-10 q-mb-md">
+          <div class="hero-content text-center" :style="$q.screen.lt.md ? 'height: 40vh;' : ''">
+            <div
+              class="hero-title text-h2 text-weight-bold text-blue-10 q-mb-md"
+              :style="$q.screen.lt.md ? 'font-size:2rem;' : ''"
+            >
               Shipconnected <br />
-              <p class="text-h3 text-weight-bold text-blue-9">LTD</p>
+              <p
+                class="text-h3 text-weight-bold text-blue-9"
+                :style="$q.screen.lt.md ? 'font-size:1.2rem;' : ''"
+              >LTD</p>
             </div>
-            <div class="hero-subtitle text-h5 text-blue-8 q-mb-xl">
+            <div
+              class="hero-subtitle text-h5 text-blue-8 q-mb-xl"
+              :style="$q.screen.lt.md ? 'font-size:1rem;' : ''"
+            >
               Nowoczesne rozwiązania dla przemysłu stoczniowego
             </div>
             <!-- <div class="flex flex-center justify-center">
@@ -35,10 +41,7 @@
         </div>
         <div
           ref="rightCol"
-          :class="[
-            'col-5 flex flex-center hero-col-right',
-            rightColVisible ? 'hero-animate-in' : '',
-          ]"
+          :class="[$q.screen.lt.md ? 'q-col-12 q-flex' : 'col-5', 'flex flex-center hero-col-right', rightColVisible ? 'hero-animate-in' : '']"
         ></div>
       </div>
       <svg
@@ -1487,74 +1490,6 @@ onMounted(() => {
 
   .hero-subtitle {
     font-size: 1.25rem !important;
-  }
-}
-@media (max-width: 900px) {
-  .hero-section {
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(180deg, #e3f2fd 0%, #bbdefb 100%);
-  }
-  .hero-section::before {
-    content: '';
-    position: absolute;
-    left: -96vw;
-    top: 50%;
-    width: 220vw;
-    height: 220vw;
-    background: url('../assets/images/logo_www.png') no-repeat left center;
-    background-size: contain;
-    opacity: 0.13;
-    transform: translateY(-50%);
-    pointer-events: none;
-    z-index: 1;
-  }
-  .hero-row {
-    display: block !important;
-  }
-  .hero-col-left,
-  .hero-col-right {
-    display: none !important;
-  }
-  .hero-col-center {
-    width: 100% !important;
-    min-width: 0 !important;
-    max-width: 100% !important;
-    border-radius: 24px !important;
-    margin: 16px !important;
-    backdrop-filter: blur(20px);
-    background: rgba(255, 255, 255, 0.95) !important;
-    box-shadow:
-      0 20px 40px rgba(0, 0, 0, 0.1),
-      0 8px 16px rgba(25, 118, 210, 0.1) !important;
-    padding: 40px 24px 32px 24px !important;
-    clip-path: none;
-    position: relative;
-    overflow: visible;
-  }
-  .hero-col-center::before {
-    display: block !important;
-  }
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    margin-top: 0 !important;
-    padding: 20px 0 !important;
-  }
-
-  .hero-title {
-    font-size: 2.5rem !important;
-  }
-
-  .hero-subtitle {
-    font-size: 1.125rem !important;
-    margin-bottom: 32px !important;
-  }
-
-  .hero-content .q-btn {
-    width: 100% !important;
-    max-width: 280px !important;
-    margin: 0 auto !important;
   }
 }
 /* Offer Section - średnio ciemna */
