@@ -306,6 +306,16 @@
               Szukamy doświadczonych specjalistów, którzy chcą rozwinąć swój potencjał w dynamicznie
               rozwijającej się firmie stoczniowej.
             </p>
+            <!-- koniec podtytułu -->
+            <div class="career-email-info q-mt-md q-mb-md text-center">
+              <q-icon name="email" color="primary" size="md" class="q-mr-sm" />
+              <span class="text-white"
+                >Możesz również przesłać swoje CV na adres:
+                <a href="mailto:rekrutacja@shipconnected.com" class="text-blue-8 text-weight-bold"
+                  >rekrutacja@shipconnected.com</a
+                >
+              </span>
+            </div>
           </div>
 
           <div class="career-content">
