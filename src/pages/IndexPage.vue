@@ -18,8 +18,8 @@
         >
           <template v-if="$q.screen.lt.md">
             <q-img
-              src="../assets/images/done/flex.jpeg"
-              alt="Realizacja Shipconnected"
+              src="../assets/images/inner_view.jpeg"
+              alt="Widok wnętrza Shipconnected"
               style="
                 max-width: 100%;
                 max-height: 220px;
@@ -1219,7 +1219,7 @@ onMounted(() => {
   justify-content: center;
 }
 .hero-col-left {
-  background: #1976d2 url('../assets/images/done/flex.jpeg') no-repeat center center;
+  background: #1976d2 url('../assets/images/inner_view.jpeg') no-repeat center center;
   background-size: cover;
   position: relative;
   /* Jeszcze mocniej pochylony trapez, węższa środkowa sekcja */
