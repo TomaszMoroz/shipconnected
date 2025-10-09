@@ -37,7 +37,7 @@ export const sendJobApplication = async (formData) => {
       computer: formData.computer,
       applicationSource: formData.applicationSource,
       other: formData.other,
-      to_email: 't.hinz@shipconnected.com',
+      to_email: 'rekrutacja@shipconnected.com',
     }
 
     const response = await emailjs.send(
@@ -50,31 +50,6 @@ export const sendJobApplication = async (formData) => {
     return { success: true, data: response }
   } catch (error) {
     console.error('Email sending failed:', error)
-    return { success: false, error: error.text || 'Wystąpił błąd podczas wysyłania' }
-  }
-}
-
-// Wysyłanie ogólnego formularza kontaktowego
-export const sendContactForm = async (formData) => {
-  try {
-    const templateParams = {
-      from_name: formData.name,
-      from_email: formData.email,
-      subject: formData.subject,
-      message: formData.message,
-      to_email: 't.hinz@shipconnected.com',
-    }
-
-    const response = await emailjs.send(
-      EMAILJS_CONFIG.serviceId,
-      'contact_template', // Osobny template dla kontaktu
-      templateParams,
-    )
-
-    console.log('Contact email sent successfully:', response)
-    return { success: true, data: response }
-  } catch (error) {
-    console.error('Contact email sending failed:', error)
     return { success: false, error: error.text || 'Wystąpił błąd podczas wysyłania' }
   }
 }
