@@ -1,4 +1,4 @@
-# Ship Connected (shipconnected)
+# ShipconnectedConnected (shipconnected)
 
 A Quasar Project
 

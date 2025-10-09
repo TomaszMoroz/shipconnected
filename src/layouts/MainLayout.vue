@@ -153,7 +153,7 @@
     </q-page-container>
 
     <q-footer class="bg-blue-10 text-white text-center q-pa-md">
-      <div>© 2025 Ship Connected | Przemysł stoczniowy</div>
+      <div>© 2025 Shipconnected Ltd | Przemysł stoczniowy</div>
     </q-footer>
   </q-layout>
 </template>
