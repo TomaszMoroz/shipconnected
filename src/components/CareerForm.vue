@@ -10,6 +10,9 @@
             <q-btn flat icon="arrow_back" label="Powrót do ofert" color="primary" @click="goBack" />
           </div>
         </div>
+        <div v-if="props.appliedPosition" class="q-mb-md">
+          <q-input v-model="form.position" :label="'Stanowisko'" readonly filled color="primary" />
+        </div>
         <q-form @submit.prevent="submitForm">
           <q-input v-model="form.name" label="Imię i nazwisko" required class="q-mb-md" />
           <q-input v-model="form.birthdate" label="Data urodzenia" type="date" class="q-mb-md" />
@@ -120,7 +123,7 @@ import { ref } from 'vue'
 import { useQuasar } from 'quasar'
 const $q = useQuasar()
 import { sendJobApplication } from '../services/emailjs.js'
-const emit = ['backToOffers']
+const emit = defineEmits(['backToOffers'])
 const props = defineProps({
   appliedPosition: { type: String, default: '' },
   applicationSource: { type: String, default: '' },
@@ -141,7 +144,8 @@ const form = ref({
   education: '',
   schoolName: '',
   schoolYear: '',
-  profession: props.appliedPosition || '',
+  profession: '',
+  position: props.appliedPosition || '',
   specialty: '',
   title: '',
   extraEducation: [''],
@@ -185,7 +189,8 @@ function submitForm() {
     from_name: form.value.name,
     from_email: form.value.email,
     phone: form.value.phone || '',
-    position: form.value.profession,
+    position: form.value.position || 'Nie dotyczy',
+    profession: form.value.profession,
     experience: textList(form.value.experience),
     extraEducation: textList(form.value.extraEducation),
     skills: textList(form.value.skills),

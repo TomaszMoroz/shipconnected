@@ -322,8 +322,14 @@
             <transition name="career-fade" mode="out-in">
               <component
                 :is="careerView"
-                @showForm="showForm = true"
+                @showForm="
+                  (title) => {
+                    showForm = true
+                    appliedPosition = title
+                  }
+                "
                 @backToOffers="showForm = false"
+                :appliedPosition="appliedPosition"
               />
             </transition>
           </div>

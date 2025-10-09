@@ -58,7 +58,7 @@
               <div class="offer-short">{{ offer.short }}</div>
             </q-card-section>
             <q-card-actions align="right" class="offer-card-actions">
-              <q-btn color="primary" label="Szczegóły" @click.stop="openDialog(idx)" />
+              <q-btn color="primary" label="Szczegóły" @click.stop="openDialog(idx, offer.title)" />
             </q-card-actions>
           </q-card>
         </template>
@@ -175,7 +175,7 @@
 
 <script setup>
 import { ref, computed } from 'vue'
-const emit = ['showForm']
+const emit = defineEmits(['showForm', 'backToOffers'])
 const showDialog = ref(false)
 const activeIdx = ref(0)
 
@@ -284,6 +284,7 @@ function openDialog(idx) {
 }
 function applyOnline() {
   showDialog.value = false
+  console.log(activeOffer.value.title)
   emit('showForm', activeOffer.value.title)
 }
 </script>
