@@ -1,16 +1,47 @@
+@media (max-width: 900px) { .hero-col-left, .hero-col-center, .hero-col-right { clip-path: none
+!important; border-radius: 0 !important; } }
 <template>
   <q-page>
     <div id="hero" class="hero-section">
-      <div :class="[$q.screen.lt.md ? 'column' : 'row', 'q-gutter-none hero-row']" style="height: 100%; min-height: inherit">
+      <div
+        :class="[$q.screen.lt.md ? 'column' : 'row', 'q-gutter-none hero-row']"
+        style="height: 100%; min-height: inherit"
+      >
         <div
           ref="leftCol"
-          :class="[$q.screen.lt.md ? 'q-col-12 q-flex' : 'col-5', 'flex flex-center hero-col-left', leftColVisible ? 'hero-animate-in' : '']"
-        ></div>
+          :class="[
+            $q.screen.lt.md ? 'q-col-12 q-flex' : 'col-5',
+            'flex flex-center hero-col-left',
+            leftColVisible ? 'hero-animate-in' : '',
+          ]"
+          :style="$q.screen.lt.md ? 'flex: 3 1 0%; min-height: 0;' : ''"
+        >
+          <template v-if="$q.screen.lt.md">
+            <q-img
+              src="../assets/images/inner_view.jpeg"
+              alt="Widok wnętrza Shipconnected"
+              style="
+                max-width: 100%;
+                max-height: 220px;
+                object-fit: cover;
+                border-radius: 12px;
+                opacity: 0.9;
+                margin: 0 auto;
+              "
+              fit="cover"
+            />
+          </template>
+        </div>
         <div
           ref="centerCol"
-          :class="[$q.screen.lt.md ? 'q-col-12 q-flex' : 'col-2', 'flex flex-center hero-col-center', centerColVisible ? 'hero-animate-in' : '']"
+          :class="[
+            $q.screen.lt.md ? 'q-col-12 q-flex' : 'col-2',
+            'flex flex-center hero-col-center',
+            centerColVisible ? 'hero-animate-in' : '',
+          ]"
+          :style="$q.screen.lt.md ? 'flex: 0.3 1 0%; min-height: 0;' : ''"
         >
-          <div class="hero-content text-center" :style="$q.screen.lt.md ? 'height: 40vh;' : ''">
+          <div class="hero-content text-center">
             <div
               class="hero-title text-h2 text-weight-bold text-blue-10 q-mb-md"
               :style="$q.screen.lt.md ? 'font-size:2rem;' : ''"
@@ -19,7 +50,9 @@
               <p
                 class="text-h3 text-weight-bold text-blue-9"
                 :style="$q.screen.lt.md ? 'font-size:1.2rem;' : ''"
-              >LTD</p>
+              >
+                LTD
+              </p>
             </div>
             <div
               class="hero-subtitle text-h5 text-blue-8 q-mb-xl"
@@ -41,8 +74,22 @@
         </div>
         <div
           ref="rightCol"
-          :class="[$q.screen.lt.md ? 'q-col-12 q-flex' : 'col-5', 'flex flex-center hero-col-right', rightColVisible ? 'hero-animate-in' : '']"
-        ></div>
+          :class="[
+            $q.screen.lt.md ? 'q-col-12 q-flex' : 'col-5',
+            'flex flex-center hero-col-right',
+            rightColVisible ? 'hero-animate-in' : '',
+          ]"
+          :style="$q.screen.lt.md ? 'flex: 3 1 0%; min-height: 0;' : ''"
+        >
+          <template v-if="$q.screen.lt.md">
+            <q-img
+              src="../assets/images/logo_www.png"
+              alt="Kompas Shipconnected"
+              style="max-width: 220px; max-height: 220px; opacity: 0.18; margin: 0 auto"
+              fit="contain"
+            />
+          </template>
+        </div>
       </div>
       <svg
         class="hero-wave"
