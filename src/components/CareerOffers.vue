@@ -163,10 +163,10 @@
             <q-icon name="send" size="18px" class="q-mr-sm" />
             Aplikuj online
           </q-btn>
-          <q-btn href="mailto:rekrutacja@shipconnected.com" class="email-btn" outline size="lg">
+          <!-- <q-btn href="mailto:rekrutacja@shipconnected.com" class="email-btn" outline size="lg">
             <q-icon name="email" size="18px" class="q-mr-sm" />
             Wyślij CV
-          </q-btn>
+          </q-btn> -->
         </div>
       </q-card>
     </q-dialog>
@@ -284,7 +284,6 @@ function openDialog(idx) {
 }
 function applyOnline() {
   showDialog.value = false
-  console.log(activeOffer.value.title)
   emit('showForm', activeOffer.value.title)
 }
 </script>

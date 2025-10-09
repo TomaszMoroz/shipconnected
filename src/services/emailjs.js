@@ -46,7 +46,6 @@ export const sendJobApplication = async (formData) => {
       templateParams,
     )
 
-    console.log('Email sent successfully:', response)
     return { success: true, data: response }
   } catch (error) {
     console.error('Email sending failed:', error)

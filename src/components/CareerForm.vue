@@ -208,7 +208,6 @@ function submitForm() {
     applicationSource: form.value.applicationSource,
     other: form.value.other,
   }
-  console.log('Params:', params)
   sendJobApplication(params)
     .then((res) => {
       sending.value = false

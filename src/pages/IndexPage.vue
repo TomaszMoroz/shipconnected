@@ -576,6 +576,7 @@ import ventImg from '../assets/images/done/sections.jpeg'
 import boxImg from '../assets/images/done/box.jpeg'
 
 const showForm = ref(false)
+let appliedPosition = ''
 const CareerOffersComp = CareerOffers
 const CareerFormComp = CareerForm
 const careerView = computed(() => (showForm.value ? CareerFormComp : CareerOffersComp))
@@ -601,7 +602,6 @@ const projects = ref([
 const currentProject = computed(() => projects.value[currentImageIndex.value])
 
 function openGalleryOverlay(index) {
-  console.log('Opening gallery for index:', index, 'Project:', projects.value[index])
   currentImageIndex.value = index
   imageLoading.value = true
   galleryOverlay.value = true
@@ -624,9 +624,8 @@ function closeGallery() {
 }
 
 // Image loading handlers
-function onImageLoad(event) {
+function onImageLoad() {
   imageLoading.value = false
-  console.log('Image loaded successfully:', event.target.src)
 }
 
 function onImageError(event) {
