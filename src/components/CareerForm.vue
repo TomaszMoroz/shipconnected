@@ -17,7 +17,8 @@
           <q-input v-model="form.city" label="Miejscowość" class="q-mb-md" />
           <q-input v-model="form.street" label="Ulica" class="q-mb-md" />
           <q-input v-model="form.houseNumber" label="Nr domu / mieszkania" class="q-mb-md" />
-          <q-input v-model="form.email" label="Telefon / e-mail" class="q-mb-md" />
+          <q-input v-model="form.email" label="E-mail" type="email" class="q-mb-md" />
+          <q-input v-model="form.phone" label="Telefon" type="tel" class="q-mb-md" />
           <q-select
             v-model="form.education"
             :options="educationOptions"
@@ -115,11 +116,15 @@
 </template>
 
 <script setup>
-import { ref, defineEmits } from 'vue'
+import { ref } from 'vue'
 import { useQuasar } from 'quasar'
 const $q = useQuasar()
 import { sendJobApplication } from '../services/emailjs.js'
-const emit = defineEmits(['backToOffers'])
+const emit = ['backToOffers']
+const props = defineProps({
+  appliedPosition: { type: String, default: '' },
+  applicationSource: { type: String, default: '' },
+})
 const sending = ref(false)
 function goBack() {
   emit('backToOffers')
@@ -132,10 +137,11 @@ const form = ref({
   street: '',
   houseNumber: '',
   email: '',
+  phone: '',
   education: '',
   schoolName: '',
   schoolYear: '',
-  profession: '',
+  profession: props.appliedPosition || '',
   specialty: '',
   title: '',
   extraEducation: [''],
@@ -144,6 +150,7 @@ const form = ref({
   computer: '',
   other: '',
   experience: [''],
+  applicationSource: props.applicationSource || 'Oferta ze strony',
 })
 const educationOptions = ['podstawowe', 'zawodowe', 'średnie', 'wyższe']
 function addField(field) {
@@ -152,23 +159,51 @@ function addField(field) {
   }
 }
 function submitForm() {
+  // Walidacja wymaganych pól
+  const requiredFields = [
+    'name',
+    'birthdate',
+    'postcode',
+    'city',
+    'street',
+    'houseNumber',
+    'email',
+    'phone',
+  ]
+  for (const field of requiredFields) {
+    if (
+      !form.value[field] ||
+      (typeof form.value[field] === 'string' && form.value[field].trim() === '')
+    ) {
+      $q.notify({ type: 'warning', message: 'Wypełnij wszystkie obowiązkowe pola!' })
+      return
+    }
+  }
   sending.value = true
-  const htmlList = (arr) =>
-    `<ul style='margin:0;padding-left:18px;'>${arr
-      .filter((x) => x)
-      .map((item) => `<li>${item}</li>`)
-      .join('')}</ul>`
+  const textList = (arr) => arr.filter((x) => x).join('\n')
   const params = {
     from_name: form.value.name,
     from_email: form.value.email,
     phone: form.value.phone || '',
     position: form.value.profession,
-    experience: htmlList(form.value.experience),
-    extraEducation: htmlList(form.value.extraEducation),
-    skills: htmlList(form.value.skills),
-    languages: htmlList(form.value.languages),
-    message: `Miasto: ${form.value.city}, Ulica: ${form.value.street}, Kod: ${form.value.postcode}, Data urodzenia: ${form.value.birthdate}, Wykształcenie: ${form.value.education}, Szkoła: ${form.value.schoolName}, Rok ukończenia: ${form.value.schoolYear}, Specjalność: ${form.value.specialty}, Tytuł: ${form.value.title}, Komputer: ${form.value.computer}, Inne: ${form.value.other}`,
+    experience: textList(form.value.experience),
+    extraEducation: textList(form.value.extraEducation),
+    skills: textList(form.value.skills),
+    languages: textList(form.value.languages),
+    city: form.value.city,
+    street: form.value.street,
+    postcode: form.value.postcode,
+    birthdate: form.value.birthdate,
+    education: form.value.education,
+    schoolName: form.value.schoolName,
+    schoolYear: form.value.schoolYear,
+    specialty: form.value.specialty,
+    title: form.value.title,
+    computer: form.value.computer,
+    applicationSource: form.value.applicationSource,
+    other: form.value.other,
   }
+  console.log('Params:', params)
   sendJobApplication(params)
     .then((res) => {
       sending.value = false

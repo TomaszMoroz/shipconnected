@@ -174,8 +174,8 @@
 </template>
 
 <script setup>
-import { ref, defineEmits, computed } from 'vue'
-const emit = defineEmits(['showForm'])
+import { ref, computed } from 'vue'
+const emit = ['showForm']
 const showDialog = ref(false)
 const activeIdx = ref(0)
 
@@ -284,7 +284,7 @@ function openDialog(idx) {
 }
 function applyOnline() {
   showDialog.value = false
-  emit('showForm')
+  emit('showForm', activeOffer.value.title)
 }
 </script>
 

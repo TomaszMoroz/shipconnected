@@ -112,23 +112,38 @@
           aria-label="Menu"
         />
         <q-drawer v-if="isMobile" v-model="drawer" side="right" overlay>
-          <q-list>
-            <q-item clickable v-close-popup tag="a" @click="(e) => scrollToSection(e, 'about')"
-              ><q-item-section>O firmie</q-item-section></q-item
-            >
-            <q-item clickable v-close-popup tag="a" @click="(e) => scrollToSection(e, 'offer')"
-              ><q-item-section>Oferta</q-item-section></q-item
-            >
-            <q-item clickable v-close-popup tag="a" @click="(e) => scrollToSection(e, 'kariera')"
-              ><q-item-section>Kariera</q-item-section></q-item
-            >
-            <q-item clickable v-close-popup tag="a" @click="(e) => scrollToSection(e, 'realizacje')"
-              ><q-item-section>Realizacje</q-item-section></q-item
-            >
-            <q-item clickable v-close-popup tag="a" @click="(e) => scrollToSection(e, 'kontakt')"
-              ><q-item-section>Kontakt</q-item-section></q-item
-            >
-          </q-list>
+          <div class="q-pa-md">
+            <q-btn
+              flat
+              class="bg-white text-blue-10 q-mb-sm full-width"
+              label="O firmie"
+              @click="scrollToSectionWithDrawer('about')"
+            />
+            <q-btn
+              flat
+              class="bg-white text-blue-10 q-mb-sm full-width"
+              label="Oferta"
+              @click="scrollToSectionWithDrawer('offer')"
+            />
+            <q-btn
+              flat
+              class="bg-white text-blue-10 q-mb-sm full-width"
+              label="Kariera"
+              @click="scrollToSectionWithDrawer('kariera')"
+            />
+            <q-btn
+              flat
+              class="bg-white text-blue-10 q-mb-sm full-width"
+              label="Realizacje"
+              @click="scrollToSectionWithDrawer('realizacje')"
+            />
+            <q-btn
+              flat
+              class="bg-white text-blue-10 q-mb-sm full-width"
+              label="Kontakt"
+              @click="scrollToSectionWithDrawer('kontakt')"
+            />
+          </div>
         </q-drawer>
       </div>
     </q-header>
@@ -144,6 +159,18 @@
 </template>
 
 <script setup>
+function scrollToSectionWithDrawer(id) {
+  drawer.value = false
+  setTimeout(() => {
+    const el = document.getElementById(id)
+    if (el) {
+      const header = document.querySelector('.q-header')
+      const offset = header ? header.offsetHeight : 0
+      const top = el.getBoundingClientRect().top + window.scrollY - offset
+      window.scrollTo({ top, behavior: 'smooth' })
+    }
+  }, 400)
+}
 import logoWww from '../assets/images/logo_www.png'
 // Smooth scroll do sekcji landing page z offsetem headera
 function scrollToSection(e, id) {
