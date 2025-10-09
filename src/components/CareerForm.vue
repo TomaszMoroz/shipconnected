@@ -2,11 +2,11 @@
   <div class="career-form">
     <q-card class="q-pa-lg" style="max-width: 600px; margin: 0 auto">
       <q-card-section>
-        <div class="row items-center q-mb-md">
-          <div class="col">
+        <div class="row items-center q-mb-md q-col-gutter-md">
+          <div class="col-12 col-sm">
             <div class="text-h5 text-weight-bold">Kwestionariusz osobowy</div>
           </div>
-          <div class="col-auto">
+          <div class="col-12 col-sm-auto q-mt-sm q-mt-none--sm">
             <q-btn flat icon="arrow_back" label="Powrót do ofert" color="primary" @click="goBack" />
           </div>
         </div>
