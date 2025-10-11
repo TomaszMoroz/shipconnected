@@ -14,8 +14,14 @@
         </div>
         <div class="hero-block hero-block-title bg-grey-3">
           <div>
-            <h1 class="hero-title">Shipconnected LTD</h1>
-            <div class="hero-subtitle">Nowoczesne rozwiązania dla przemysłu stoczniowego</div>
+            <h1 class="hero-title">
+              <span class="hero-title-inline">Shipconnected LTD</span>
+            </h1>
+            <div class="hero-subtitle">
+              <span class="hero-subtitle-text"
+                >Nowoczesne rozwiązania dla przemysłu stoczniowego</span
+              >
+            </div>
           </div>
         </div>
         <div class="hero-block hero-block-logo" style="overflow: hidden">
@@ -361,7 +367,7 @@
                     <q-icon name="sailing" size="24px" class="text-blue-4" />
                   </div>
                   <h3 class="contact-card-title">Shipconnected Ltd</h3>
-                  <p class="contact-card-subtitle">Profesjonalne usługi maritymne i konsulting</p>
+                  <p class="contact-card-subtitle">Profesjonalne usługi stoczniowe i konsulting</p>
                 </div>
 
                 <div class="contact-info-grid">
@@ -2158,17 +2164,85 @@ html {
   height: 100%;
   max-height: 300px;
 }
+/* Enhanced company name styling */
+/* Company name and LTD on one line, deep navy color */
 .hero-title {
-  font-size: 2.5rem;
-  font-weight: 800;
   text-align: center;
   margin: 0;
-  color: #1e293b;
+  padding: 32px 0 12px 0;
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  font-weight: 900;
+  letter-spacing: 2px;
+  font-size: 3.2rem;
+  color: #0f172a;
+  line-height: 1.1;
+  text-shadow: 0 2px 12px rgba(15, 23, 42, 0.08);
 }
-.hero-block-logo q-img {
-  width: 120px;
-  height: 120px;
-  opacity: 0.18;
+.hero-title-inline {
+  display: inline-block;
+  font-size: 3.2rem;
+  font-weight: 900;
+  color: #0f172a;
+  letter-spacing: 2px;
+}
+.hero-title-ltd {
+  display: inline-block;
+  font-size: 2.1rem;
+  font-weight: 900;
+  font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+  color: #0f172a;
+  margin-left: 0.5em;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 8px rgba(15, 23, 42, 0.12);
+  vertical-align: baseline;
+}
+.hero-subtitle {
+  text-align: center;
+  margin-top: 12px;
+  margin-bottom: 0;
+  padding: 0 16px;
+}
+.hero-subtitle-text {
+  display: inline-block;
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: #6e6e6e;
+  background: #e6e6e6;
+  border-radius: 18px;
+  padding: 8px 24px;
+  box-shadow: 0 2px 8px rgba(34, 211, 238, 0.07);
+}
+@media (max-width: 900px) {
+  .hero-title {
+    font-size: 2.1rem;
+    padding: 24px 0 8px 0;
+  }
+  .hero-title-inline {
+    font-size: 2.1rem;
+  }
+  .hero-title-ltd {
+    font-size: 1.3rem;
+  }
+  .hero-subtitle-text {
+    font-size: 1rem;
+    padding: 6px 12px;
+  }
+}
+@media (max-width: 600px) {
+  .hero-title {
+    font-size: 1.3rem;
+    padding: 12px 0 4px 0;
+  }
+  .hero-title-inline {
+    font-size: 1.3rem;
+  }
+  .hero-title-ltd {
+    font-size: 0.9rem;
+  }
+  .hero-subtitle-text {
+    font-size: 0.85rem;
+    padding: 4px 8px;
+  }
 }
 @media (max-width: 600px) {
   .hero-section {
