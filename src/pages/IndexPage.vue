@@ -3,7 +3,27 @@
 <template>
   <q-page>
     <div id="hero" class="hero-section">
-      <!-- hero section content removed -->
+      <div class="hero-columns-vertical">
+        <div class="hero-block hero-block-image">
+          <q-img
+            src="../assets/images/main.jpeg"
+            alt="Shipconnected - główne zdjęcie"
+            style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px"
+            fit="cover"
+          ></q-img>
+        </div>
+        <div class="hero-block hero-block-title">
+          <h1 class="hero-title">Shipconnected LTD</h1>
+        </div>
+        <div class="hero-block hero-block-logo">
+          <q-img
+            src="../assets/images/logo_www.png"
+            alt="Kompas Shipconnected"
+            style="width: 120px; height: 120px; opacity: 0.18; margin: 0 auto"
+            fit="contain"
+          ></q-img>
+        </div>
+      </div>
     </div>
 
     <!-- O firmie -->
@@ -2074,5 +2094,58 @@ function onImageError(event) {
 }
 html {
   scroll-behavior: smooth;
+}
+
+.hero-section {
+  min-height: calc(100vh - 64px - 64px); /* adjust if navbar/footer height differs */
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  width: 100%;
+  background: #f8fafc;
+}
+.hero-columns-vertical {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  flex: 1;
+}
+.hero-block {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  min-width: 0;
+}
+.hero-block-image q-img {
+  width: 100%;
+  height: 100%;
+  max-height: 300px;
+}
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-align: center;
+  margin: 0;
+  color: #1e293b;
+}
+.hero-block-logo q-img {
+  width: 120px;
+  height: 120px;
+  opacity: 0.18;
+}
+@media (max-width: 600px) {
+  .hero-section {
+    min-height: 60vh;
+  }
+  .hero-title {
+    font-size: 1.5rem;
+  }
+  .hero-block-logo q-img {
+    width: 80px;
+    height: 80px;
+  }
 }
 </style>
