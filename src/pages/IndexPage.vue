@@ -4,22 +4,25 @@
   <q-page>
     <div id="hero" class="hero-section">
       <div class="hero-columns-vertical">
-        <div class="hero-block hero-block-image">
+        <div class="hero-block hero-block-image" style="width: 100%">
           <q-img
             src="../assets/images/main.jpeg"
             alt="Shipconnected - główne zdjęcie"
-            style="width: 100%; height: 100%; object-fit: cover; border-radius: 12px"
+            style="width: 100%; height: 100%; object-fit: cover; border-radius: 0"
             fit="cover"
           ></q-img>
         </div>
-        <div class="hero-block hero-block-title">
-          <h1 class="hero-title">Shipconnected LTD</h1>
+        <div class="hero-block hero-block-title bg-grey-3">
+          <div>
+            <h1 class="hero-title">Shipconnected LTD</h1>
+            <div class="hero-subtitle">Nowoczesne rozwiązania dla przemysłu stoczniowego</div>
+          </div>
         </div>
-        <div class="hero-block hero-block-logo">
+        <div class="hero-block hero-block-logo bg-green-2" style="overflow: hidden">
           <q-img
             src="../assets/images/logo_www.png"
             alt="Kompas Shipconnected"
-            style="width: 120px; height: 120px; opacity: 0.18; margin: 0 auto"
+            style="width: 620px; height: 620px; opacity: 0.28; object-fit: contain; display: block"
             fit="contain"
           ></q-img>
         </div>
@@ -2118,6 +2121,8 @@ html {
   justify-content: center;
   min-height: 0;
   min-width: 0;
+  height: 0;
+  position: relative;
 }
 .hero-block-image q-img {
   width: 100%;
