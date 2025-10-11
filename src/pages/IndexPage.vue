@@ -18,11 +18,12 @@
             <div class="hero-subtitle">Nowoczesne rozwiązania dla przemysłu stoczniowego</div>
           </div>
         </div>
-        <div class="hero-block hero-block-logo bg-green-2" style="overflow: hidden">
+        <div class="hero-block hero-block-logo" style="overflow: hidden">
           <q-img
+            ref="compassImg"
             src="../assets/images/logo_www.png"
             alt="Kompas Shipconnected"
-            style="width: 620px; height: 620px; opacity: 0.28; object-fit: contain; display: block"
+            :style="compassStyle"
             fit="contain"
           ></q-img>
         </div>
@@ -474,7 +475,35 @@
 <script setup>
 import CareerOffers from '../components/CareerOffers.vue'
 import CareerForm from '../components/CareerForm.vue'
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
+
+const compassImg = ref(null)
+const compassRotation = ref(0)
+const compassStyle = computed(() => ({
+  width: '720px',
+  height: '720px',
+  opacity: 0.28,
+  objectFit: 'contain',
+  display: 'block',
+  transition: 'transform 1.2s cubic-bezier(0.4,0,0.2,1)',
+  transform: `rotate(${compassRotation.value}deg)`,
+}))
+
+function animateCompassCalibration() {
+  compassRotation.value = -40
+  setTimeout(() => {
+    compassRotation.value = 40
+    setTimeout(() => {
+      compassRotation.value = 0
+    }, 1200)
+  }, 1200)
+}
+
+onMounted(() => {
+  setTimeout(() => {
+    animateCompassCalibration()
+  }, 600)
+})
 
 // Import gallery images
 import cargoImg from '../assets/images/done/cargo.jpeg'
@@ -2143,7 +2172,14 @@ html {
 }
 @media (max-width: 600px) {
   .hero-section {
-    min-height: 60vh;
+    min-height: 100vh;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+  }
+  .hero-columns-vertical {
+    height: 100%;
   }
   .hero-title {
     font-size: 1.5rem;
