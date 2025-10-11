@@ -18,8 +18,8 @@
         >
           <template v-if="$q.screen.lt.md">
             <q-img
-              src="../assets/images/inner_view.jpeg"
-              alt="Widok wnętrza Shipconnected"
+              src="../assets/images/main.jpeg"
+              alt="Shipconnected - główne zdjęcie"
               style="
                 max-width: 100%;
                 max-height: 220px;
@@ -150,7 +150,7 @@
           <div class="about-image-wrapper">
             <div class="image-container">
               <q-img
-                src="../assets/images/crane.jpeg"
+                src="../assets/images/second.jpeg"
                 alt="Żuraw stoczniowy - Shipconnected LTD"
                 class="about-image"
                 fit="cover"
@@ -1218,7 +1218,7 @@ onMounted(() => {
   justify-content: center;
 }
 .hero-col-left {
-  background: #1976d2 url('../assets/images/inner_view.jpeg') no-repeat center center;
+  background: #1976d2 url('../assets/images/main.jpeg') no-repeat center center;
   background-size: cover;
   position: relative;
   /* Jeszcze mocniej pochylony trapez, węższa środkowa sekcja */
