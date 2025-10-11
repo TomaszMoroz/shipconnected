@@ -3,117 +3,7 @@
 <template>
   <q-page>
     <div id="hero" class="hero-section">
-      <div
-        :class="[$q.screen.lt.md ? 'column' : 'row', 'q-gutter-none hero-row']"
-        style="height: 100%; min-height: inherit"
-      >
-        <div
-          ref="leftCol"
-          :class="[
-            $q.screen.lt.md ? 'q-col-12 q-flex' : 'col-5',
-            'flex flex-center hero-col-left',
-            leftColVisible ? 'hero-animate-in' : '',
-          ]"
-          :style="$q.screen.lt.md ? 'flex: 3 1 0%; min-height: 0;' : ''"
-        >
-          <template v-if="$q.screen.lt.md">
-            <q-img
-              src="../assets/images/main.jpeg"
-              alt="Shipconnected - główne zdjęcie"
-              style="
-                max-width: 100%;
-                max-height: 220px;
-                object-fit: cover;
-                border-radius: 12px;
-                opacity: 0.9;
-                margin: 0 auto;
-              "
-              fit="cover"
-            />
-          </template>
-        </div>
-        <div
-          ref="centerCol"
-          :class="[
-            $q.screen.lt.md ? 'q-col-12 q-flex' : 'col-2',
-            'flex flex-center hero-col-center',
-            centerColVisible ? 'hero-animate-in' : '',
-          ]"
-          :style="$q.screen.lt.md ? 'flex: 0.3 1 0%; min-height: 0;' : ''"
-        >
-          <div class="hero-content text-center">
-            <div
-              class="hero-title text-h2 text-weight-bold text-blue-10 q-mb-md"
-              :style="$q.screen.lt.md ? 'font-size:2rem;' : ''"
-            >
-              Shipconnected <br />
-              <p
-                class="text-h3 text-weight-bold text-blue-9"
-                :style="$q.screen.lt.md ? 'font-size:1.2rem;' : ''"
-              >
-                LTD
-              </p>
-            </div>
-            <div
-              class="hero-subtitle text-h5 text-blue-8 q-mb-xl"
-              :style="$q.screen.lt.md ? 'font-size:1rem;' : ''"
-            >
-              Nowoczesne rozwiązania dla przemysłu stoczniowego
-            </div>
-            <!-- <div class="flex flex-center justify-center">
-              <q-btn
-                color="primary"
-                size="lg"
-                label="Poznaj naszą ofertę"
-                href="#offer"
-                class="q-px-xl q-py-sm"
-                unelevated
-              />
-            </div> -->
-          </div>
-        </div>
-        <div
-          ref="rightCol"
-          :class="[
-            $q.screen.lt.md ? 'q-col-12 q-flex' : 'col-5',
-            'flex flex-center hero-col-right',
-            rightColVisible ? 'hero-animate-in' : '',
-          ]"
-          :style="$q.screen.lt.md ? 'flex: 3 1 0%; min-height: 0;' : ''"
-        >
-          <template v-if="$q.screen.lt.md">
-            <q-img
-              src="../assets/images/logo_www.png"
-              alt="Kompas Shipconnected"
-              style="max-width: 220px; max-height: 220px; opacity: 0.18; margin: 0 auto"
-              fit="contain"
-            />
-          </template>
-        </div>
-      </div>
-      <svg
-        class="hero-wave"
-        viewBox="0 0 1440 80"
-        width="100%"
-        height="80"
-        preserveAspectRatio="none"
-      >
-        <path
-          fill="#e0e3e8"
-          fill-opacity="1"
-          d="M0,40L60,44C120,48,240,56,360,58.7C480,61,600,59,720,54.7C840,51,960,45,1080,44C1200,43,1320,48,1380,50.7L1440,53L1440,80L1380,80C1320,80,1200,80,1080,80C960,80,840,80,720,80C600,80,480,80,360,80C240,80,120,80,60,80L0,80Z"
-        />
-        <path
-          fill="#b0bec5"
-          fill-opacity="0.7"
-          d="M0,55L80,60C160,65,320,75,480,75C640,75,800,65,960,60C1120,55,1280,55,1360,55L1440,55L1440,80L1360,80C1280,80,1120,80,960,80C800,80,640,80,480,80,320,80,160,80,80,80L0,80Z"
-        />
-        <path
-          fill="#90a4ae"
-          fill-opacity="0.5"
-          d="M0,70L100,72C200,74,400,78,600,78C800,78,1000,74,1200,72C1400,70,1440,70,1440,70L1440,80L1400,80C1200,80,1000,80,800,80,600,80,400,80,200,80L0,80Z"
-        />
-      </svg>
+      <!-- hero section content removed -->
     </div>
 
     <!-- O firmie -->
@@ -561,7 +451,7 @@
 <script setup>
 import CareerOffers from '../components/CareerOffers.vue'
 import CareerForm from '../components/CareerForm.vue'
-import { ref, computed, onMounted, nextTick } from 'vue'
+import { ref, computed } from 'vue'
 
 // Import gallery images
 import cargoImg from '../assets/images/done/cargo.jpeg'
@@ -632,62 +522,7 @@ function onImageError(event) {
   imageLoading.value = false
   console.error('Error loading image:', event.target.src)
 }
-
-// Animacja wejścia sekcji hero (desktop only)
-const leftCol = ref(null)
-const centerCol = ref(null)
-const rightCol = ref(null)
-const leftColVisible = ref(false)
-const centerColVisible = ref(false)
-const rightColVisible = ref(false)
-
-function animateCompassCalibration() {
-  // Animuj ::before na .hero-col-right przez CSS variable
-  const rightColEl = rightCol.value
-  if (!rightColEl) return
-  rightColEl.style.setProperty('--logo-rotation', '-18deg')
-  rightColEl.style.setProperty('--logo-transition', 'transform 0.5s cubic-bezier(0.4,0,0.2,1)')
-  setTimeout(() => {
-    rightColEl.style.setProperty('--logo-rotation', '18deg')
-    setTimeout(() => {
-      rightColEl.style.setProperty('--logo-rotation', '0deg')
-    }, 500)
-  }, 500)
-}
-
-function scrollToSection(sectionId) {
-  const element = document.getElementById(sectionId)
-  if (element) {
-    element.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-    })
-  }
-}
-
-onMounted(() => {
-  if (window.innerWidth > 900) {
-    setTimeout(() => {
-      leftColVisible.value = true
-    }, 80)
-    setTimeout(() => {
-      centerColVisible.value = true
-    }, 320)
-    setTimeout(() => {
-      rightColVisible.value = true
-      // uruchom animację logo po wejściu wszystkich kolumn
-      nextTick(() => {
-        setTimeout(() => {
-          animateCompassCalibration()
-        }, 600)
-      })
-    }, 560)
-  } else {
-    leftColVisible.value = true
-    centerColVisible.value = true
-    rightColVisible.value = true
-  }
-})
+// ...existing code...
 </script>
 
 <style scoped>
