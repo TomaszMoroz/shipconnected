@@ -12,10 +12,10 @@
             fit="cover"
           ></q-img>
         </div>
-        <div class="hero-block hero-block-title bg-grey-3">
+        <div class="hero-block hero-block-title bg-blue-8 text-white">
           <div>
             <h1 class="hero-title">
-              <span class="hero-title-inline">Shipconnected LTD</span>
+              <span class="hero-title-inline text-white">Shipconnected LTD</span>
             </h1>
             <div class="hero-subtitle">
               <span class="hero-subtitle-text"
@@ -2206,8 +2206,8 @@ html {
   display: inline-block;
   font-size: 1.35rem;
   font-weight: 500;
-  color: #6e6e6e;
-  background: #e6e6e6;
+  /* color: #6e6e6e; */
+  /* background: #e6e6e6; */
   border-radius: 18px;
   padding: 8px 24px;
   box-shadow: 0 2px 8px rgba(34, 211, 238, 0.07);
