@@ -209,7 +209,10 @@
             <div class="career-email-info q-mt-md q-mb-md text-center">
               <q-icon name="email" color="primary" size="md" class="q-mr-sm" />
               <span class="text-white">
-                <span v-html="$t('career.sendCv')"></span>
+                {{ $t('career.sendCvPrefix') }}
+                <a href="mailto:rekrutacja@shipconnected.com" class="email-link"
+                  >rekrutacja@shipconnected.com</a
+                >
               </span>
             </div>
           </div>

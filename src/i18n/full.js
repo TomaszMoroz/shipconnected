@@ -74,8 +74,7 @@ export default {
       application: 'Aplikacja',
       applicationText:
         'Jesteśmy firmą, która dba o swoich pracowników, stawiając na ich rozwój i zadowolenie z wykonywanej pracy.',
-      sendCv:
-        'Prześlij swoje CV na adres e-mail: <a href="mailto:rekrutacja&#64;shipconnected.com">rekrutacja&#64;shipconnected.com</a>',
+      sendCvPrefix: 'Prześlij swoje CV na adres e-mail:',
       applyOnline: 'Aplikuj online',
       offers: {
         slusar: {
@@ -329,8 +328,7 @@ export default {
       benefits: 'What we offer',
       application: 'Application',
       applicationText: 'We are a company that cares about its employees and their development.',
-      sendCv:
-        'Send your CV to: <a href="mailto:rekrutacja&#64;shipconnected.com">rekrutacja&#64;shipconnected.com</a>',
+      sendCvPrefix: 'Send your CV to:',
       applyOnline: 'Apply online',
       offers: {
         slusar: {

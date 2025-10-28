@@ -141,7 +141,10 @@
             <div class="application-content">
               <p class="application-text">{{ $t('career.applicationText') }}</p>
               <p class="contact-info">
-                <span v-html="$t('career.sendCv')"></span>
+                {{ $t('career.sendCvPrefix') }}
+                <a href="mailto:rekrutacja@shipconnected.com" class="email-link"
+                  >rekrutacja@shipconnected.com</a
+                >
               </p>
             </div>
           </div>
