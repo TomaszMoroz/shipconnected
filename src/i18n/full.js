@@ -74,7 +74,8 @@ export default {
       application: 'Aplikacja',
       applicationText:
         'Jesteśmy firmą, która dba o swoich pracowników, stawiając na ich rozwój i zadowolenie z wykonywanej pracy.',
-      sendCv: 'Prześlij swoje CV na adres e-mail: rekrutacja@shipconnected.com',
+      // eslint-disable-next-line no-useless-escape
+      sendCv: 'Prześlij swoje CV na adres e-mail: rekrutacja\@shipconnected.com',
       applyOnline: 'Aplikuj online',
       offers: {
         slusar: {
@@ -328,7 +329,8 @@ export default {
       benefits: 'What we offer',
       application: 'Application',
       applicationText: 'We are a company that cares about its employees and their development.',
-      sendCv: 'Send your CV to: rekrutacja@shipconnected.com',
+      // eslint-disable-next-line no-useless-escape
+      sendCv: 'Send your CV to: rekrutacja\@shipconnected.com',
       applyOnline: 'Apply online',
       offers: {
         slusar: {
