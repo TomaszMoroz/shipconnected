@@ -3,44 +3,37 @@
     <div class="career-hero-section">
       <div class="career-hero-content">
         <div class="career-hero-text">
-          <h3 class="career-hero-title">Dołącz do Zespołu Shipconnected LTD</h3>
-          <p class="career-hero-description">
-            Dynamicznie rozwijająca się firma specjalizująca się w budowie i modernizacji statków.
-            Nasza misja to tworzenie najwyższej jakości jednostek pływających, które łączą
-            innowacyjne technologie z niezawodnością i bezpieczeństwem.
-          </p>
+          <h3 class="career-hero-title">{{ $t('career.heroTitle') }}</h3>
+          <p class="career-hero-description">{{ $t('career.heroDesc') }}</p>
           <div class="career-benefits-grid">
             <div class="benefit-item">
               <q-icon name="security" class="benefit-icon" />
-              <span>Stabilność zatrudnienia</span>
+              <span>{{ $t('career.benefit.stability') }}</span>
             </div>
             <div class="benefit-item">
               <q-icon name="trending_up" class="benefit-icon" />
-              <span>Rozwój kariery</span>
+              <span>{{ $t('career.benefit.growth') }}</span>
             </div>
             <div class="benefit-item">
               <q-icon name="school" class="benefit-icon" />
-              <span>Szkolenia i kursy</span>
+              <span>{{ $t('career.benefit.training') }}</span>
             </div>
             <div class="benefit-item">
               <q-icon name="verified" class="benefit-icon" />
-              <span>Międzynarodowe projekty</span>
+              <span>{{ $t('career.benefit.international') }}</span>
             </div>
           </div>
         </div>
         <div class="career-hero-action">
           <div class="cta-wrapper">
-            <h4 class="cta-title">Praca pełna wyzwań i możliwości</h4>
-            <p class="cta-description">
-              Rozwijaj swoją karierę w zespole pasjonatów tworzących nowoczesne jednostki pływające
-              na miarę XXI wieku
-            </p>
+            <h4 class="cta-title">{{ $t('career.ctaTitle') }}</h4>
+            <p class="cta-description">{{ $t('career.ctaDesc') }}</p>
             <q-btn
               color="white"
               text-color="primary"
               icon="file_upload"
-              label="Aplikuj teraz"
-              @click="emit('showForm')"
+              :label="$t('career.applyNow')"
+              @click="() => emit('showForm')"
               class="cv-button"
               size="lg"
               unelevated
@@ -58,7 +51,11 @@
               <div class="offer-short">{{ offer.short }}</div>
             </q-card-section>
             <q-card-actions align="right" class="offer-card-actions">
-              <q-btn color="primary" label="Szczegóły" @click.stop="openDialog(idx, offer.title)" />
+              <q-btn
+                color="primary"
+                :label="$t('career.details')"
+                @click.stop="openDialog(idx, offer.title)"
+              />
             </q-card-actions>
           </q-card>
         </template>
@@ -86,7 +83,7 @@
           <div class="content-section">
             <div class="section-header">
               <q-icon name="description" class="section-icon" />
-              <h4 class="section-title">O stanowisku</h4>
+              <h4 class="section-title">{{ $t('career.position') }}</h4>
             </div>
             <p class="job-description">{{ activeOffer.description }}</p>
           </div>
@@ -95,7 +92,7 @@
           <div class="content-section">
             <div class="section-header">
               <q-icon name="task_alt" class="section-icon" />
-              <h4 class="section-title">Zakres obowiązków</h4>
+              <h4 class="section-title">{{ $t('career.duties') }}</h4>
             </div>
             <ul class="content-list">
               <li v-for="(duty, i) in activeOffer.duties" :key="i" class="list-item">
@@ -108,7 +105,7 @@
           <div class="content-section">
             <div class="section-header">
               <q-icon name="checklist" class="section-icon" />
-              <h4 class="section-title">Nasze wymagania</h4>
+              <h4 class="section-title">{{ $t('career.requirements') }}</h4>
             </div>
             <ul class="content-list">
               <li v-for="(req, i) in activeOffer.requirements" :key="i" class="list-item">
@@ -121,7 +118,7 @@
           <div class="content-section">
             <div class="section-header">
               <q-icon name="star" class="section-icon" />
-              <h4 class="section-title">Co oferujemy</h4>
+              <h4 class="section-title">{{ $t('career.benefits') }}</h4>
             </div>
             <ul class="content-list benefits-list">
               <li
@@ -139,19 +136,12 @@
           <div class="content-section application-section">
             <div class="section-header">
               <q-icon name="send" class="section-icon" />
-              <h4 class="section-title">Aplikacja</h4>
+              <h4 class="section-title">{{ $t('career.application') }}</h4>
             </div>
             <div class="application-content">
-              <p class="application-text">
-                Jesteśmy firmą, która dba o swoich pracowników, stawiając na ich rozwój i
-                zadowolenie z wykonywanej pracy. Oferujemy możliwość uczestniczenia w fascynujących
-                projektach, które kształtują przyszłość przemyslu okrętowego.
-              </p>
+              <p class="application-text">{{ $t('career.applicationText') }}</p>
               <p class="contact-info">
-                Wyślij swoje CV na adres:
-                <a href="mailto:rekrutacja@shipconnected.com" class="email-link">
-                  rekrutacja@shipconnected.com
-                </a>
+                <span v-html="$t('career.sendCv')"></span>
               </p>
             </div>
           </div>
@@ -161,7 +151,7 @@
         <div class="modal-actions">
           <q-btn @click="applyOnline" class="apply-btn" unelevated size="lg">
             <q-icon name="send" size="18px" class="q-mr-sm" />
-            Aplikuj online
+            {{ $t('career.applyOnline') }}
           </q-btn>
           <!-- <q-btn href="mailto:rekrutacja@shipconnected.com" class="email-btn" outline size="lg">
             <q-icon name="email" size="18px" class="q-mr-sm" />
@@ -175,108 +165,49 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 const emit = defineEmits(['showForm', 'backToOffers'])
 const showDialog = ref(false)
 const activeIdx = ref(0)
 
-const offers = [
-  {
-    title: 'Ślusarz Okrętowy',
-    short:
-      'Montaż i konserwacja elementów statków z wykorzystaniem najnowocześniejszych narzędzi i technologii.',
-    description:
-      'Jeżeli posiadasz doświadczenie w montażu i naprawach konstrukcji metalowych, a precyzja i dbałość o szczegóły to Twoje drugie imię, stanowisko ślusarza okrętowego jest idealne dla Ciebie.',
-    duties: [
-      'Montaż i konserwacja elementów statków',
-      'Wykorzystywanie najnowocześniejszych narzędzi i technologii',
-      'Praca z konstrukcjami metalowymi',
-      'Dbałość o precyzję wykonania',
-    ],
-    requirements: [
-      'Doświadczenie w montażu i naprawach konstrukcji metalowych',
-      'Precyzja i dbałość o szczegóły',
-      'Umiejętność pracy z narzędziami specjalistycznymi',
-      'Wykształcenie techniczne mile widziane',
-    ],
-    benefits: [
-      'Stabilne zatrudnienie',
-      'Możliwość pracy w zespole doświadczonych specjalistów',
-      'Szkolenia podnoszące kwalifikacje zawodowe',
-    ],
-  },
-  {
-    title: 'Spawacz',
-    short:
-      'Spawanie różnych rodzajów stali w procesie tworzenia nowoczesnych jednostek pływających.',
-    description:
-      'Poszukujemy spawaczy, którzy potrafią pracować z różnymi rodzajami stali i innymi materiałami stosowanymi w przemyśle okrętowym.',
-    duties: [
-      'Spawanie metodami TIG, MIG/MAG',
-      'Praca z różnymi rodzajami stali',
-      'Spawanie materiałów przemysłu okrętowego',
-      'Kontrola jakości wykonanych spawów',
-    ],
-    requirements: [
-      'Doświadczenie w spawaniu TIG, MIG/MAG',
-      'Znajomość materiałów przemysłu okrętowego',
-      'Aktualne uprawnienia spawalnicze',
-      'Umiejętność czytania dokumentacji technicznej',
-    ],
-    benefits: [
-      'Atrakcyjne wynagrodzenie i premie uzależnione od wyników',
-      'Możliwość uczestnictwa w prestiżowych projektach',
-      'Przyjazne środowisko pracy',
-    ],
-  },
-  {
-    title: 'Monter Wyposażenia Okrętowego',
-    short: 'Instalacja i serwisowanie systemów mechanicznych i elektrycznych na pokładzie statków.',
-    description:
-      'Jako monter wyposażenia okrętowego będziesz odpowiedzialny za instalację i serwisowanie systemów na pokładzie statków.',
-    duties: [
-      'Instalacja systemów mechanicznych i elektrycznych',
-      'Serwisowanie wyposażenia okrętowego',
-      'Montaż systemów na pokładzie statków',
-      'Współpraca z zespołem specjalistów',
-    ],
-    requirements: [
-      'Doświadczenie w montażu systemów mechanicznych i elektrycznych',
-      'Umiejętność pracy w zespole',
-      'Znajomość systemów okrętowych',
-      'Wykształcenie techniczne',
-    ],
-    benefits: [
-      'Wsparcie merytoryczne i techniczne',
-      'Pracę na nowoczesnych jednostkach pływających',
-      'Elastyczne godziny pracy',
-    ],
-  },
-  {
-    title: 'Monter Kadłubowy',
-    short: 'Budowa i modernizacja kadłubów statków z wykorzystaniem dużych konstrukcji stalowych.',
-    description:
-      'Dołącz do naszego zespołu jako monter kadłubowy, gdzie będziesz uczestniczyć w budowie i modernizacji kadłubów statków.',
-    duties: [
-      'Budowa i modernizacja kadłubów statków',
-      'Praca z dużymi konstrukcjami stalowymi',
-      'Czytanie rysunków technicznych',
-      'Montaż elementów kadłuba',
-    ],
-    requirements: [
-      'Umiejętność czytania rysunków technicznych',
-      'Doświadczenie w pracy z dużymi konstrukcjami stalowymi',
-      'Znajomość technologii budowy kadłubów',
-      'Wykształcenie techniczne zawodowe',
-    ],
-    benefits: [
-      'Możliwość rozwoju zawodowego i awansu',
-      'Pracę w międzynarodowym środowisku',
-      'Udział w szkoleniach i kursach specjalistycznych',
-    ],
-  },
-]
+const { t } = useI18n()
 
-const activeOffer = computed(() => offers[activeIdx.value])
+const offers = computed(() => [
+  {
+    title: t('career.offers.slusar.title'),
+    short: t('career.offers.slusar.short'),
+    description: t('career.offers.slusar.description'),
+    duties: t('career.offers.slusar.duties') || [],
+    requirements: t('career.offers.slusar.requirements') || [],
+    benefits: t('career.offers.slusar.benefits') || [],
+  },
+  {
+    title: t('career.offers.spawacz.title'),
+    short: t('career.offers.spawacz.short'),
+    description: t('career.offers.spawacz.description'),
+    duties: t('career.offers.spawacz.duties') || [],
+    requirements: t('career.offers.spawacz.requirements') || [],
+    benefits: t('career.offers.spawacz.benefits') || [],
+  },
+  {
+    title: t('career.offers.monter_equipment.title'),
+    short: t('career.offers.monter_equipment.short'),
+    description: t('career.offers.monter_equipment.description'),
+    duties: t('career.offers.monter_equipment.duties') || [],
+    requirements: t('career.offers.monter_equipment.requirements') || [],
+    benefits: t('career.offers.monter_equipment.benefits') || [],
+  },
+  {
+    title: t('career.offers.monter_kadlubowy.title'),
+    short: t('career.offers.monter_kadlubowy.short'),
+    description: t('career.offers.monter_kadlubowy.description'),
+    duties: t('career.offers.monter_kadlubowy.duties') || [],
+    requirements: t('career.offers.monter_kadlubowy.requirements') || [],
+    benefits: t('career.offers.monter_kadlubowy.benefits') || [],
+  },
+])
+
+const activeOffer = computed(() => offers.value[activeIdx.value])
 
 function openDialog(idx) {
   activeIdx.value = idx

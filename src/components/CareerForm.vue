@@ -4,41 +4,84 @@
       <q-card-section>
         <div class="row items-center q-mb-md q-col-gutter-md">
           <div class="col-12 col-sm">
-            <div class="text-h5 text-weight-bold">Kwestionariusz osobowy</div>
+            <div class="text-h5 text-weight-bold">{{ $t('career.form.title') }}</div>
           </div>
           <div class="col-12 col-sm-auto q-mt-sm q-mt-none--sm">
-            <q-btn flat icon="arrow_back" label="Powrót do ofert" color="primary" @click="goBack" />
+            <q-btn
+              flat
+              icon="arrow_back"
+              :label="$t('career.form.backToOffers')"
+              color="primary"
+              @click="goBack"
+            />
           </div>
         </div>
         <div v-if="props.appliedPosition" class="q-mb-md">
-          <q-input v-model="form.position" :label="'Stanowisko'" readonly filled color="primary" />
+          <q-input
+            v-model="form.position"
+            :label="$t('career.form.positionLabel')"
+            readonly
+            filled
+            color="primary"
+          />
         </div>
         <q-form @submit.prevent="submitForm">
-          <q-input v-model="form.name" label="Imię i nazwisko" required class="q-mb-md" />
-          <q-input v-model="form.birthdate" label="Data urodzenia" type="date" class="q-mb-md" />
-          <q-input v-model="form.postcode" label="Kod pocztowy" class="q-mb-md" />
-          <q-input v-model="form.city" label="Miejscowość" class="q-mb-md" />
-          <q-input v-model="form.street" label="Ulica" class="q-mb-md" />
-          <q-input v-model="form.houseNumber" label="Nr domu / mieszkania" class="q-mb-md" />
-          <q-input v-model="form.email" label="E-mail" type="email" class="q-mb-md" />
-          <q-input v-model="form.phone" label="Telefon" type="tel" class="q-mb-md" />
+          <q-input v-model="form.name" :label="$t('career.form.name')" required class="q-mb-md" />
+          <q-input
+            v-model="form.birthdate"
+            :label="$t('career.form.birthdate')"
+            type="date"
+            class="q-mb-md"
+          />
+          <q-input v-model="form.postcode" :label="$t('career.form.postcode')" class="q-mb-md" />
+          <q-input v-model="form.city" :label="$t('career.form.city')" class="q-mb-md" />
+          <q-input v-model="form.street" :label="$t('career.form.street')" class="q-mb-md" />
+          <q-input
+            v-model="form.houseNumber"
+            :label="$t('career.form.houseNumber')"
+            class="q-mb-md"
+          />
+          <q-input
+            v-model="form.email"
+            :label="$t('career.form.email')"
+            type="email"
+            class="q-mb-md"
+          />
+          <q-input
+            v-model="form.phone"
+            :label="$t('career.form.phone')"
+            type="tel"
+            class="q-mb-md"
+          />
           <q-select
             v-model="form.education"
             :options="educationOptions"
-            label="Wykształcenie"
+            :label="$t('career.form.education')"
             class="q-mb-md"
           />
-          <q-input v-model="form.schoolName" label="Nazwa szkoły" class="q-mb-md" />
-          <q-input v-model="form.schoolYear" label="Rok ukończenia" class="q-mb-md" />
-          <q-input v-model="form.profession" label="Zawód" class="q-mb-md" />
-          <q-input v-model="form.specialty" label="Specjalność" class="q-mb-md" />
-          <q-input v-model="form.title" label="Tytuł zawodowy / naukowy" class="q-mb-md" />
+          <q-input
+            v-model="form.schoolName"
+            :label="$t('career.form.schoolName')"
+            class="q-mb-md"
+          />
+          <q-input
+            v-model="form.schoolYear"
+            :label="$t('career.form.schoolYear')"
+            class="q-mb-md"
+          />
+          <q-input
+            v-model="form.profession"
+            :label="$t('career.form.profession')"
+            class="q-mb-md"
+          />
+          <q-input v-model="form.specialty" :label="$t('career.form.specialty')" class="q-mb-md" />
+          <q-input v-model="form.title" :label="$t('career.form.titleJob')" class="q-mb-md" />
           <div class="q-mb-md">
             <div class="row items-center q-gutter-sm">
               <div class="col">
                 <q-input
                   v-model="form.extraEducation[0]"
-                  label="Kurs / studia podyplomowe"
+                  :label="$t('career.form.extraEducation')"
                   filled
                 />
               </div>
@@ -51,7 +94,7 @@
             >
               <q-input
                 v-model="form.extraEducation[idx + 1]"
-                label="Kurs / studia podyplomowe"
+                :label="$t('career.form.extraEducation')"
                 filled
               />
             </div>
@@ -59,18 +102,18 @@
           <div class="q-mb-md">
             <div class="row items-center q-gutter-sm">
               <div class="col">
-                <q-input v-model="form.skills[0]" label="Umiejętność / uprawnienie" filled />
+                <q-input v-model="form.skills[0]" :label="$t('career.form.skills')" filled />
               </div>
               <q-btn round dense icon="add" color="primary" @click="addField('skills')" />
             </div>
             <div v-for="(item, idx) in form.skills.slice(1)" :key="'skills' + idx" class="q-mt-sm">
-              <q-input v-model="form.skills[idx + 1]" label="Umiejętność / uprawnienie" filled />
+              <q-input v-model="form.skills[idx + 1]" :label="$t('career.form.skills')" filled />
             </div>
           </div>
           <div class="q-mb-md">
             <div class="row items-center q-gutter-sm">
               <div class="col">
-                <q-input v-model="form.languages[0]" label="Język obcy" filled />
+                <q-input v-model="form.languages[0]" :label="$t('career.form.languages')" filled />
               </div>
               <q-btn round dense icon="add" color="primary" @click="addField('languages')" />
             </div>
@@ -79,15 +122,23 @@
               :key="'languages' + idx"
               class="q-mt-sm"
             >
-              <q-input v-model="form.languages[idx + 1]" label="Język obcy" filled />
+              <q-input
+                v-model="form.languages[idx + 1]"
+                :label="$t('career.form.languages')"
+                filled
+              />
             </div>
           </div>
-          <q-input v-model="form.computer" label="Obsługa komputera" class="q-mb-md" />
-          <q-input v-model="form.other" label="Inne" class="q-mb-md" />
+          <q-input v-model="form.computer" :label="$t('career.form.computer')" class="q-mb-md" />
+          <q-input v-model="form.other" :label="$t('career.form.other')" class="q-mb-md" />
           <div class="q-mb-md">
             <div class="row items-center q-gutter-sm">
               <div class="col">
-                <q-input v-model="form.experience[0]" label="Zatrudnienie / stanowisko" filled />
+                <q-input
+                  v-model="form.experience[0]"
+                  :label="$t('career.form.experience')"
+                  filled
+                />
               </div>
               <q-btn round dense icon="add" color="primary" @click="addField('experience')" />
             </div>
@@ -98,7 +149,7 @@
             >
               <q-input
                 v-model="form.experience[idx + 1]"
-                label="Zatrudnienie / stanowisko"
+                :label="$t('career.form.experience')"
                 filled
               />
             </div>
@@ -107,9 +158,9 @@
             <q-btn type="submit" color="primary" :disable="sending">
               <template v-if="sending">
                 <q-spinner-dots size="20px" color="white" class="q-mr-sm" />
-                Wysyłanie...
+                {{ $t('career.form.sending') }}
               </template>
-              <template v-else> Wyślij </template>
+              <template v-else> {{ $t('career.form.send') }} </template>
             </q-btn>
           </div>
         </q-form>
@@ -120,6 +171,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useQuasar } from 'quasar'
 const $q = useQuasar()
 import { sendJobApplication } from '../services/emailjs.js'
@@ -129,6 +181,7 @@ const props = defineProps({
   applicationSource: { type: String, default: '' },
 })
 const sending = ref(false)
+const { t } = useI18n()
 function goBack() {
   emit('backToOffers')
 }
@@ -154,9 +207,14 @@ const form = ref({
   computer: '',
   other: '',
   experience: [''],
-  applicationSource: props.applicationSource || 'Oferta ze strony',
+  applicationSource: props.applicationSource || t('career.form.applicationSourceDefault'),
 })
-const educationOptions = ['podstawowe', 'zawodowe', 'średnie', 'wyższe']
+const educationOptions = t('career.form.educationOptions') || [
+  'primary',
+  'vocational',
+  'secondary',
+  'higher',
+]
 function addField(field) {
   if (Array.isArray(form.value[field])) {
     form.value[field].push('')
@@ -179,7 +237,7 @@ function submitForm() {
       !form.value[field] ||
       (typeof form.value[field] === 'string' && form.value[field].trim() === '')
     ) {
-      $q.notify({ type: 'warning', message: 'Wypełnij wszystkie obowiązkowe pola!' })
+      $q.notify({ type: 'warning', message: t('career.form.fillRequired') })
       return
     }
   }
@@ -189,7 +247,7 @@ function submitForm() {
     from_name: form.value.name,
     from_email: form.value.email,
     phone: form.value.phone || '',
-    position: form.value.position || 'Nie dotyczy',
+    position: form.value.position || t('career.form.notApplicable'),
     profession: form.value.profession,
     experience: textList(form.value.experience),
     extraEducation: textList(form.value.extraEducation),
@@ -212,7 +270,7 @@ function submitForm() {
     .then((res) => {
       sending.value = false
       if (res && res.success) {
-        $q.notify({ type: 'positive', message: 'Aplikacja została wysłana!' })
+        $q.notify({ type: 'positive', message: t('career.form.sentSuccess') })
         Object.keys(form.value).forEach((key) => {
           if (Array.isArray(form.value[key])) {
             form.value[key] = ['']
@@ -224,7 +282,7 @@ function submitForm() {
       } else {
         $q.notify({
           type: 'negative',
-          message: 'Wystąpił błąd podczas wysyłania aplikacji. Spróbuj ponownie.',
+          message: t('career.form.sentError'),
         })
       }
     })
@@ -232,7 +290,7 @@ function submitForm() {
       sending.value = false
       $q.notify({
         type: 'negative',
-        message: 'Wystąpił błąd podczas wysyłania aplikacji. Spróbuj ponownie.',
+        message: t('career.form.sentError'),
       })
     })
 }

@@ -3,7 +3,7 @@
     <div>
       <div style="font-size: 30vh">404</div>
 
-      <div class="text-h2" style="opacity: 0.4">Ups! Nie znaleziono strony...</div>
+      <div class="text-h2" style="opacity: 0.4">{{ $t('error.title') }}</div>
 
       <q-btn
         class="q-mt-xl"
@@ -11,7 +11,7 @@
         text-color="blue"
         unelevated
         to="/"
-        label="Wróć do strony głównej"
+        :label="$t('error.backHome')"
         no-caps
       />
     </div>

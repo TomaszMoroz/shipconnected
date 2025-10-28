@@ -7,7 +7,7 @@
         <div class="hero-block hero-block-image" style="width: 100%">
           <q-img
             src="../assets/images/main.jpeg"
-            alt="Shipconnected - główne zdjęcie"
+            :alt="$t('hero.mainImageAlt')"
             style="width: 100%; height: 100%; object-fit: cover; border-radius: 0"
             fit="cover"
           ></q-img>
@@ -15,12 +15,10 @@
         <div class="hero-block hero-block-title bg-blue-8 text-white">
           <div>
             <h1 class="hero-title">
-              <span class="hero-title-inline text-white">Shipconnected LTD</span>
+              <span class="hero-title-inline text-white">{{ $t('hero.title') }}</span>
             </h1>
             <div class="hero-subtitle">
-              <span class="hero-subtitle-text"
-                >Nowoczesne rozwiązania dla przemysłu stoczniowego</span
-              >
+              <span class="hero-subtitle-text">{{ $t('hero.subtitle') }}</span>
             </div>
           </div>
         </div>
@@ -28,7 +26,7 @@
           <q-img
             ref="compassImg"
             src="../assets/images/logo_www.png"
-            alt="Kompas Shipconnected"
+            :alt="$t('hero.logoAlt')"
             :style="compassStyle"
             fit="contain"
           ></q-img>
@@ -43,27 +41,22 @@
           <div class="about-text-wrapper">
             <div class="about-badge">
               <q-icon name="engineering" color="primary" />
-              <span>Doświadczeni specjaliści stoczniowi</span>
+              <span>{{ $t('about.badge') }}</span>
             </div>
-            <h2 class="about-title">O Nas</h2>
-            <p class="about-description">
-              Firma Shipconnected LTD to renomowany dostawca usług w zakresie remontów statków.
-              Specjalizujemy się w branży ślusarskiej, wyposażeniu oraz wentylacji. Nasza
-              wieloletnia obecność na rynku oraz zaangażowanie w każde zlecenie pozwala nam
-              gwarantować najwyższą jakość świadczonych usług.
-            </p>
+            <h2 class="about-title">{{ $t('about.title') }}</h2>
+            <p class="about-description">{{ $t('about.description') }}</p>
             <div class="about-stats">
               <div class="stat-item">
                 <div class="stat-number">15+</div>
-                <div class="stat-label">Lat doświadczenia</div>
+                <div class="stat-label">{{ $t('about.stats.experience') }}</div>
               </div>
               <div class="stat-item">
                 <div class="stat-number">500+</div>
-                <div class="stat-label">Zrealizowanych projektów</div>
+                <div class="stat-label">{{ $t('about.stats.projects') }}</div>
               </div>
               <div class="stat-item">
                 <div class="stat-number">100%</div>
-                <div class="stat-label">Zadowolonych klientów</div>
+                <div class="stat-label">{{ $t('about.stats.clients') }}</div>
               </div>
             </div>
           </div>
@@ -71,7 +64,7 @@
             <div class="image-container">
               <q-img
                 src="../assets/images/second.jpeg"
-                alt="Żuraw stoczniowy - Shipconnected LTD"
+                :alt="$t('about.imageAlt')"
                 class="about-image"
                 fit="cover"
               />
@@ -91,13 +84,10 @@
           <div class="offer-header">
             <div class="offer-badge">
               <q-icon name="engineering" color="primary" />
-              <span>Nasze specjalizacje</span>
+              <span>{{ $t('offer.badge') }}</span>
             </div>
-            <h2 class="offer-title">Kompleksowe Usługi Stoczniowe</h2>
-            <p class="offer-subtitle">
-              Łączymy wieloletnie doświadczenie z nowoczesnymi technologiami, aby dostarczać usługi
-              najwyższej jakości w branży stoczniowej.
-            </p>
+            <h2 class="offer-title">{{ $t('offer.title') }}</h2>
+            <p class="offer-subtitle">{{ $t('offer.subtitle') }}</p>
           </div>
 
           <div class="services-grid">
@@ -110,22 +100,20 @@
                 <div class="service-number">01</div>
               </div>
               <div class="service-content">
-                <h3 class="service-title">Ślusarstwo Okrętowe</h3>
-                <p class="service-description">
-                  Specjalistyczne usługi ślusarskie dostosowane do wymagań przemysłu morskiego.
-                </p>
+                <h3 class="service-title">{{ $t('offer.metalwork.title') }}</h3>
+                <p class="service-description">{{ $t('offer.metalwork.title') }}</p>
                 <div class="service-features">
                   <div class="feature-item">
                     <q-icon name="build_circle" class="feature-icon" />
-                    <span>Naprawy konstrukcji statków</span>
+                    <span>{{ $t('offer.metalwork.repairs') }}</span>
                   </div>
                   <div class="feature-item">
                     <q-icon name="construction" class="feature-icon" />
-                    <span>Produkcja elementów metalowych</span>
+                    <span>{{ $t('offer.metalwork.production') }}</span>
                   </div>
                   <div class="feature-item">
                     <q-icon name="handyman" class="feature-icon" />
-                    <span>Montaż i demontaż urządzeń</span>
+                    <span>{{ $t('offer.metalwork.assembly') }}</span>
                   </div>
                 </div>
               </div>
@@ -141,22 +129,20 @@
                 <div class="service-number">02</div>
               </div>
               <div class="service-content">
-                <h3 class="service-title">Wyposażenie Okrętowe</h3>
-                <p class="service-description">
-                  Kompleksowe rozwiązania wyposażeniowe dla nowoczesnych jednostek pływających.
-                </p>
+                <h3 class="service-title">{{ $t('offer.equipment.title') }}</h3>
+                <p class="service-description">{{ $t('offer.equipment.title') }}</p>
                 <div class="service-features">
                   <div class="feature-item">
                     <q-icon name="upgrade" class="feature-icon" />
-                    <span>Modernizacja wyposażenia</span>
+                    <span>{{ $t('offer.equipment.modernization') }}</span>
                   </div>
                   <div class="feature-item">
                     <q-icon name="chair" class="feature-icon" />
-                    <span>Produkcja mebli okrętowych</span>
+                    <span>{{ $t('offer.equipment.furniture') }}</span>
                   </div>
                   <div class="feature-item">
                     <q-icon name="inventory_2" class="feature-icon" />
-                    <span>Systemy magazynowania</span>
+                    <span>{{ $t('offer.equipment.storage') }}</span>
                   </div>
                 </div>
               </div>
@@ -172,22 +158,20 @@
                 <div class="service-number">03</div>
               </div>
               <div class="service-content">
-                <h3 class="service-title">Systemy Wentylacyjne</h3>
-                <p class="service-description">
-                  Profesjonalne projektowanie i instalacja systemów wentylacji morskiej.
-                </p>
+                <h3 class="service-title">{{ $t('offer.ventilation.title') }}</h3>
+                <p class="service-description">{{ $t('offer.ventilation.title') }}</p>
                 <div class="service-features">
                   <div class="feature-item">
                     <q-icon name="design_services" class="feature-icon" />
-                    <span>Projektowanie systemów</span>
+                    <span>{{ $t('offer.ventilation.design') }}</span>
                   </div>
                   <div class="feature-item">
                     <q-icon name="build" class="feature-icon" />
-                    <span>Instalacja i montaż</span>
+                    <span>{{ $t('offer.ventilation.installation') }}</span>
                   </div>
                   <div class="feature-item">
                     <q-icon name="engineering" class="feature-icon" />
-                    <span>Serwis i konserwacja</span>
+                    <span>{{ $t('offer.ventilation.service') }}</span>
                   </div>
                 </div>
               </div>
@@ -197,15 +181,13 @@
 
           <div class="offer-cta">
             <div class="cta-content">
-              <h3 class="cta-title">Potrzebujesz wyceny?</h3>
-              <p class="cta-description">
-                Skontaktuj się z nami już dziś i porozmawiajmy o twoim projekcie
-              </p>
+              <h3 class="cta-title">{{ $t('contact.cta.title') }}</h3>
+              <p class="cta-description">{{ $t('contact.cta.description') }}</p>
             </div>
             <q-btn
               color="primary"
               size="lg"
-              label="Kontakt"
+              :label="$t('contact.cta.button')"
               @click="scrollToSection('kontakt')"
               class="cta-button"
               unelevated
@@ -221,19 +203,13 @@
       <div class="career-background">
         <div class="career-container">
           <div class="career-header">
-            <h2 class="career-title">Kariera w Shipconnected</h2>
-            <p class="career-subtitle">
-              Szukamy doświadczonych specjalistów, którzy chcą rozwinąć swój potencjał w dynamicznie
-              rozwijającej się firmie stoczniowej.
-            </p>
+            <h2 class="career-title">{{ $t('career.title') }}</h2>
+            <p class="career-subtitle">{{ $t('career.subtitle') }}</p>
             <!-- koniec podtytułu -->
             <div class="career-email-info q-mt-md q-mb-md text-center">
               <q-icon name="email" color="primary" size="md" class="q-mr-sm" />
-              <span class="text-white"
-                >Możesz również przesłać swoje CV na adres:
-                <a href="mailto:rekrutacja@shipconnected.com" class="text-blue-8 text-weight-bold"
-                  >rekrutacja@shipconnected.com</a
-                >
+              <span class="text-white">
+                <span v-html="$t('career.sendCv')"></span>
               </span>
             </div>
           </div>
@@ -263,12 +239,10 @@
         <div class="realizacje-header">
           <div class="realizacje-badge">
             <q-icon name="construction" color="primary" />
-            <span>Nasze osiągnięcia</span>
+            <span>{{ $t('gallery.badge') }}</span>
           </div>
-          <h2 class="realizacje-title">Realizacje</h2>
-          <p class="realizacje-subtitle">
-            Przedstawiamy wybrane projekty zrealizowane przez nasz zespół w przemyśle stoczniowym
-          </p>
+          <h2 class="realizacje-title">{{ $t('gallery.title') }}</h2>
+          <p class="realizacje-subtitle">{{ $t('gallery.subtitle') }}</p>
         </div>
 
         <div class="gallery-grid">
@@ -279,7 +253,12 @@
             @click="openGalleryOverlay(index)"
           >
             <div class="gallery-image-wrapper">
-              <q-img :src="project.image" alt="Realizacja" class="gallery-image" fit="cover" />
+              <q-img
+                :src="project.image"
+                :alt="$t('gallery.imageAlt')"
+                class="gallery-image"
+                fit="cover"
+              />
               <div class="gallery-overlay-hover">
                 <q-icon name="zoom_in" size="48px" color="white" />
               </div>
@@ -330,14 +309,14 @@
               <!-- Loading indicator -->
               <div v-if="imageLoading" class="image-loading-wrapper">
                 <q-spinner-gears size="60px" color="white" />
-                <div class="loading-text">Ładowanie zdjęcia...</div>
+                <div class="loading-text">{{ $t('gallery.loading') }}</div>
               </div>
 
               <!-- Image -->
               <img
                 v-show="!imageLoading"
                 :src="currentProject.image"
-                alt="Realizacja"
+                :alt="$t('gallery.imageAlt')"
                 class="gallery-full-image"
                 @load="onImageLoad"
                 @error="onImageError"
@@ -353,8 +332,8 @@
     <section id="kontakt" class="kontakt-section">
       <div class="kontakt-container">
         <div class="contact-header">
-          <div class="contact-title">Rozpocznijmy współpracę</div>
-          <div class="contact-subtitle">Skontaktuj się z nami aby omówić Twój projekt</div>
+          <div class="contact-title">{{ $t('contact.title') }}</div>
+          <div class="contact-subtitle">{{ $t('contact.subtitle') }}</div>
         </div>
 
         <div class="row justify-center q-mt-xl">
@@ -367,7 +346,7 @@
                     <q-icon name="sailing" size="24px" class="text-blue-4" />
                   </div>
                   <h3 class="contact-card-title">Shipconnected Ltd</h3>
-                  <p class="contact-card-subtitle">Profesjonalne usługi stoczniowe i konsulting</p>
+                  <p class="contact-card-subtitle">{{ $t('contact.cardSubtitle') }}</p>
                 </div>
 
                 <div class="contact-info-grid">
@@ -376,7 +355,7 @@
                       <q-icon name="business" size="20px" />
                     </div>
                     <div class="contact-info-content">
-                      <div class="contact-info-label">Siedziba główna</div>
+                      <div class="contact-info-label">{{ $t('contact.headquarters') }}</div>
                       <div class="contact-info-value">
                         S1 Holland Street<br />
                         Niddry Lodge<br />
@@ -390,10 +369,9 @@
                       <q-icon name="location_on" size="20px" />
                     </div>
                     <div class="contact-info-content">
-                      <div class="contact-info-label">Oddział Polska</div>
+                      <div class="contact-info-label">{{ $t('contact.branch') }}</div>
                       <div class="contact-info-value">
-                        ul. Na Ostrowiu 1<br />
-                        80-958 Gdańsk
+                        <span v-html="$t('contact.branchAddress')"></span>
                       </div>
                     </div>
                   </div>
@@ -403,7 +381,7 @@
                       <q-icon name="phone" size="20px" />
                     </div>
                     <div class="contact-info-content">
-                      <div class="contact-info-label">Telefon</div>
+                      <div class="contact-info-label">{{ $t('contact.phone') }}</div>
                       <div class="contact-info-value">+48 791 101 550</div>
                     </div>
                   </div>
@@ -413,7 +391,7 @@
                       <q-icon name="email" size="20px" />
                     </div>
                     <div class="contact-info-content">
-                      <div class="contact-info-label">Email</div>
+                      <div class="contact-info-label">{{ $t('contact.email') }}</div>
                       <a
                         href="mailto:t.hinz@shipconnected.com"
                         class="contact-info-value contact-link"
@@ -428,8 +406,10 @@
                       <q-icon name="schedule" size="20px" />
                     </div>
                     <div class="contact-info-content">
-                      <div class="contact-info-label">Godziny pracy</div>
-                      <div class="contact-info-value">Poniedziałek - Piątek<br />7:00 - 15:00</div>
+                      <div class="contact-info-label">{{ $t('contact.hours') }}</div>
+                      <div class="contact-info-value">
+                        {{ $t('contact.hoursValue') }}<br />7:00 - 15:00
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -441,33 +421,24 @@
                   <div class="feature-card-icon">
                     <q-icon name="support_agent" size="32px" class="text-blue-4" />
                   </div>
-                  <h4 class="feature-card-title">Profesjonalne wsparcie</h4>
-                  <p class="feature-card-text">
-                    Nasz zespół ekspertów jest dostępny aby pomóc w realizacji Twoich projektów
-                    maritymnych
-                  </p>
+                  <h4 class="feature-card-title">{{ $t('contact.features.support.title') }}</h4>
+                  <p class="feature-card-text">{{ $t('contact.features.support.text') }}</p>
                 </div>
 
                 <div class="contact-feature-card">
                   <div class="feature-card-icon">
                     <q-icon name="verified" size="32px" class="text-green-4" />
                   </div>
-                  <h4 class="feature-card-title">Sprawdzona jakość</h4>
-                  <p class="feature-card-text">
-                    Lata doświadczenia i setki zrealizowanych projektów gwarantują najwyższą jakość
-                    usług
-                  </p>
+                  <h4 class="feature-card-title">{{ $t('contact.features.quality.title') }}</h4>
+                  <p class="feature-card-text">{{ $t('contact.features.quality.text') }}</p>
                 </div>
 
                 <div class="contact-feature-card">
                   <div class="feature-card-icon">
                     <q-icon name="speed" size="32px" class="text-orange-4" />
                   </div>
-                  <h4 class="feature-card-title">Szybka realizacja</h4>
-                  <p class="feature-card-text">
-                    Efektywne procesy i nowoczesne rozwiązania pozwalają na terminową realizację
-                    projektów
-                  </p>
+                  <h4 class="feature-card-title">{{ $t('contact.features.fast.title') }}</h4>
+                  <p class="feature-card-text">{{ $t('contact.features.fast.text') }}</p>
                 </div>
               </div>
             </div>

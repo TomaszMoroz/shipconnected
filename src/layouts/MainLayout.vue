@@ -71,33 +71,43 @@
         >
           <q-btn
             flat
-            label="O firmie"
+            :label="$t('nav.about')"
             class="q-mx-xs text-weight-medium"
             @click="(e) => scrollToSection(e, 'about')"
           />
           <q-btn
             flat
-            label="Oferta"
+            :label="$t('nav.offer')"
             class="q-mx-xs text-weight-medium"
             @click="(e) => scrollToSection(e, 'offer')"
           />
           <q-btn
             flat
-            label="Kariera"
+            :label="$t('nav.career')"
             class="q-mx-xs text-weight-medium"
             @click="(e) => scrollToSection(e, 'kariera')"
           />
           <q-btn
             flat
-            label="Realizacje"
+            :label="$t('nav.projects')"
             class="q-mx-xs text-weight-medium"
             @click="(e) => scrollToSection(e, 'realizacje')"
           />
           <q-btn
             flat
-            label="Kontakt"
+            :label="$t('nav.contact')"
             class="q-mx-xs text-weight-medium"
             @click="(e) => scrollToSection(e, 'kontakt')"
+          />
+          <q-btn
+            flat
+            dense
+            size="sm"
+            class="q-ml-md text-weight-medium"
+            :label="currentLang === 'pl' ? 'EN' : 'PL'"
+            color="primary"
+            @click="toggleLang"
+            aria-label="Toggle language"
           />
         </div>
         <div v-if="isMobile" style="flex: 1"></div>
@@ -116,35 +126,56 @@
             <q-btn
               flat
               class="bg-white text-blue-10 q-mb-sm full-width"
-              label="O firmie"
+              :label="$t('nav.about')"
               @click="scrollToSectionWithDrawer('about')"
             />
             <q-btn
               flat
               class="bg-white text-blue-10 q-mb-sm full-width"
-              label="Oferta"
+              :label="$t('nav.offer')"
               @click="scrollToSectionWithDrawer('offer')"
             />
             <q-btn
               flat
               class="bg-white text-blue-10 q-mb-sm full-width"
-              label="Kariera"
+              :label="$t('nav.career')"
               @click="scrollToSectionWithDrawer('kariera')"
             />
             <q-btn
               flat
               class="bg-white text-blue-10 q-mb-sm full-width"
-              label="Realizacje"
+              :label="$t('nav.projects')"
               @click="scrollToSectionWithDrawer('realizacje')"
             />
             <q-btn
               flat
               class="bg-white text-blue-10 q-mb-sm full-width"
-              label="Kontakt"
+              :label="$t('nav.contact')"
               @click="scrollToSectionWithDrawer('kontakt')"
+            />
+            <q-separator spaced class="q-my-sm" />
+            <q-btn
+              flat
+              dense
+              class="bg-white text-blue-10 full-width"
+              :label="currentLang === 'pl' ? 'EN' : 'PL'"
+              color="primary"
+              @click="toggleLang"
+              aria-label="Toggle language"
             />
           </div>
         </q-drawer>
+        <!-- Navbar language toggle (top-right) -->
+        <q-btn
+          class="lang-btn-navbar"
+          dense
+          rounded
+          unelevated
+          color="primary"
+          :label="currentLang === 'pl' ? 'EN' : 'PL'"
+          @click="toggleLang"
+          aria-label="Toggle language"
+        />
       </div>
     </q-header>
 
@@ -153,7 +184,7 @@
     </q-page-container>
 
     <q-footer class="bg-blue-10 text-white text-center q-pa-md">
-      <div>© 2025 Shipconnected Ltd | Przemysł stoczniowy</div>
+      <div>{{ $t('footer.copyright') }}</div>
     </q-footer>
   </q-layout>
 </template>
@@ -190,6 +221,20 @@ let animating = false
 
 const { proxy } = getCurrentInstance()
 const isMobile = computed(() => proxy.$q.screen.width < 700)
+
+import i18n from '../i18n/index'
+import { ref as vueRef } from 'vue'
+
+const currentLang = vueRef(i18n.global.locale.value)
+
+function toggleLang() {
+  const newLang = currentLang.value === 'pl' ? 'en' : 'pl'
+  currentLang.value = newLang
+  i18n.global.locale.value = newLang
+  if (typeof localStorage !== 'undefined') {
+    localStorage.setItem('locale', newLang)
+  }
+}
 
 function animateCompass() {
   if (animating) return
@@ -281,6 +326,18 @@ onMounted(() => {
   font-size: 1.15rem;
   font-weight: 700;
   letter-spacing: 0.01em;
+}
+/* Floating language toggle */
+.lang-btn-navbar {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  z-index: 3;
+}
+@media (max-width: 700px) {
+  .lang-btn-navbar {
+    right: 64px; /* leave space for hamburger */
+  }
 }
 .logo-line2 {
   font-size: 0.95rem;

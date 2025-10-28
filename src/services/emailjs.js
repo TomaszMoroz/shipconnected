@@ -49,6 +49,6 @@ export const sendJobApplication = async (formData) => {
     return { success: true, data: response }
   } catch (error) {
     console.error('Email sending failed:', error)
-    return { success: false, error: error.text || 'Wystąpił błąd podczas wysyłania' }
+    return { success: false, error: error.text || 'An error occurred while sending' }
   }
 }
